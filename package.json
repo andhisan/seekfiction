@@ -4,16 +4,25 @@
   "author": "sasigume <sasigume@gmail.com>",
   "description": "A next-generation anime/manga database",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/web-next",
+      "packages/web-nuxt"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "scripts": {
     "release": "standard-version",
     "push": "git push --follow-tags origin main",
     "prepare": "npx husky install",
     "nuxt:dev": "yarn workspace web-nuxt dev",
     "nuxt:lint": "yarn workspace web-nuxt lint",
-    "nuxt:test": "yarn workspace web-nuxt test"
+    "nuxt:test": "yarn workspace web-nuxt test",
+    "next:dev": "yarn workspace web-next dev",
+    "next:lint": "yarn workspace web-next lint",
+    "next:test": "yarn workspace web-next test"
   },
   "config": {
     "commitizen": {
