@@ -11,7 +11,7 @@
       </li>
     </ul>
     <div class="mx-auto">
-      <gh-btns-star title="Star seekfiction" slug="sasigume/seekfiction-nuxt" show-count />
+      <gh-btns-star title="Star seekfiction" slug="sasigume/seekfiction" show-count />
     </div>
   </footer>
 </template>
@@ -23,7 +23,7 @@ export default defineComponent({
   setup() {
     const socials = [
       {
-        href: 'https://github.com/sasigume/seekfiction-nuxt',
+        href: 'https://github.com/sasigume/seekfiction',
         icon: 'AtomsIconsIconGitHub',
         title: 'View repository on GitHub'
       },
