@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/sasigume/seekfiction/compare/v0.0.1...v0.0.2) (2021-09-23)
+
+
+### Bug Fixes
+
+* **components:** :bug: fixed github repository url ([291278a](https://github.com/sasigume/seekfiction/commit/291278a68a278a059ef916de5df80c7cd4fecd1c))
+
 ### 0.0.1 (2021-09-23)
 
 
