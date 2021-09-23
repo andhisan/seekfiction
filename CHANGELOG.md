@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/sasigume/seekfiction/compare/v0.0.3...v0.0.4) (2021-09-23)
+
+
+### Features
+
+* :sparkles: added common Jikan API type ([2238e62](https://github.com/sasigume/seekfiction/commit/2238e62c4118eb896e3ba2c3df4d57b8d7c706ad))
+* **firebase:** :sparkles: added Jikan search api ([c0cdf01](https://github.com/sasigume/seekfiction/commit/c0cdf0184cffd09a4cfafff9e6c0bbd3aaced046))
+
+
+### Bug Fixes
+
+* **firebase:** :ambulance: fixed wrong region name ([4d74fd1](https://github.com/sasigume/seekfiction/commit/4d74fd1065e965839346cc0209583bf1185b1a09))
+
 ### [0.0.3](https://github.com/sasigume/seekfiction/compare/v0.0.2...v0.0.3) (2021-09-23)
 
 
