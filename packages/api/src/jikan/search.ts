@@ -2,8 +2,6 @@ import * as functions from 'firebase-functions';
 import withAuth from '../lib/withAuth';
 import axios from 'axios';
 
-import { Anime } from '../../../types/Jikan';
-
 /**
  * Search anime by string
  *
@@ -11,7 +9,7 @@ import { Anime } from '../../../types/Jikan';
  * @param {functions.https.Response} response
  * @return {*}
  */
-const search = functions.region('us-central').https.onRequest(async (request, response: any) => {
+const search = functions.region('us-central1').https.onRequest(async (request, response: any) => {
   return withAuth(request, response, async () => {
     const searchString = request.query.q;
     if (typeof searchString === 'string') {
@@ -24,7 +22,7 @@ const search = functions.region('us-central').https.onRequest(async (request, re
           })
           .then((res) => {
             if (res.status == 200) {
-              const json = res.data as Anime;
+              const json = res.data;
               functions.logger.info(`Searched Jikan API for ${searchString}`);
               return response.status(200).json(json);
             } else {
