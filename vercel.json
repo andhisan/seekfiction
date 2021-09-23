@@ -2,11 +2,5 @@
   "version": 2,
   "github": {
     "enabled": false
-  },
-  "builds": [
-    {
-      "src": "./packages/web-nuxt/nuxt.config.js",
-      "use": "@nuxtjs/vercel-builder"
-    }
-  ]
+  }
 }
