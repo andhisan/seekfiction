@@ -1,5 +1,5 @@
-import IconGitHub from '~/components/atoms/icons/IconGitHub';
-import IconTwitter from '~/components/atoms/icons/IconTwitter';
+import IconGitHub from '@/components/atoms/icons/IconGitHub';
+import IconTwitter from '@/components/atoms/icons/IconTwitter';
 const Footer: React.FC = () => {
   const socials = [
     {
