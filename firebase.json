@@ -1,0 +1,10 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "packages/api",
+    "predeploy": ["yarn workspace api run lint", "yarn workspace api run build"]
+  }
+}
