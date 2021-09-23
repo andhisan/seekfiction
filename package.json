@@ -1,0 +1,50 @@
+{
+  "name": "seekfiction",
+  "version": "0.0.1",
+  "author": "sasigume <sasigume@gmail.com>",
+  "description": "A next-generation anime/manga database",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "release": "standard-version",
+    "push": "git push --follow-tags origin main",
+    "prepare": "npx husky install",
+    "nuxt:dev": "yarn workspace web-nuxt dev",
+    "nuxt:lint": "yarn workspace web-nuxt lint",
+    "nuxt:test": "yarn workspace web-nuxt test"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": "git@github.com:sasigume/seekfiction.git",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "standard-version": "^9.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "lint-staged": {
+    "./packages/web-nuxt/**/*.{js,vue}": "eslint",
+    "./packages/web-nuxt/**/*.{css,vue}": "stylelint"
+  }
+}

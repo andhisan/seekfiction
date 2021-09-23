@@ -1,0 +1,3 @@
+{
+  "conventionalCommits.scopes": ["lint", "vscode", "github", "og", "license", "components", "pages", "css"]
+}
