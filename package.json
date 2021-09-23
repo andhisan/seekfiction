@@ -6,8 +6,7 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/web-next",
-      "packages/web-nuxt"
+      "packages/web-next"
     ],
     "nohoist": [
       "**"
@@ -17,9 +16,6 @@
     "release": "standard-version",
     "push": "git push --follow-tags origin main",
     "prepare": "npx husky install",
-    "nuxt:dev": "yarn workspace web-nuxt dev",
-    "nuxt:lint": "yarn workspace web-nuxt lint",
-    "nuxt:test": "yarn workspace web-nuxt test",
     "next:dev": "yarn workspace web-next dev",
     "next:lint": "yarn workspace web-next lint",
     "next:test": "yarn workspace web-next test"
