@@ -8,6 +8,8 @@ module.exports = {
   },
   moduleNameMapper: {
     '^src/(.*)$': '<rootDir>/src/$1',
+    '@/(.*)/(.*)': '<rootDir>/src/$1/$2',
+    '~/(.*)/(.*)': '<rootDir>/src/$1/$2',
   },
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

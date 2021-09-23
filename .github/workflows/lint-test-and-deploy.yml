@@ -61,4 +61,4 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
-          vercel-project-id: 'seekfiction-next' #Required
+          vercel-project-id: 'seekfiction' #Required
