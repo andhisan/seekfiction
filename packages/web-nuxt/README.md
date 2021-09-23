@@ -25,4 +25,4 @@ MIT License
 
 Copyright (c) 2021 Ryo Ando
 
-View [LICENSE](https://github.com/sasigume/seekfiction-nuxt/blob/main/LICENSE) for full license text.
+View [LICENSE](https://github.com/sasigume/seekfiction/blob/main/LICENSE) for full license text.
