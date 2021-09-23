@@ -9,9 +9,6 @@
       "packages/api",
       "packages/types",
       "packages/web-next"
-    ],
-    "nohoist": [
-      "**"
     ]
   },
   "scripts": {
@@ -55,7 +52,7 @@
     "typescript": "^4.4.3"
   },
   "lint-staged": {
-    "./packages/web-nuxt/**/*.{js,vue}": "eslint",
-    "./packages/web-nuxt/**/*.{css,vue}": "stylelint"
+    "./packages/{web-next,api}/**/*.{js,ts,tsx}": "eslint",
+    "./packages/web-next/**/*.css": "stylelint"
   }
 }
