@@ -1,4 +1,6 @@
-export default {
+import { NuxtConfig } from '@nuxt/types'
+
+const config: NuxtConfig = {
   // Because this is monorepo with yarn workspaces
   modulesDir: ['../../node_modules'],
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -69,3 +71,5 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
 }
+
+export default config
