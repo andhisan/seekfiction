@@ -62,4 +62,3 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
           vercel-project-id: 'seekfiction-nuxt' #Required
-          working-directory: './packages/web-nuxt'
