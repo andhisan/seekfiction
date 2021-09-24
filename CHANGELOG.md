@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-3](https://github.com/sasigume/seekfiction/compare/v0.0.5-2...v0.0.5-3) (2021-09-24)
+
+
+### Bug Fixes
+
+* **test:** :ambulance: fixed token env name ([cf86aee](https://github.com/sasigume/seekfiction/commit/cf86aeeb0bf206f4673f3d274e5062057c59868a))
+
 ### [0.0.5-2](https://github.com/sasigume/seekfiction/compare/v0.0.5-1...v0.0.5-2) (2021-09-24)
 
 
