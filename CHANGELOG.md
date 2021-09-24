@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-4](https://github.com/sasigume/seekfiction/compare/v0.0.5-3...v0.0.5-4) (2021-09-24)
+
+
+### Bug Fixes
+
+* **test:** :ambulance: removed env from client test ([fad4ad1](https://github.com/sasigume/seekfiction/commit/fad4ad1ff8f81a39b9da5a2f377539d63b003fc0))
+
 ### [0.0.5-3](https://github.com/sasigume/seekfiction/compare/v0.0.5-2...v0.0.5-3) (2021-09-24)
 
 
