@@ -15,6 +15,7 @@
     "release": "standard-version",
     "push": "git push --follow-tags origin main",
     "prepare": "npx husky install",
+    "api:lint": "yarn workspace api lint",
     "api:serve": "yarn workspace api serve",
     "api:deploy": "yarn workspace api deploy",
     "api:firestore": "yarn workspace api firestore",
