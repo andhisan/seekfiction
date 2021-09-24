@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 import { Search } from '../../models/Jikan';
 
 type JikanResult = {
-  data: { id: number }[];
+  data: { id: number; title_romaji: string; image: string }[];
 } & {
   message?: string;
 };
@@ -22,11 +22,11 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
       },
     })
     .then((res) => {
-      if (res.status == 200) {
-        const json = res.data as Search;
+      const json = res.data as Search;
+      if (json.data.length > 0) {
         functions.logger.info(`Searched Jikan API for ${searchString}`);
         const dataArray = json.data.map((a) => {
-          return { id: a.mal_id };
+          return { id: a.mal_id, title_romaji: a.title ?? '', image: a.images.jpg.image_url ?? '' };
         });
         // use only id
         return { data: dataArray };
@@ -35,6 +35,10 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
         functions.logger.error(message);
         return { data: [], message };
       }
+    })
+    .catch((e) => {
+      functions.logger.error(e);
+      return { data: [], message: e };
     });
 };
 

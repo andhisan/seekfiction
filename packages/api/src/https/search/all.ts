@@ -15,14 +15,9 @@ const searchAll = functions.region('us-central1').https.onRequest(async (request
     if (typeof searchString === 'string') {
       try {
         const data = await searchAllApi(searchString);
-        if (!data.message) {
-          return response.status(200).json(data);
-        } else {
-          return response.status(500).json({
-            message: JSON.stringify(data),
-          });
-        }
+        return response.status(200).json(data);
       } catch (e) {
+        functions.logger.error(e);
         return response.status(500).json({
           message: `ERROR: ${JSON.stringify(e)}`,
         });

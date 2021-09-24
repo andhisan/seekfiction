@@ -12,27 +12,16 @@ export const searchAllApi = async (searchString: string) => {
     const aniListResult = await searchAniList(searchString);
     const kitsuResult = await searchKitsu(searchString);
     const simklResult = await searchSimkl(searchString);
-    if (!jikanResult.message && !aniListResult.message && !simklResult.message) {
-      return {
-        searchString,
-        createdAt,
-        data: {
-          jikan: jikanResult.data,
-          aniList: aniListResult.data,
-          kitsu: kitsuResult.data,
-          simkl: simklResult.data,
-        },
-      };
-    } else {
-      return {
-        message: JSON.stringify({
-          jikan: jikanResult.message ?? '',
-          aniList: aniListResult.message ?? '',
-          kitsu: kitsuResult.message ?? '',
-          simkl: simklResult.message ?? '',
-        }),
-      };
-    }
+    return {
+      searchString,
+      createdAt,
+      data: {
+        jikan: jikanResult.data,
+        aniList: aniListResult.data,
+        kitsu: kitsuResult.data,
+        simkl: simklResult.data,
+      },
+    };
   } catch (e) {
     return { message: JSON.stringify(e) };
   }
