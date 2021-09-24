@@ -1,6 +1,6 @@
 import axios from 'axios';
 const baseUri = process.env.NEXT_PUBLIC_FUNCTIONS;
-const token = process.env.FUNCTIONS_AUTH;
+const token = process.env.NEXT_PUBLIC_FUNCTIONS_AUTH;
 
 const searchWord = 'のんのんびより';
 
