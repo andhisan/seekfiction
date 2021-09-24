@@ -10,6 +10,7 @@ node_modules/
 
 # backups
 exported_for_local_development/*
+!exported_for_local_development/.gitkeep
 
 # env
 .runtimeconfig.json
