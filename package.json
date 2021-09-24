@@ -7,7 +7,6 @@
   "workspaces": {
     "packages": [
       "packages/api",
-      "packages/types",
       "packages/web-next"
     ]
   },
