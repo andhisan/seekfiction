@@ -60,7 +60,7 @@ jobs:
         with:
           # Somehow we still need to set function config via GitHub secret
           # Detail: https://github.com/w9jds/firebase-action/issues/86
-          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }} ; firebase deploy --message \"${{ github.event.head_commit.message }}\" --only functions
+          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }} ; firebase deploy --only functions
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
