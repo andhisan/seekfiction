@@ -4,13 +4,13 @@ import * as functions from 'firebase-functions';
 type AniListGraphQLResult = {
   data: {
     Page: {
-      media: [{ id: number }];
+      media: [{ id: number; title: { romaji: string } }];
     };
   };
 };
 
 type AniListResult = {
-  data: { id: number }[];
+  data: { id: number; title_romaji: string }[];
 } & {
   message?: string;
 };
@@ -25,8 +25,11 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
   const query = `
   query ($id: Int, $page: Int, $perPage: Int, $search: String) {
     Page(page: $page, perPage: $perPage) {
-      media(id: $id, search: $search) {
+      media(id: $id, search: $search, type: ANIME) {
         id
+        title {
+          romaji
+        }
       }
     }
   }
@@ -50,6 +53,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
       const dataArray = json.data.Page.media.map((a) => {
         return {
           id: a.id,
+          title_romaji: a.title.romaji,
         };
       });
       return { data: dataArray };
