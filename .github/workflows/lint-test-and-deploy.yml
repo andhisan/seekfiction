@@ -57,10 +57,12 @@ jobs:
         run: yarn next:test
 
   deploy:
-    environment:
-      name: Production
     needs: lint-test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
     steps:
       - uses: actions/checkout@master
 
