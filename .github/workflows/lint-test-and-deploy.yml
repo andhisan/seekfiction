@@ -76,7 +76,7 @@ jobs:
         with:
           envkey_DEBUG: false
           envkey_NEXT_PUBLIC_FUNCTIONS: 'http://us-central1-seek-fiction.cloudfunctions.net'
-          envkey_FUNCTIONS_AUTH: 'Q18saK38YBkDk5rD/PQFqfUjIGqXxU4Lqtr+VPVyL8Y='
+          envkey_FUNCTIONS_AUTH: '${{secrets.FIREBASE_AUTH}}'
           directory: packages/web-next
           # name file just '.env' otherwise test fail
           file_name: .env
