@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts",
-    "dev": "npm run lint && tsc && firebase emulators:start --import ./exported_for_local_development ",
     "build": "npm run lint && tsc",
-    "serve": "export GOOGLE_APPLICATION_CREDENTIALS=\".serviceAccountKey.json\" && npm run build && firebase emulators:start --only functions",
+    "dev": "npm run build && firebase emulators:start --import ./exported_for_local_development",
+    "serve": "export GOOGLE_APPLICATION_CREDENTIALS=\".serviceAccountKey.json\" && npm run dev",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "firestore": "firebase deploy --only firestore",
+    "firestore:sync": "./firestore_import/sync.sh",
+    "firestore:deploy": "firebase deploy --only firestore",
     "logs": "firebase functions:log"
   },
   "engines": {
