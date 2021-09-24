@@ -11,7 +11,7 @@ type JikanResult = {
 /**
  * Search Jikan API for MyAnimeList ids
  *
- * @param {string} searchString
+ * @param {string} searchString Anime title to search
  * @return {Promise<JikanResult>}
  */
 const searchJikan = async (searchString: string): Promise<JikanResult> => {
@@ -26,9 +26,9 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
       if (json.data.length > 0) {
         functions.logger.info(`Searched Jikan API for ${searchString}`);
         const dataArray = json.data.map((a) => {
+          // Jikan returns romaji title as default since it's MAL
           return { id: a.mal_id, title_romaji: a.title ?? '', image: a.images.jpg.image_url ?? '' };
         });
-        // use only id
         return { data: dataArray };
       } else {
         const message = `ERROR from Jikan API: ${res.statusText}`;

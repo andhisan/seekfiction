@@ -11,7 +11,7 @@ type KitsuResult = {
 /**
  * Search Kitsu API for Kitsu ids
  *
- * @param {string} searchString
+ * @param {string} searchString Anime title to search
  * @return {Promise<KitsuResult>}
  */
 const searchKitsu = async (searchString: string): Promise<KitsuResult> => {
@@ -27,12 +27,13 @@ const searchKitsu = async (searchString: string): Promise<KitsuResult> => {
         functions.logger.info(`Searched Kitsu API for ${searchString}`);
         const dataArray = json.data.map((a) => {
           return {
+            // Kitsu API returns string, not number
             id: parseInt(a.id),
-            title_romaji: a.attributes.titles.ja_jp ?? '',
+            // en_jp means Romaji title
+            title_romaji: a.attributes.titles.en_jp ?? '',
             image: a.attributes.posterImage.original ?? a.attributes.coverImage.original,
           };
         });
-        // use only id
         return { data: dataArray };
       } else {
         const message = `ERROR from Kitsu API: ${res.statusText}`;

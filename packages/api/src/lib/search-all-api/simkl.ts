@@ -13,7 +13,7 @@ type SimklResult = {
 /**
  * Search Simkl API for Simkl ids
  *
- * @param {string} searchString
+ * @param {string} searchString Anime title to search. Titles on Simkl are mostly English, not romaji
  * @return {Promise<SimklResult>}
  */
 const searchSimkl = async (searchString: string): Promise<SimklResult> => {

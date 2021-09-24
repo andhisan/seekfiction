@@ -18,10 +18,12 @@ type AniListResult = {
 /**
  * Search AniList API for AniList ids
  *
- * @param {string} searchString
+ * @param {string} searchString Anime title to search
  * @return {Promise<AniListResult>}
  */
 const searchAniList = async (searchString: string): Promise<AniListResult> => {
+  // We have to use special page query for multiple results
+  // Check https://anilist.gitbook.io/anilist-apiv2-docs/overview/graphql/pagination
   const query = `
   query ($id: Int, $page: Int, $perPage: Int, $search: String) {
     Page(page: $page, perPage: $perPage) {
@@ -57,7 +59,9 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
         const dataArray = json.data.Page.media.map((a) => {
           return {
             id: a.id,
+            // Return romaji title
             title_romaji: a.title.romaji ?? '',
+            // AniList API's 'large' seems to be actually 'medium' size
             image: a.coverImage.large ?? '',
           };
         });

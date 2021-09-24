@@ -7,7 +7,7 @@ import { searchAllApi } from '../../lib/search-all-api';
  *
  * @param {functions.https.Request} request
  * @param {functions.https.Response} response
- * @return {*}
+ * @return {void}
  */
 const searchAll = functions.region('us-central1').https.onRequest(async (request, response: any) => {
   return withAuth(request, response, async () => {

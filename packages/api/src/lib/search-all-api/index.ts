@@ -5,6 +5,11 @@ import searchSimkl from './simkl';
 import * as admin from 'firebase-admin';
 const firestore = admin.firestore;
 
+/**
+ * Search across 4 APIs and return anime data
+ * @param {string} searchString Anime title to search
+ * @return {void}
+ */
 export const searchAllApi = async (searchString: string) => {
   try {
     const createdAt = firestore.Timestamp.fromDate(new Date());
