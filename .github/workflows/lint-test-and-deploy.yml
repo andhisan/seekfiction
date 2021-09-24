@@ -63,7 +63,10 @@ jobs:
           args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }} ; firebase deploy --only functions
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-          PROJECT_ID: seek-fiction
+
+      - name: Functions failed? 🤔
+        if: failure()
+        run: echo "Please set GCP key AND FIREBASE CONFIG in repository secrets"
 
       - name: Deploy to Vercel 🚀
         # We won't deploy client unless functions are successfully deployed
