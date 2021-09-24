@@ -1,6 +1,6 @@
 import axios from 'axios';
-const baseUri = process.env.NEXT_PUBLIC_FUNCTIONS;
-const token = process.env.NEXT_PUBLIC_FUNCTIONS_AUTH;
+const baseUri = 'http://us-central1-seek-fiction.cloudfunctions.net';
+const token = 'OGhWZACvyXwfbguplLGfXioCYddjExBOKOMZI5UanUc=';
 
 const searchWord = 'のんのんびより';
 
