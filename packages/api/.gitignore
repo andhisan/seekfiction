@@ -13,6 +13,7 @@ exported_for_local_development/*
 
 # env
 .runtimeconfig.json
+.runtimeconfig_forgithub.txt
 
 # logs
 firestore-debug.log
