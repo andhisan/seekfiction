@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-5-skipfb](https://github.com/sasigume/seekfiction/compare/v0.0.5-4...v0.0.5-5-skipfb) (2021-09-24)
+
 ### [0.0.5-4](https://github.com/sasigume/seekfiction/compare/v0.0.5-3...v0.0.5-4) (2021-09-24)
 
 
