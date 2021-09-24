@@ -11,7 +11,7 @@ on:
       - master
 
 jobs:
-  lint-test:
+  lint-test-deploy:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -44,18 +44,6 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         run: yarn
-
-      - name: Run functions linter 👀
-        run: yarn api:lint
-
-      # Build and upload built javascript for deploy
-      - name: Build functions 🔨
-        if: success()
-        run: yarn api:build
-      - uses: actions/upload-artifact@master
-        with:
-          name: functions-artifact
-          path: packages/api/lib
 
       - name: Run client linter 👀
         if: success()
@@ -65,53 +53,20 @@ jobs:
         if: success()
         run: yarn next:test
 
-  deploy:
-    needs: lint-test
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
-
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.4.0
-        with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
-
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.6
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn
-
-      # Download artifact of built functions
-      - uses: actions/download-artifact@master
-        with:
-          name: functions-artifact
-          path: packages/api/lib
+      # Functions lint will run with predeploy script in firebase.json
+      # so we don't have to run lint before this
       - name: Deploy functions to Firebase 🔥
-        if: success()
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --message \"${{ github.event.head_commit.message }}\" --only functions
+          # Somehow we still need to set function config via GitHub secret
+          # Detail: https://github.com/w9jds/firebase-action/issues/86
+          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }} ; firebase deploy --message \"${{ github.event.head_commit.message }}\" --only functions
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
 
       - name: Deploy to Vercel 🚀
+        # We won't deploy client unless functions are successfully deployed
+        if: success()
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required

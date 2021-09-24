@@ -5,6 +5,6 @@
   },
   "functions": {
     "source": "packages/api",
-    "predeploy": ["if [ \"$(uname)\" == \"Darwin\" ]; then yarn api:build; fi"]
+    "predeploy": ["yarn api:build"]
   }
 }
