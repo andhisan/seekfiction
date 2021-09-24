@@ -54,7 +54,8 @@ jobs:
         run: yarn next:lint
 
       - name: Run client tests including functions test 🧪
-        run: NEXT_PUBLIC_FUNCTIONS=${{secrets.FUNCTIONS}} NEXT_PUBLIC_FUNCTIONS_AUTH=${{secrets.FUNCTIONS_AUTH}} yarn next:test
+        # Set env otherwise API test will fail
+        run: NEXT_PUBLIC_FUNCTIONS=${{ secrets.NEXT_PUBLIC_FUNCTIONS }} NEXT_PUBLIC_FUNCTIONS_AUTH=${{ secrets.NEXT_PUBLIC_FUNCTIONS_AUTH }} yarn next:test
 
       - name: Tests failed? 🤔
         if: failure()
