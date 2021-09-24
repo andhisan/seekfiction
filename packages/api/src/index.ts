@@ -4,4 +4,4 @@ if (admin.apps.length === 0) {
   admin.initializeApp();
 }
 
-exports.jikan = require('./jikan');
+exports.onRequest = require('./onRequest');

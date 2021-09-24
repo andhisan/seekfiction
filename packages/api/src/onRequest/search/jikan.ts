@@ -1,5 +1,5 @@
 import * as functions from 'firebase-functions';
-import withAuth from '../lib/withAuth';
+import withAuth from '../../lib/withAuth';
 import axios from 'axios';
 
 /**
@@ -9,7 +9,7 @@ import axios from 'axios';
  * @param {functions.https.Response} response
  * @return {*}
  */
-const search = functions.region('us-central1').https.onRequest(async (request, response: any) => {
+const searchJikan = functions.region('us-central1').https.onRequest(async (request, response: any) => {
   return withAuth(request, response, async () => {
     const searchString = request.query.q;
     if (typeof searchString === 'string') {
@@ -46,4 +46,4 @@ const search = functions.region('us-central1').https.onRequest(async (request, r
   });
 });
 
-export default search;
+export default searchJikan;
