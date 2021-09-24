@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-0](https://github.com/sasigume/seekfiction/compare/v0.0.4...v0.0.5-0) (2021-09-24)
+
+
+### Features
+
+* :sparkles: added type for kitsu and simkl ([79de516](https://github.com/sasigume/seekfiction/commit/79de516a395faca2b50a199e2bf3aabb029c7d3a))
+* :sparkles: moved Jikan API result type to api package ([01ccaa0](https://github.com/sasigume/seekfiction/commit/01ccaa079790e47a92bd66e117172ab752c166b1))
+* **firebase:** :boom: removed jikan api and added all search api ([c28636b](https://github.com/sasigume/seekfiction/commit/c28636b9341c7228086c108dcc4cf716bf21d590))
+* **firebase:** :sparkles: added algolia client hepler function ([ace48ed](https://github.com/sasigume/seekfiction/commit/ace48ed95da2c4d39879e6a74063424546a0ae4c))
+* **firebase:** :sparkles: added algolia sync function ([f8b9c4d](https://github.com/sasigume/seekfiction/commit/f8b9c4d891b39303471b68fdfc53815343832d47))
+* **firebase:** :sparkles: added function to search anime id from 4 APIs ([e5ca1ee](https://github.com/sasigume/seekfiction/commit/e5ca1ee2e9e39d30c3bfadc0c09710320f39c807))
+
+
+### Bug Fixes
+
+* **firebase:** :ambulance: anilist api result now show only anime ([2aafecb](https://github.com/sasigume/seekfiction/commit/2aafecb7a86875ba6528c90247579aa9ffc8dd8a))
+* **firebase:** :ambulance: fixed error handling of search api ([4e49813](https://github.com/sasigume/seekfiction/commit/4e4981382a349658ae56dab8ca323da108a712ed))
+* **firebase:** :ambulance: fixed firestore sync shell script permission ([7cdb124](https://github.com/sasigume/seekfiction/commit/7cdb12446c2dd0d15b7b9099e986efea516e78fb))
+
 ### [0.0.4](https://github.com/sasigume/seekfiction/compare/v0.0.3...v0.0.4) (2021-09-23)
 
 
