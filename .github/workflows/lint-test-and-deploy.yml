@@ -53,20 +53,27 @@ jobs:
         if: success()
         run: yarn next:test
 
+      # Somehow we still need to set function config via GitHub secret
+      # Detail: https://github.com/w9jds/firebase-action/issues/86
+      - name: Set configs for Firebase ✅
+        uses: w9jds/firebase-action@master
+        with:
+          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
       # Functions lint will run with predeploy script in firebase.json
       # so we don't have to run lint before this
       - name: Deploy functions to Firebase 🔥
         uses: w9jds/firebase-action@master
         with:
-          # Somehow we still need to set function config via GitHub secret
-          # Detail: https://github.com/w9jds/firebase-action/issues/86
-          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }} && firebase deploy --only functions
+          args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Functions failed? 🤔
         if: failure()
-        run: echo "Please set firebase token AND FIREBASE CONFIG in repository secrets"
+        run: echo ::warning::Please set firebase token AND FIREBASE CONFIG in repository secrets
 
       - name: Deploy to Vercel 🚀
         # We won't deploy client unless functions are successfully deployed
