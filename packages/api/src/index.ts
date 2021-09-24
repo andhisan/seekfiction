@@ -4,4 +4,5 @@ if (admin.apps.length === 0) {
   admin.initializeApp();
 }
 
-exports.onRequest = require('./onRequest');
+export * from './https';
+export * as firestore from './firestore';
