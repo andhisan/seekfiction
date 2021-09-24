@@ -1,0 +1,70 @@
+name: Deploy Functions
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'packages/api/**'
+  pull_request:
+    branches:
+      - main
+      - master
+    paths:
+      - 'packages/api/**'
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Get yarn cache directory path 🛠
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2.1.6
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn
+
+      # Somehow we still need to set function config via GitHub secret
+      # Detail: https://github.com/w9jds/firebase-action/issues/86
+      - name: Set configs for Firebase ✅
+        if: ${{ !contains(github.event.head_commit.message, 'skipfb') }}
+        uses: w9jds/firebase-action@master
+        with:
+          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      # Functions lint will run with predeploy script in firebase.json
+      # so we don't have to run lint before this
+      - name: Deploy functions to Firebase 🔥 (use FIREBASE_TOKEN and FIREBASE_FUNCTIONS_ENV_VARIABLES)
+        if: ${{ !contains(github.event.head_commit.message, 'skipfb') }}
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

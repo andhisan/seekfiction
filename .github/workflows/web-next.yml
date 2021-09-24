@@ -1,14 +1,18 @@
-name: Lint, Test and Deploy
+name: Lint, Test and Deploy Next Client
 
 on:
   push:
     branches:
       - main
       - master
+    paths:
+      - 'packages/web-next/**'
   pull_request:
     branches:
       - main
       - master
+    paths:
+      - 'packages/web-next/**'
 
 jobs:
   lint-test-deploy:
@@ -49,32 +53,12 @@ jobs:
         if: success()
         run: yarn next:lint
 
-      # Somehow we still need to set function config via GitHub secret
-      # Detail: https://github.com/w9jds/firebase-action/issues/86
-      - name: Set configs for Firebase ✅
-        if: ${{ !contains(github.event.head_commit.message, 'skipfb') }}
-        uses: w9jds/firebase-action@master
-        with:
-          args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-      # Functions lint will run with predeploy script in firebase.json
-      # so we don't have to run lint before this
-      - name: Deploy functions to Firebase 🔥 (use FIREBASE_TOKEN and FIREBASE_FUNCTIONS_ENV_VARIABLES)
-        if: ${{ !contains(github.event.head_commit.message, 'skipfb') }}
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only functions
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
       - name: Run client tests including functions test 🧪
-        run: yarn next:test
+        run: NEXT_PUBLIC_FUNCTIONS=${{secrets.FUNCTIONS}} NEXT_PUBLIC_FUNCTIONS_AUTH=${{secrets.FUNCTIONS_AUTH}} yarn next:test
 
-      - name: Client tests failed? 🤔
+      - name: Tests failed? 🤔
         if: failure()
-        run: echo ::warning::Please set FUNCTIONS_AUTH in repository secrets for creating .env file
+        run: echo ::warning::Please set FUNCTIONS and FUNCTIONS_AUTH in repository secrets for creating .env file
 
       - name: Deploy to Vercel 🚀
         # We won't deploy client unless functions are successfully deployed
