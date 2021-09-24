@@ -48,6 +48,15 @@ jobs:
       - name: Run functions linter 👀
         run: yarn api:lint
 
+      # Build and upload built javascript for deploy
+      - name: Build functions 🔨
+        if: success()
+        run: yarn api:build
+      - uses: actions/upload-artifact@master
+        with:
+          name: functions-artifact
+          path: packages/api/lib
+
       - name: Run client linter 👀
         if: success()
         run: yarn next:lint
@@ -66,7 +75,13 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      # Download artifact of built functions
+      - uses: actions/download-artifact@master
+        with:
+          name: functions-artifact
+          path: packages/api/lib
       - name: Deploy functions to Firebase 🔥
+        if: success()
         uses: w9jds/firebase-action@master
         with:
           args: deploy --message \"${{ github.event.head_commit.message }}\" --only functions
