@@ -7,4 +7,7 @@ export interface AdminConfig {
     admin_api_key: string;
     search_api_key: string;
   };
+  simkl: {
+    client_id: string;
+  };
 }
