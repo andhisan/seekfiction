@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-6](https://github.com/sasigume/seekfiction/compare/v0.0.5-5-skipfb...v0.0.5-6) (2021-09-24)
+
+
+### Bug Fixes
+
+* **github:** :ambulance: fixed wrong secrets name ([c82617e](https://github.com/sasigume/seekfiction/commit/c82617e2f102e6c56476186b10b11925a497299b))
+
 ### [0.0.5-5-skipfb](https://github.com/sasigume/seekfiction/compare/v0.0.5-4...v0.0.5-5-skipfb) (2021-09-24)
 
 ### [0.0.5-4](https://github.com/sasigume/seekfiction/compare/v0.0.5-3...v0.0.5-4) (2021-09-24)
