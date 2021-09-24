@@ -1,5 +1,9 @@
 name: push to bitbucket
-on: push
+on:
+  push:
+    branches:
+      - main
+      - master
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
