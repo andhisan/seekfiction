@@ -11,7 +11,7 @@ on:
       - master
 
 jobs:
-  client-lint-test:
+  lint-test:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -45,18 +45,33 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
-      - name: Run linter 👀
+      - name: Run functions linter 👀
+        run: yarn api:lint
+
+      - name: Run client linter 👀
+        if: success()
         run: yarn next:lint
 
-      - name: Run tests 🧪
+      - name: Run client tests 🧪
+        if: success()
         run: yarn next:test
 
-  deploy-client:
-    needs: client-lint-test
+  deploy:
+    environment:
+      name: Production
+    needs: lint-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: deploy
+
+      - name: Deploy functions to Firebase 🔥
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --message \"${{ github.event.head_commit.message }}\" --only functions
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Deploy to Vercel 🚀
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
