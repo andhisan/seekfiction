@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-2](https://github.com/sasigume/seekfiction/compare/v0.0.5-1...v0.0.5-2) (2021-09-24)
+
+
+### Bug Fixes
+
+* **github:** :ambulance: fix unintended published private key ([2e52e1e](https://github.com/sasigume/seekfiction/commit/2e52e1e65897647b9e2fe679564a4739edb62ce4))
+
 ### [0.0.5-1](https://github.com/sasigume/seekfiction/compare/v0.0.5-0...v0.0.5-1) (2021-09-24)
 
 ### [0.0.5-0](https://github.com/sasigume/seekfiction/compare/v0.0.4...v0.0.5-0) (2021-09-24)
