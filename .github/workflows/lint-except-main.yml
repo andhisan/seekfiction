@@ -2,8 +2,8 @@ name: Lint and deploy preview client except main
 
 on:
   push:
-    branches:
-      - '!main'
+    branches-ignore:
+      - main
   pull_request:
 
 jobs:
