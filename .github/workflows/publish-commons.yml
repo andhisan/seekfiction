@@ -30,12 +30,7 @@ jobs:
       - name: Build package 🎁
         run: yarn workspace @sasigume/seekfiction-commons build
 
-      - name: Remove read token from .npmrc
-        # .npmrc has read token but it blocks publish
-        # So remove config file which contains read token
-        run: rm .npmrc
-
       - name: Publish package 🚀
         run: npm publish packages/seekfiction-commons
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
