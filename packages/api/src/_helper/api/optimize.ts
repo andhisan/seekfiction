@@ -1,4 +1,4 @@
-import { Anime, AnimeGroupedByTitle } from '../../models';
+import { Anime, AnimeGroupedByTitle } from '@/models';
 // import * as functions from 'firebase-functions';
 
 export const groupAnimesByTitleRomaji = (animes: Anime[]): AnimeGroupedByTitle => {

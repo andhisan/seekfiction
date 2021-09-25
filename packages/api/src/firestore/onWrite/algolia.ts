@@ -1,8 +1,8 @@
 import * as functions from 'firebase-functions';
-import algolia from '../../lib/algolia';
-import { syncAlgoliaWithFirestore } from '../../lib/firebase-algolia-sync';
+import algolia from '@/_helper/algolia';
+import { syncAlgoliaWithFirestore } from '@/_helper/firebase-algolia-sync';
 
-import { ANIME_COLLECTION, ANIME_INDEX } from '../../lib/config/database';
+import { ANIME_COLLECTION, ANIME_INDEX } from '@/_helper/config';
 
 const syncTestAnime = functions.firestore.document(`/${ANIME_COLLECTION}/{id}`).onWrite((change, context) => {
   const index = algolia.initIndex(ANIME_INDEX);

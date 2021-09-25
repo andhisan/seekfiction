@@ -3,8 +3,8 @@ import searchJikan from './jikan';
 import searchKitsu from './kitsu';
 import searchSimkl from './simkl';
 import * as admin from 'firebase-admin';
-import { groupAnimesByTitleRomaji } from '../helper/optimize';
-import { SearchAllResult } from '../../models';
+import { groupAnimesByTitleRomaji } from './optimize';
+import { SearchAllResult } from '@/models';
 
 const firestore = admin.firestore;
 

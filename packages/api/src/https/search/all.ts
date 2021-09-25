@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
-import withAuth from '../../lib/withAuth';
-import { searchAllApi } from '../../lib/search-all-api';
+import withAuth from '@/_helper/withAuth';
+import { searchAllApi } from '@/_helper/api';
 
 /**
  * Search anime from all API by string
