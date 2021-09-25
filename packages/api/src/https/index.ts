@@ -14,7 +14,7 @@ export * as search from './search';
 exports.status = functions.region('us-central1').https.onRequest(async (request, response) => {
   return withAuth(request, response, async () => {
     return response.status(200).json({
-      message: `All OK`,
+      message: `OK`,
     });
   });
 });

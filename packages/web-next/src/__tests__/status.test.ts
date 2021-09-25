@@ -15,7 +15,6 @@ describe('Check API status', () => {
       },
     });
     console.debug(response.data);
-    response.status == 200 && console.info('にゃんPASSー');
-    expect(response.status).toEqual(200);
+    expect(response.data.message).toEqual('OK');
   });
 });
