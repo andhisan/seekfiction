@@ -9,7 +9,8 @@ export default function AlgoliaSearchBox() {
   const [input, setInput] = useState('');
   const [updating, setUpdating] = useState(false);
   return (
-    <div>
+    <div className="flex flex-col gap-6">
+      <div className="p-3 bg-gray-300 rounded-lg">Manga search is currently unavailable.</div>
       <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
         <Configure hitsPerPage={5} />
 
@@ -18,6 +19,7 @@ export default function AlgoliaSearchBox() {
         ) : (
           <>
             <SearchBox
+              className="w-full"
               onChange={(e) => {
                 setInput(e.currentTarget.value);
               }}
@@ -26,11 +28,15 @@ export default function AlgoliaSearchBox() {
                 setUpdating(true);
                 if (input.length > 0) {
                   router.push(`/update/?q=${input}`, '/update');
+                } else {
+                  setInput('');
+                  setUpdating(false);
                 }
               }}
             />
-
-            <SearchResult />
+            <div className="max-w-[300px]">
+              <SearchResult />
+            </div>
             {input.length > 0 && (
               <p>
                 Press enter to search more result for <b>{input}</b>
@@ -38,7 +44,7 @@ export default function AlgoliaSearchBox() {
             )}
           </>
         )}
-        <div className="my-3 text-left p-3 rounded-xl bg-gray-100">
+        <div className="text-left p-3 rounded-xl bg-gray-100">
           <PoweredBy />
         </div>
       </InstantSearch>

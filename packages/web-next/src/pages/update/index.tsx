@@ -1,35 +1,52 @@
 import type { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   let message = '';
   let status = 500;
   const q = context.query.q;
-  await fetch(process.env.FUNCTIONS + '/update-anime?q=' + q, {
-    method: 'GET',
-    headers: {
-      Authorization: process.env.FUNCTIONS_AUTH ?? '',
-    },
-  })
-    .then(async (res) => {
-      const json = await res.json();
-      message = json.message;
-      status = res.status;
+  if (typeof q == 'string') {
+    await fetch(process.env.FUNCTIONS + '/update-anime?q=' + q, {
+      method: 'GET',
+      headers: {
+        Authorization: process.env.FUNCTIONS_AUTH ?? '',
+      },
     })
-    .catch((e) => console.error(e));
+      .then(async (res) => {
+        const json = await res.json();
+        message = json.message;
+        status = res.status;
+      })
+      .catch((e) => console.error(e));
 
-  return {
-    props: {
-      message,
-      status,
-      q,
-    },
-  };
+    return {
+      props: {
+        message,
+        status,
+        q,
+      },
+    };
+  } else {
+    return {
+      props: {
+        message: 'ワードを指定してください',
+      },
+    };
+  }
 };
 
 const Update: NextPage<Props> = (props) => {
+  const router = useRouter();
+  if (!props.q) {
+    if (typeof window !== 'undefined') {
+      console.error(props.message);
+      router.push('/');
+    }
+    return null;
+  }
   return (
     <Layout>
       <p>Thank you for using seekfiction!</p>
