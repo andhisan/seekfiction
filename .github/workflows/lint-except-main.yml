@@ -52,7 +52,7 @@ jobs:
 
       - name: Run client tests including functions test 🧪
         # Set env otherwise API test will fail
-        run: NEXT_PUBLIC_FUNCTIONS=${{ secrets.NEXT_PUBLIC_FUNCTIONS }} NEXT_PUBLIC_FUNCTIONS_AUTH=${{ secrets.NEXT_PUBLIC_FUNCTIONS_AUTH }} yarn next:test
+        run: ${{ secrets.VERCEL_ENV_VARIABLES }} yarn next:test
 
       - name: Client tests failed? 🤔
         if: failure()
