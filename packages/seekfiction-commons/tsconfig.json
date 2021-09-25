@@ -8,8 +8,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2018",
-    "esModuleInterop": true,
-    "isolatedModules": false
+    "esModuleInterop": true
   },
   "compileOnSave": true,
   "exclude": ["node_modules", "dist"]
