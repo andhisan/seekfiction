@@ -6,40 +6,7 @@ on:
       - main
 
 jobs:
-  publish:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
-
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
-          registry-url: 'https://registry.npmjs.org'
-          # now can cache https://github.com/actions/setup-node/releases/tag/v2.4.0
-          cache: yarn
-
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn
-
-      - name: Build package 🎁
-        run: yarn workspace @sasigume/seekfiction-commons build
-
-      - name: Publish package 🚀
-        run: npm publish packages/seekfiction-commons --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
-
   deploy:
-    if: always()
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -65,14 +32,15 @@ jobs:
 
       - name: Check if functions code changed 👀
         uses: technote-space/get-diff-action@v5
+        id: functions-diff
         with:
           PATTERNS: |
-            packages/seekfiction-commons/*
+            packages/api/*
 
       # Somehow we still need to set function config via GitHub secret
       # Detail: https://github.com/w9jds/firebase-action/issues/86
       - name: Set configs for Firebase ✅ (useand FIREBASE_FUNCTIONS_ENV_VARIABLES)
-        if: success()
+        if: steps.functions-diff.outputs.diff
         uses: w9jds/firebase-action@master
         with:
           args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}
@@ -82,7 +50,7 @@ jobs:
       # Functions lint will run with predeploy script in firebase.json
       # so we don't have to run lint before this
       - name: Deploy functions to Firebase 🔥 (use FIREBASE_TOKEN)
-        if: success()
+        if: steps.functions-diff.outputs.diff
         uses: w9jds/firebase-action@master
         with:
           # --force to delete functions
@@ -92,21 +60,21 @@ jobs:
 
       - name: Check if client code changed 👀
         uses: technote-space/get-diff-action@v5
+        id: client-diff
         with:
           PATTERNS: |
             packages/web-next/*
 
       - name: Run client linter 👀
-        if: success()
+        if: steps.client-diff.outputs.diff
         run: yarn next:lint
 
       - name: Run client tests 🧪
+        if: steps.client-diff.outputs.diff
         run: yarn next:test
 
       - name: Deploy to Vercel (Production) 🚀
-        # We won't deploy client unless functions are successfully deployed
-        if: |
-          !contains(github.event.head_commit.message, 'skipvercel')
+        if: steps.client-diff.outputs.diff
         uses: amondnet/vercel-action@v20
         with:
           # This will be production deployment because --prod is set
