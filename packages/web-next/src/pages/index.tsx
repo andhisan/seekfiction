@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 import Link from 'next/link';
 import Logo from '@/components/atoms/Logo';
+import AlgoliaSearchBox from '~/components/molecules/forms/AlgoliaSearchBox';
 const Home: NextPage = () => {
   return (
     <Layout>
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
           <Logo />
         </Link>
         <p>A next-generation anime/manga database</p>
+        <AlgoliaSearchBox />
       </div>
     </Layout>
   );
