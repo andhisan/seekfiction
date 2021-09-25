@@ -1,0 +1,35 @@
+name: Publish Commons Pakcage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/seekfiction-commons/**'
+
+jobs:
+  publish:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+          registry-url: 'https://npm.pkg.github.com'
+
+      - run: |
+          npm ci
+          npm run build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
