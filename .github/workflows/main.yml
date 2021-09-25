@@ -63,9 +63,16 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
+      - name: Check if functions code changed 👀
+        uses: technote-space/get-diff-action@v5
+        with:
+          PATTERNS: |
+            packages/seekfiction-commons/*
+
       # Somehow we still need to set function config via GitHub secret
       # Detail: https://github.com/w9jds/firebase-action/issues/86
       - name: Set configs for Firebase ✅ (useand FIREBASE_FUNCTIONS_ENV_VARIABLES)
+        if: success()
         uses: w9jds/firebase-action@master
         with:
           args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}
@@ -75,13 +82,19 @@ jobs:
       # Functions lint will run with predeploy script in firebase.json
       # so we don't have to run lint before this
       - name: Deploy functions to Firebase 🔥 (use FIREBASE_TOKEN)
-        if: ${{ !contains(github.event.head_commit.message, 'skipfb') }}
+        if: success()
         uses: w9jds/firebase-action@master
         with:
           # --force to delete functions
           args: deploy --only functions --force --debug
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Check if client code changed 👀
+        uses: technote-space/get-diff-action@v5
+        with:
+          PATTERNS: |
+            packages/web-next/*
 
       - name: Run client linter 👀
         if: success()
