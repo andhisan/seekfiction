@@ -6,13 +6,13 @@ import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="flex flex-col gap-3 w-screen py-64 text-center items-center justify-center">
+      <div>
         <Link passHref href="/">
           <Logo />
         </Link>
         <p>A next-generation anime/manga database</p>
-        <AlgoliaSearchBox />
       </div>
+      <AlgoliaSearchBox />
     </Layout>
   );
 };
