@@ -1,4 +1,4 @@
-name: Publish Commons Pakcage
+name: Publish commons package
 
 on:
   push:
@@ -27,8 +27,10 @@ jobs:
           check-latest: true
           registry-url: 'https://npm.pkg.github.com'
 
-      - run: |
-          yarn workspace @sasigume/seekfiction-commons build
-          npm publish packages/seekfiction-commons
+      - name: Build package 🎁
+        run: yarn workspace @sasigume/seekfiction-commons build
+
+      - name: Publish package 🚀
+        run: npm publish packages/seekfiction-commons
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
