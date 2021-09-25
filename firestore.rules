@@ -2,7 +2,8 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /algolia_anime/{document=**} {
-      allow read: if true;
+      // Admin sdk can still access
+      allow read, write, delete: if false;
     }
   }
 }
