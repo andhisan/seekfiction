@@ -12,12 +12,13 @@ export interface Anime {
 export interface AnimeGroupedByTitle {
   [key: string]: Anime;
 }
-export type SearchAllResult =
-  | {
-      searchString: string;
-      createdAt: any;
-      data: AnimeGroupedByTitle;
-    }
-  | {
-      message: string;
-    };
+
+type ErrorMessageObject = { message: string };
+
+type SearchResultSucess = {
+  searchString: string;
+  createdAt: any;
+  data: AnimeGroupedByTitle;
+  message?: string;
+};
+export type SearchAllResult = SearchResultSucess | ErrorMessageObject;
