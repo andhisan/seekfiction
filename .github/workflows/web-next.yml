@@ -20,7 +20,14 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@master
 
+      - name: Make sure API is alive 🙏
+        uses: wei/curl@v1
+        with:
+          args: -X GET ${{ secrets.API_URL_FOR_TEST }}
+
+      # continue only if API is alive
       - name: Setup node env 🏗
+        if: success()
         uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node }}
@@ -46,13 +53,8 @@ jobs:
         if: success()
         run: yarn next:lint
 
-      - name: Run client tests including functions test 🧪
-        # Set env otherwise API test will fail
-        run: NODE_ENV=production ${{ secrets.VERCEL_ENV_VARIABLES }} yarn next:test
-
-      - name: Tests failed? 🤔
-        if: failure()
-        run: echo ::warning::Please set FUNCTIONS and FUNCTIONS_AUTH in repository secrets for creating .env file
+      - name: Run client tests 🧪
+        run: yarn next:test
 
       - name: Deploy to Vercel (Production) 🚀
         # We won't deploy client unless functions are successfully deployed
