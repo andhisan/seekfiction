@@ -1,13 +1,17 @@
-import { InstantSearch, SearchBox, Hits, PoweredBy } from 'react-instantsearch-dom';
+import SearchResult from './SearchResult';
+import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 import { algolia } from '@/lib/algolia';
-import HitComponent from './HitComponent';
 
-export default function AlgoliaSearchBox() {
+export default function AlgoliaSearchBox(): JSX.Element {
   return (
-    <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
-      <SearchBox />
-      <Hits hitComponent={HitComponent} />
-      <PoweredBy />
-    </InstantSearch>
+    <div>
+      <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
+        <Configure hitsPerPage={5} />
+
+        <SearchBox />
+
+        <SearchResult />
+      </InstantSearch>
+    </div>
   );
 }

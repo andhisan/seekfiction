@@ -1,0 +1,34 @@
+import { useEffect, useState, useCallback } from 'react';
+import { Hit } from 'react-instantsearch-core';
+import { Hits, connectSearchBox, Pagination, PoweredBy } from 'react-instantsearch-dom';
+import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
+import HitComponent from './HitComponent';
+
+interface Props {
+  hit: Hit<AnimeOnAlgolia>;
+}
+
+const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
+  const [isShow, setShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    setShow(!!currentRefinement);
+  }, [currentRefinement]);
+
+  const handleResetSearchWords = useCallback(() => {
+    refine('');
+  }, [refine]);
+
+  const hitComponent = ({ hit }: Props): JSX.Element => <HitComponent hit={hit} onClick={handleResetSearchWords} />;
+
+  if (!isShow) return null;
+  return (
+    <>
+      <Hits hitComponent={hitComponent} />
+      <Pagination />
+      <PoweredBy />
+    </>
+  );
+});
+
+export default SearchResult;
