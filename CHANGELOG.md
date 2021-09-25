@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-9](https://github.com/sasigume/seekfiction/compare/v0.0.5-8...v0.0.5-9) (2021-09-25)
+
+
+### Features
+
+* **firebase:** :sparkles: added status check function ([711edc5](https://github.com/sasigume/seekfiction/commit/711edc536f3e1b0e2ccb678dc51cd4037311294b))
+
+
+### Bug Fixes
+
+* **lint:** :rotating_light: fixed lint error ([7e50b3a](https://github.com/sasigume/seekfiction/commit/7e50b3a4e686b7499ab27066af274bf7edd699c9))
+
 ### [0.0.5-8](https://github.com/sasigume/seekfiction/compare/v0.0.5-7...v0.0.5-8) (2021-09-25)
 
 
