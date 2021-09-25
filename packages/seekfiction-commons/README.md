@@ -1,3 +1,3 @@
-# About this package
+# seekfiction-commons
  
-TODO: make commons package for typing
+This is a public package to develop [seekfiction](https://github.com/sasigume/seekfiction) more efficiently.
