@@ -9,7 +9,9 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "google"
+    "google",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -24,6 +26,7 @@
     "prettier/prettier": "off",
     "indent": "off",
     "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     "max-len": "off",
     "object-curly-spacing": "off",
     "require-jsdoc": "off",
