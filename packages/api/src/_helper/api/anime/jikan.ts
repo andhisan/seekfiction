@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 import { Search } from '../../../models/Jikan';
 
 type JikanResult = {
-  data: { mal_id: number; title_romaji: string; mal_image: string }[];
+  data: { mal_id: number; title_romaji: string; mal_image: string; nsfw: boolean }[];
 } & {
   message?: string;
 };
@@ -31,6 +31,7 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
             mal_id: a.mal_id,
             title_romaji: a.title ?? '',
             mal_image: a.images.jpg.large_image_url ?? a.images.jpg.image_url,
+            nsfw: a.rating == 'Rx - Hentai',
           };
         });
         return { data: dataArray };

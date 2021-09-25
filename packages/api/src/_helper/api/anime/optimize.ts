@@ -7,7 +7,7 @@ export const groupAnimesByTitleRomaji = (animes: Anime[]): AnimeGroupedByTitle =
     const key = anime.title_romaji;
 
     // Add slug if it has
-    result[key] = { ...result[key], ...anime, slug: anime.slug };
+    result[key] = { ...result[key], ...anime, slug: anime.slug, nsfw: anime.nsfw };
   });
   return result;
 };

@@ -10,6 +10,7 @@ export const covnertUndefinedToNull = (anime: Anime): AnimeForFirestore => {
     // IMPORTANT: undefined is not allowed
     title_romaji: anime.title_romaji ?? null,
     slug: anime.slug ?? null,
+    nsfw: anime.nsfw ?? null,
     mal_id: anime.mal_id ?? null,
     aniList_id: anime.aniList_id ?? null,
     kitsu_id: anime.kitsu_id ?? null,

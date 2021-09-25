@@ -28,6 +28,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
         coverImage {
           extraLarge
         }
+        isAdult
       }
     }
   }
@@ -56,6 +57,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
             title_romaji: a.title.romaji ?? '',
             // AniList API's 'large' seems to be actually 'medium' size
             aniList_image: a.coverImage.extraLarge ?? '',
+            nsfw: a.isAdult,
           };
         });
         return { data: dataArray };
