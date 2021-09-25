@@ -10,6 +10,8 @@ This package defines common types for both Algolia and clients.
 
 ## Sorry
 
+English support may be terrible because author is Japanese.
+
 I'm new to npm and Node.js development.
 
 This is public package but contents subject to change.

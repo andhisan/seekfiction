@@ -31,6 +31,6 @@ jobs:
         run: yarn workspace @sasigume/seekfiction-commons build
 
       - name: Publish package 🚀
-        run: npm publish packages/seekfiction-commons --access public
+        run: npm publish packages/seekfiction-commons --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
