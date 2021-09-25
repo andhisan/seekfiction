@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Build package 🎁
         run: yarn workspace @sasigume/seekfiction-commons build

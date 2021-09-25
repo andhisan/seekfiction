@@ -10,6 +10,6 @@ This package defines common types for both Algolia and clients.
 
 ## Sorry
 
-I'm new to GitHub packages and Node.js development.
+I'm new to npm and Node.js development.
 
 This is public package but contents subject to change.
