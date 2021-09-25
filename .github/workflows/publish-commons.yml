@@ -29,6 +29,6 @@ jobs:
 
       - run: |
           yarn workspace @sasigume/seekfiction-commons build
-          npm publish
+          yarn workspace @sasigume/seekfiction-commons publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
