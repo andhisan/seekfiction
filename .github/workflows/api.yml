@@ -57,6 +57,6 @@ jobs:
         uses: w9jds/firebase-action@master
         with:
           # --force to delete functions
-          args: deploy --only functions --force
+          args: deploy --only functions --force --debug
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
