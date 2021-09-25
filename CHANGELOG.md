@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-11](https://github.com/sasigume/seekfiction/compare/v0.0.5-10...v0.0.5-11) (2021-09-25)
+
+
+### Features
+
+* :sparkles: added commons package and publish workflow ([6d4c773](https://github.com/sasigume/seekfiction/commit/6d4c773ff7627698bb2eab5c5bbbdc7fffc7d058))
+* **package:** :heavy_plus_sign: added typescript ([de08756](https://github.com/sasigume/seekfiction/commit/de087564f34cd1f8d172e0629db22b598a413098))
+
+
+### Bug Fixes
+
+* :ambulance: fixed cannot install my own package ([82d1d17](https://github.com/sasigume/seekfiction/commit/82d1d173c48e7da7a907ef83d05b37e62849850b))
+* :ambulance: fixed missing version of workspace ([9cc8b04](https://github.com/sasigume/seekfiction/commit/9cc8b04036dc2e087bb575173751e3b3ab42ecb6))
+* :ambulance: fixed types not included in dist ([cc9f885](https://github.com/sasigume/seekfiction/commit/cc9f885be7e6663936bf744bd0900587754b54e9))
+* :see_no_evil: add dist to gitignore ([655e9eb](https://github.com/sasigume/seekfiction/commit/655e9eb22939b9e0b41fcb43a2e8e2a3225d6337))
+* **firebase:** :fire: status check api now does not require auth ([dd0cb29](https://github.com/sasigume/seekfiction/commit/dd0cb29b85c1e1c2d7798df8054acb196a0df13a))
+* **package:** :ambulance: fixed bump-version not working ([781da90](https://github.com/sasigume/seekfiction/commit/781da902a82a568510c9b8a3813d4955c40487b6))
+
 ### [0.0.5-10](https://github.com/sasigume/seekfiction/compare/v0.0.5-9...v0.0.5-10) (2021-09-25)
 
 
