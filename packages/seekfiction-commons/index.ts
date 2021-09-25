@@ -1,3 +1,7 @@
+/**
+ * All field except title are optional
+ * Be careful when render images, they don't share size or format
+ */
 interface AnimeForFirestore {
   mal_id?: number | null;
   aniList_id?: number | null;
@@ -10,6 +14,9 @@ interface AnimeForFirestore {
   simkl_image?: string | null;
 }
 
+/**
+ * The objectID is only on Algolia index
+ */
 interface AnimeOnAlgolia extends AnimeForFirestore {
   objectID: string;
 }
