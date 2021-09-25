@@ -1,4 +1,4 @@
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Hits, PoweredBy } from 'react-instantsearch-dom';
 import { algolia } from '@/lib/algolia';
 
 const AlgoliaSearchBox: React.FC = () => {
@@ -6,6 +6,7 @@ const AlgoliaSearchBox: React.FC = () => {
     <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
       <SearchBox />
       <Hits />
+      <PoweredBy />
     </InstantSearch>
   );
 };
