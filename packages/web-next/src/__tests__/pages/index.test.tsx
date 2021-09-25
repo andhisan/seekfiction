@@ -4,8 +4,8 @@ import React from 'react';
 import Home from '../../pages/index';
 
 describe('With Enzyme', () => {
-  it('Home contains svg tag', () => {
+  it('Home contains search form', () => {
     const app = shallow(<Home />);
-    expect(app.find('svg')).toBeTruthy();
+    expect(app.find('form')).toBeTruthy();
   });
 });
