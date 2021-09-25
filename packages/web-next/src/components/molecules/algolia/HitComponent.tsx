@@ -2,12 +2,16 @@ import { Hit } from 'react-instantsearch-core';
 import Image from 'next/image';
 import { urlConverter } from '~/lib/api';
 import { ApiType, AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
+import { Highlight } from 'react-instantsearch-dom';
 interface Props {
   hit: Hit<AnimeOnAlgolia>;
   onClick: () => void;
 }
 
 const IdBox: React.FC<{ type: ApiType; id?: number | null; slug?: string | null }> = (props) => {
+  if (props.type == 'kitsu' && !props.slug) {
+    return <div className="flex"></div>;
+  }
   if (props.id) {
     return (
       <a
@@ -33,16 +37,17 @@ const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null;
 
 export default function HitComponent(props: Props) {
   return (
-    <div className="border-b-2 border-gray-500 text-left p-3 flex align-center flex-col gap-3">
+    <div style={{ background: props.hit.nsfw ? '#ffaaaa' : '' }} className="rounded-xl shadow-xl relative text-left p-3 flex align-center flex-col gap-3">
+      {props.hit.nsfw && <div className="absolute top-4 right-0 p-3 bg-red-500 z-50 rounded-l-xl text-white">NSFW</div>}{' '}
       <div className="">
-        <div className="h-[200px] relative">
+        <div className={`h-[200px] relative ${props.hit.nsfw ? 'filter blur-sm hover:filter-none' : ''}`}>
           <ImgBox type="mal" id={props.hit.mal_id} src={props.hit.mal_image} />
           <ImgBox type="aniList" id={props.hit.aniList_id} src={props.hit.aniList_image} />
           <ImgBox type="kitsu" id={props.hit.kitsu_id} src={props.hit.kitsu_image} />
           <ImgBox type="simkl" id={props.hit.simkl_id} src={props.hit.simkl_image} />
         </div>
         <div className="text-lg">
-          <b>{props.hit.title_romaji}</b>
+          <Highlight attribute="title_romaji" hit={props.hit} />
         </div>
       </div>
       <div className="grid gap-1 grid-cols-2 grid-rows-2">
