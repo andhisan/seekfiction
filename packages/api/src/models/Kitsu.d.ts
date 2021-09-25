@@ -79,7 +79,7 @@ interface Relationships {
   [key: string]: LinkParent;
 }
 
-interface Anime {
+interface AnimeKitsu {
   id: string;
   type: string;
   links: { self: string };
@@ -88,5 +88,5 @@ interface Anime {
 }
 
 export interface Search {
-  data: Anime[];
+  data: AnimeKitsu[];
 }

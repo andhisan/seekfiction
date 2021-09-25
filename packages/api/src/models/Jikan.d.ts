@@ -76,7 +76,7 @@ interface Genre {
   url: string;
 }
 
-interface Anime {
+interface AnimeJikan {
   mal_id: number;
   url: string;
   images: Images;
@@ -115,5 +115,5 @@ export interface Search {
     last_visible_page: 1;
     has_next_page: false;
   };
-  data: Anime[];
+  data: AnimeJikan[];
 }

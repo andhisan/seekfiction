@@ -1,16 +1,9 @@
 import axios from 'axios';
 import * as functions from 'firebase-functions';
-
-type AniListGraphQLResult = {
-  data: {
-    Page: {
-      media: [{ id: number; title: { romaji: string }; coverImage: { large: string } }];
-    };
-  };
-};
+import { AniListGraphQLResult } from '../../models/AniList';
 
 type AniListResult = {
-  data: { id: number; title_romaji: string; image: string }[];
+  data: { aniList_id: number; title_romaji: string; aniList_image: string }[];
 } & {
   message?: string;
 };
@@ -58,11 +51,11 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
         functions.logger.info(`Searched AniList API for ${searchString}`);
         const dataArray = json.data.Page.media.map((a) => {
           return {
-            id: a.id,
+            aniList_id: a.id,
             // Return romaji title
             title_romaji: a.title.romaji ?? '',
             // AniList API's 'large' seems to be actually 'medium' size
-            image: a.coverImage.large ?? '',
+            aniList_image: a.coverImage.large ?? '',
           };
         });
         return { data: dataArray };

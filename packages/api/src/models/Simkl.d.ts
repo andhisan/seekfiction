@@ -1,4 +1,4 @@
-interface Anime {
+interface AnimeSimkl {
   title: string;
   title_romaji: string;
   year: number;
@@ -10,4 +10,4 @@ interface Anime {
   };
 }
 
-export type Search = Anime[];
+export type Search = AnimeSimkl[];

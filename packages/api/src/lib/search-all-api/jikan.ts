@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 import { Search } from '../../models/Jikan';
 
 type JikanResult = {
-  data: { id: number; title_romaji: string; image: string }[];
+  data: { mal_id: number; title_romaji: string; mal_image: string }[];
 } & {
   message?: string;
 };
@@ -27,7 +27,7 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
         functions.logger.info(`Searched Jikan API for ${searchString}`);
         const dataArray = json.data.map((a) => {
           // Jikan returns romaji title as default since it's MAL
-          return { id: a.mal_id, title_romaji: a.title ?? '', image: a.images.jpg.image_url ?? '' };
+          return { mal_id: a.mal_id, title_romaji: a.title ?? '', mal_image: a.images.jpg.image_url ?? '' };
         });
         return { data: dataArray };
       } else {

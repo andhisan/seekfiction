@@ -3,7 +3,7 @@ import * as functions from 'firebase-functions';
 import { Search } from '../../models/Kitsu';
 
 type KitsuResult = {
-  data: { id: number; title_romaji: string; image: string }[];
+  data: { kitsu_id: number; title_romaji: string; kitsu_image: string }[];
 } & {
   message?: string;
 };
@@ -28,10 +28,10 @@ const searchKitsu = async (searchString: string): Promise<KitsuResult> => {
         const dataArray = json.data.map((a) => {
           return {
             // Kitsu API returns string, not number
-            id: parseInt(a.id),
+            kitsu_id: parseInt(a.id),
             // en_jp means Romaji title
-            title_romaji: a.attributes.titles.en_jp ?? '',
-            image: a.attributes.posterImage.original ?? a.attributes.coverImage.original,
+            title_romaji: a.attributes.titles.en_jp ?? a.attributes.titles.en,
+            kitsu_image: a.attributes.posterImage.original ?? a.attributes.coverImage.original,
           };
         });
         return { data: dataArray };
