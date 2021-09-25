@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 import Link from 'next/link';
 import Logo from '@/components/atoms/Logo';
-import AlgoliaSearchBox from '~/components/molecules/forms/AlgoliaSearchBox';
+import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
 const Home: NextPage = () => {
   return (
     <Layout>
