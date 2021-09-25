@@ -12,8 +12,8 @@ const Layout: React.FC = ({ children }) => {
         <meta name="description" content="A next-generation anime/manga database" />
         <meta name="format-detection" content="telephone=no" />
       </Head>
-      <div className="flex flex-col">
-        {children}
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-grow">{children}</div>
         <Footer />
       </div>
       <Version />
