@@ -7,6 +7,13 @@ on:
       - master
     paths:
       - 'packages/web-next/**'
+  # It's ok to run on pull request because deploys with vercel action will be preview
+  pull_request:
+    branches:
+      - main
+      - master
+    paths:
+      - 'packages/web-next/**'
 
 jobs:
   lint-test-deploy:
