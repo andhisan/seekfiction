@@ -11,5 +11,7 @@ module.exports = {
     ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
     ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
     ALGOLIA_ANIME_INDEX: process.env.ALGOLIA_ANIME_INDEX,
+    FUNCTIONS: process.env.FUNCTIONS,
+    FUNCTIONS_AUTH: process.env.FUNCTIONS_AUTH,
   },
 };

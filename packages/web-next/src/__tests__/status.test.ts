@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // Somehow simply putting .env cannot set env WHY???
 // I still need to set env in shell
-const baseUri = process.env.NEXT_PUBLIC_FUNCTIONS;
-const token = process.env.NEXT_PUBLIC_FUNCTIONS_AUTH;
+const baseUri = process.env.FUNCTIONS;
+const token = process.env.FUNCTIONS_AUTH;
 
 describe('Check API status', () => {
   const path = '/status';
