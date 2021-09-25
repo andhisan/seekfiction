@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd ./packages/seekfiction-commons && npm --no-git-tag-version version patch
+cd ./packages/$1 && npm --no-git-tag-version version patch
