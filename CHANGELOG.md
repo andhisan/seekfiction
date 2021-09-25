@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-8](https://github.com/sasigume/seekfiction/compare/v0.0.5-7...v0.0.5-8) (2021-09-25)
+
+
+### Features
+
+* :sparkles: added types for api ([57a270e](https://github.com/sasigume/seekfiction/commit/57a270e86ac48c46ca6e9d3857e2273c4afc7c00))
+* **firebase:** :boom: api results now grouped by anime romaji title ([949aab5](https://github.com/sasigume/seekfiction/commit/949aab5805ba367e887c4ec6fb159c1ec4976fed))
+
+
+### Bug Fixes
+
+* **og:** :ambulance: fixed favicon not applied ([68c5cfc](https://github.com/sasigume/seekfiction/commit/68c5cfc2584257a96727bf593b6dbcc6eef7bc39))
+
 ### [0.0.5-7](https://github.com/sasigume/seekfiction/compare/v0.0.5-6...v0.0.5-7) (2021-09-24)
 
 ### [0.0.5-6](https://github.com/sasigume/seekfiction/compare/v0.0.5-5-skipfb...v0.0.5-6) (2021-09-24)
