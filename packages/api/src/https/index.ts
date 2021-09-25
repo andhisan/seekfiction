@@ -1,8 +1,9 @@
 import * as functions from 'firebase-functions';
 import withAuth from '../_helper/withAuth';
 
-// include functions under search directory
+// include functions in these directories
 export * as search from './search';
+export * as update from './update';
 
 /**
  * Return API Status
