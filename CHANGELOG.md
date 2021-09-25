@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/sasigume/seekfiction/compare/v0.0.5-12...v0.0.5) (2021-09-25)
+
+
+### Bug Fixes
+
+* **package:** :ambulance: added missing type export ([54005fe](https://github.com/sasigume/seekfiction/commit/54005fe201947141936b260d666684d646a7fb2a))
+
 ### [0.0.5-12](https://github.com/sasigume/seekfiction/compare/v0.0.5-11...v0.0.5-12) (2021-09-25)
 
 
