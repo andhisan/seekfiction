@@ -2,7 +2,7 @@
   "name": "@sasigume/seekfiction-commons",
   "description": "Declaration of common interfaces of seekfiction",
   "author": "sasigume",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/sasigume/seekfiction/issues"
   },
-  "homepage": "https://github.com/sasigume/seekfiction#readme"
+  "homepage": "https://github.com/sasigume/seekfiction#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
 }
