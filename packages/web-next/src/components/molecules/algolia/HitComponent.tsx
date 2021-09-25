@@ -7,12 +7,23 @@ interface Props {
   onClick: () => void;
 }
 
-const IdBox: React.FC<{ type: ApiType; id?: number | null; slug?: string | null }> = (props) => (
-  <a className="p-1 bg-gray-800 text-white rounded-lg font-mono text-lg" target="_blank" href={urlConverter(props.type, props.id, props.slug)} rel="noreferrer">
-    <b className="uppercase">{props.type}: </b>
-    <b>{props.id}</b>
-  </a>
-);
+const IdBox: React.FC<{ type: ApiType; id?: number | null; slug?: string | null }> = (props) => {
+  if (props.id) {
+    return (
+      <a
+        className="p-1 flex justify-between bg-gray-800 text-white rounded-lg font-mono text-lg"
+        target="_blank"
+        href={urlConverter(props.type, props.id, props.slug)}
+        rel="noreferrer"
+      >
+        <b className="uppercase">{props.type}: </b>
+        <b>{props.id}</b>
+      </a>
+    );
+  } else {
+    return <b className="p-1 bg-gray-300 text-white rounded-lg font-mono text-lg">{props.type}</b>;
+  }
+};
 
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (props) => (
   <a className="w-[130px] h-[200px] block absolute top-0 left-0 " target="_blank" href={urlConverter(props.type, props.id, props.slug)} rel="noreferrer">

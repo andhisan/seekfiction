@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Hit } from 'react-instantsearch-core';
-import { Hits, connectSearchBox, Pagination, PoweredBy } from 'react-instantsearch-dom';
+import { Hits, connectSearchBox, Pagination } from 'react-instantsearch-dom';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import HitComponent from './HitComponent';
 
@@ -8,6 +8,7 @@ interface Props {
   hit: Hit<AnimeOnAlgolia>;
 }
 
+// https://fwywd.com/tech/next-algolia
 const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
   const [isShow, setShow] = useState<boolean>(false);
 
@@ -23,11 +24,10 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
 
   if (!isShow) return null;
   return (
-    <>
+    <div>
       <Hits hitComponent={hitComponent} />
       <Pagination />
-      <PoweredBy />
-    </>
+    </div>
   );
 });
 
