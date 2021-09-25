@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,4 +12,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.ais-SearchBox-input {
+  @apply p-2 border-2 border-gray-300 border-b-2 rounded-xl text-xl;
+}
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+  @apply p-3 m-1 rounded-xl bg-blue-400 text-xl;
+}
+.ais-Pagination-list {
+  @apply my-4 flex gap-2 justify-center;
+}
+.ais-Pagination-link {
+  @apply p-3 inline-block rounded-xl bg-gray-200;
+}
+.ais-Pagination-link--selected {
+  @apply bg-gray-700 text-white font-bold;
 }
