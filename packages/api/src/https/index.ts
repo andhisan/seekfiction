@@ -3,6 +3,7 @@ import * as functions from 'firebase-functions';
 // include functions in these directories
 export * as search from './search';
 export * as update from './update';
+export * as get from './get';
 
 /**
  * Return API Status

@@ -30,6 +30,13 @@ interface AnimeForFirestore {
   nsfw?: boolean | null;
 }
 
+interface AnimeOnFirestore extends AnimeForFirestore {
+  lastUpdatedAt: {
+    _seconds: number;
+    _nanoseconds: number;
+  };
+}
+
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
 
 /**
@@ -62,4 +69,4 @@ export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
   return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
 };
 
-export type { ApiType, Anime, AnimeForFirestore, AnimeOnAlgolia, AnimeGroupedByTitle, SearchAllResult };
+export type { ApiType, Anime, AnimeForFirestore, AnimeOnFirestore, AnimeOnAlgolia, AnimeGroupedByTitle, SearchAllResult };
