@@ -14,4 +14,7 @@ module.exports = {
     FUNCTIONS: process.env.FUNCTIONS,
     FUNCTIONS_AUTH: process.env.FUNCTIONS_AUTH,
   },
+  images: {
+    domains: ['cdn.myanimelist.net', 's4.anilist.co', 'media.kitsu.io', 'simkl.in'],
+  },
 };
