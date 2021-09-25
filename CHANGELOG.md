@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-12](https://github.com/sasigume/seekfiction/compare/v0.0.5-11...v0.0.5-12) (2021-09-25)
+
+
+### Features
+
+* **components:** :lipstick: added css for forms ([63cad1a](https://github.com/sasigume/seekfiction/commit/63cad1a418eac2d926e92753ae436f5c4dd63409))
+* **components:** :sparkles: added mock result ([cc1aeb4](https://github.com/sasigume/seekfiction/commit/cc1aeb4da1f0993d8aed047c39ad85677aa0eec9))
+* **components:** :sparkles: added url converter and image ([7bed2ef](https://github.com/sasigume/seekfiction/commit/7bed2efe4280614109bc737c0e271d1fc0efac88))
+* **components:** :sparkles: added version display ([1c61710](https://github.com/sasigume/seekfiction/commit/1c617102b270249cd5d883f654daf183bcb95ebd))
+* **firebase:** :sparkles: api now tells you nsfw or not ([32130c3](https://github.com/sasigume/seekfiction/commit/32130c326a526082b8162850fb1791f4c0ce53ae))
+* **package:** :sparkles: added nsfw flag in type ([8bb9925](https://github.com/sasigume/seekfiction/commit/8bb992547922a60c87502f7d4bd2de6c61c7f575))
+* **pages:** :sparkles: added update database feature ([0bf8079](https://github.com/sasigume/seekfiction/commit/0bf80793d085819edcdad88ab0bdefa3c248d5cc))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fix allowing wrong search ([c6f7c67](https://github.com/sasigume/seekfiction/commit/c6f7c6725d6c170d7edc97b194cd0f6003d56222))
+* **components:** :lipstick: fixed layout ([4c435ec](https://github.com/sasigume/seekfiction/commit/4c435ec911c276b5b4ecd7eff5cb40e8b1fe16ad))
+* **components:** :lipstick: fixed layout ([fde9231](https://github.com/sasigume/seekfiction/commit/fde9231223022f02e115bff333d193b5bc1596a7))
+* **package:** :ambulance: fix tsconfig for client to deploy ([164f226](https://github.com/sasigume/seekfiction/commit/164f2260a9f5addb0234f3df6e105d7b27533d6d))
+
 ### [0.0.5-11](https://github.com/sasigume/seekfiction/compare/v0.0.5-10...v0.0.5-11) (2021-09-25)
 
 
