@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5-10](https://github.com/sasigume/seekfiction/compare/v0.0.5-9...v0.0.5-10) (2021-09-25)
+
+
+### Features
+
+* :heavy_plus_sign: add algolia client packages ([43b8481](https://github.com/sasigume/seekfiction/commit/43b8481c48bb77aead4e8536ff5f210077ef19d7))
+* :sparkles: add algolia client and test ([4f4d916](https://github.com/sasigume/seekfiction/commit/4f4d9164ab2721a68ac1d00a33446a5dbe450010))
+* **components:** :sparkles: added algolia logo component ([6510593](https://github.com/sasigume/seekfiction/commit/651059368ac46c5d70a7867813b700b16953afa1))
+* **firebase:** :sparkles: added firestore update function ([0c2fc4f](https://github.com/sasigume/seekfiction/commit/0c2fc4f43444cfafab114c170a799192b323d315))
+* **firebase:** :sparkles: added null converter and simkl image converter ([b438a5f](https://github.com/sasigume/seekfiction/commit/b438a5fd094613def473599cc76f3a8094e0dbf5))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed wrong api key env and now switch index depends on env ([2851161](https://github.com/sasigume/seekfiction/commit/2851161b5fd455bdd8554843534174c50247f41e))
+* **firebase:** :ambulance: added missing type of anime for firebase ([af71960](https://github.com/sasigume/seekfiction/commit/af719605c2de213eb0bfa63addb797c351014903))
+* **firebase:** :ambulance: fix mal/anilist image too small for algolia preview ([ea484d5](https://github.com/sasigume/seekfiction/commit/ea484d5b4536c008ba7023497c108b369064851a))
+* **firebase:** :ambulance: fix unsafe firestore rule ([4a0a5e0](https://github.com/sasigume/seekfiction/commit/4a0a5e0199e3068edcc81a9866bcfeaaad0a9908))
+* **firebase:** :ambulance: fix wrong type of search result ([aebbc42](https://github.com/sasigume/seekfiction/commit/aebbc426892bd96e50f1252580c5ad3b9ab91ade))
+* **firebase:** :ambulance: fixed algolia index depends on environment ([8104e70](https://github.com/sasigume/seekfiction/commit/8104e701cbc047feb714f9dae3a553020086f050))
+* **firebase:** :ambulance: fixed simkl image url ([d16641c](https://github.com/sasigume/seekfiction/commit/d16641c978dae546b4fd8b13ca39bff93f860b5d))
+* **firebase:** :ambulance: fixed sync script removing .gitkeep ([c54e1fe](https://github.com/sasigume/seekfiction/commit/c54e1fed8686f126d74520ddebe0306688ee1a3f))
+* **github:** :green_heart: fix client env not set on other branch ([cf216a5](https://github.com/sasigume/seekfiction/commit/cf216a5ee8975691312dc39c96569e218c1fc431))
+
 ### [0.0.5-9](https://github.com/sasigume/seekfiction/compare/v0.0.5-8...v0.0.5-9) (2021-09-25)
 
 
