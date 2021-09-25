@@ -1,4 +1,4 @@
-name: push to bitbucket
+name: Push to bitbucket
 on:
   push:
     branches:
