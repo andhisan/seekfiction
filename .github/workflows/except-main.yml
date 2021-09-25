@@ -1,4 +1,4 @@
-name: Lint and deploy preview client except main
+name: Lint, test and deploy preview client except main
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  lint:
+  lint-and-preview-deploy:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -19,26 +19,16 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@v2.4.0
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
           check-latest: true
-
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.6
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          registry-url: 'https://registry.npmjs.org'
+          # now can cache https://github.com/actions/setup-node/releases/tag/v2.4.0
+          cache: yarn
 
       - name: Install dependencies 👨🏻‍💻
         run: yarn
@@ -50,13 +40,8 @@ jobs:
         if: success()
         run: yarn next:lint
 
-      - name: Run client tests including functions test 🧪
-        # Set env otherwise API test will fail
-        run: ${{ secrets.VERCEL_ENV_VARIABLES }} yarn next:test
-
-      - name: Client tests failed? 🤔
-        if: failure()
-        run: echo ::warning::Please set FUNCTIONS and FUNCTIONS_AUTH in repository secrets for creating .env file
+      - name: Run client tests 🧪
+        run: yarn next:test
 
       - name: Deploy to Vercel (Preview) 🌟
         uses: amondnet/vercel-action@v20
