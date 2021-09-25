@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as functions from 'firebase-functions';
 import { AdminConfig } from '../../../models/AdminConfig';
 import { Search } from '../../../models/Simkl';
+import { convertSimklPosterUrl } from '../../convert';
 const adminConfig = functions.config() as AdminConfig;
 
 type SimklResult = {
@@ -30,7 +31,11 @@ const searchSimkl = async (searchString: string): Promise<SimklResult> => {
       if (json.length > 0) {
         functions.logger.info(`Searched Simkl API for ${searchString}`);
         const dataArray = json.map((a) => {
-          return { simkl_id: a.ids.simkl_id, title_romaji: a.title_romaji ?? '', simkl_image: a.poster ?? '' };
+          return {
+            simkl_id: a.ids.simkl_id,
+            title_romaji: a.title_romaji ?? '',
+            simkl_image: convertSimklPosterUrl(a.poster) ?? '',
+          };
         });
         // use only id
         return { data: dataArray };
