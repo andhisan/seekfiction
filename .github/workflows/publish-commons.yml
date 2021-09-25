@@ -33,7 +33,7 @@ jobs:
       - name: Remove read token from .npmrc
         # .npmrc has read token but it blocks publish
         # So remove the last line which contains read token
-        run: sed -i '' '$d' .npmrc
+        run: sed -i '$d' .npmrc
 
       - name: Publish package 🚀
         run: npm publish packages/seekfiction-commons
