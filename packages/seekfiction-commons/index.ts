@@ -14,6 +14,11 @@ interface AnimeOnAlgolia extends AnimeForFirestore {
   objectID: string;
 }
 
+/**
+ * Check if anime has image
+ * @param anime
+ * @returns
+ */
 export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
   return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
 };
