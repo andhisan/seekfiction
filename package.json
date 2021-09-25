@@ -58,8 +58,7 @@
     "./packages/{web-next,api}/**/*.{js,ts,tsx}": "eslint",
     "./packages/web-next/**/*.css": "stylelint",
     "./packages/seekfiction-commons/**/*": [
-      "yarn workspace @sasigume/seekfiction-commons npm --no-git-tag-version version patch",
-      "git add ."
+      "./bump_version.sh"
     ]
   }
 }
