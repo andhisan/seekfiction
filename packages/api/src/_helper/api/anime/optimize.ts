@@ -1,11 +1,13 @@
-import { Anime, AnimeGroupedByTitle } from '../../../models';
+import { Anime, AnimeGroupedByTitle } from '@sasigume/seekfiction-commons';
 // import * as functions from 'firebase-functions';
 
 export const groupAnimesByTitleRomaji = (animes: Anime[]): AnimeGroupedByTitle => {
   const result: AnimeGroupedByTitle = {};
   animes.map((anime) => {
     const key = anime.title_romaji;
-    result[key] = { ...result[key], ...anime };
+
+    // Add slug if it has
+    result[key] = { ...result[key], ...anime, slug: anime.slug };
   });
   return result;
 };

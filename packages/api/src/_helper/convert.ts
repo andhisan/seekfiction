@@ -1,4 +1,4 @@
-import { Anime, AnimeForFirestore } from '../models';
+import { Anime, AnimeForFirestore } from '@sasigume/seekfiction-commons';
 
 /**
  * Convert undefined property to null
@@ -9,6 +9,7 @@ export const covnertUndefinedToNull = (anime: Anime): AnimeForFirestore => {
   return {
     // IMPORTANT: undefined is not allowed
     title_romaji: anime.title_romaji ?? null,
+    slug: anime.slug ?? null,
     mal_id: anime.mal_id ?? null,
     aniList_id: anime.aniList_id ?? null,
     kitsu_id: anime.kitsu_id ?? null,

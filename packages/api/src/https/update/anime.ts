@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin';
 import withAuth from '../../_helper/withAuth';
 import { searchApiAnime } from '../../_helper/api/anime';
 import { ANIME_COLLECTION } from '../../_helper/config';
-import { Anime } from '../../models';
+import { Anime } from '@sasigume/seekfiction-commons';
 import { Buffer } from 'buffer';
 import { covnertUndefinedToNull } from '../../_helper/convert';
 

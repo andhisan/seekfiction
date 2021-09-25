@@ -4,7 +4,7 @@ import searchKitsu from './kitsu';
 import searchSimkl from './simkl';
 import * as admin from 'firebase-admin';
 import { groupAnimesByTitleRomaji } from './optimize';
-import { SearchAllResult } from '../../../models';
+import { SearchAllResult } from '@sasigume/seekfiction-commons';
 
 const firestore = admin.firestore;
 

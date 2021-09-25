@@ -2,7 +2,21 @@
  * All field except title are optional
  * Be careful when render images, they don't share size or format
  */
+
+interface Anime {
+  slug?: string;
+  mal_id?: number;
+  aniList_id?: number;
+  kitsu_id?: number;
+  simkl_id?: number;
+  title_romaji: string;
+  mal_image?: string;
+  aniList_image?: string;
+  kitsu_image?: string;
+  simkl_image?: string;
+}
 interface AnimeForFirestore {
+  slug?: string | null;
   mal_id?: number | null;
   aniList_id?: number | null;
   kitsu_id?: number | null;
@@ -14,12 +28,28 @@ interface AnimeForFirestore {
   simkl_image?: string | null;
 }
 
+type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
+
 /**
  * The objectID is only on Algolia index
  */
 interface AnimeOnAlgolia extends AnimeForFirestore {
   objectID: string;
 }
+
+interface AnimeGroupedByTitle {
+  [key: string]: Anime;
+}
+
+type ErrorMessageObject = { message: string };
+
+type SearchResultSucess = {
+  searchString: string;
+  createdAt: any;
+  data: AnimeGroupedByTitle;
+  message?: string;
+};
+type SearchAllResult = SearchResultSucess | ErrorMessageObject;
 
 /**
  * Check if anime has image
@@ -30,4 +60,4 @@ export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
   return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
 };
 
-export { AnimeForFirestore, AnimeOnAlgolia };
+export { ApiType, Anime, AnimeForFirestore, AnimeOnAlgolia, AnimeGroupedByTitle, SearchAllResult };
