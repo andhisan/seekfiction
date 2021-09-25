@@ -6,7 +6,7 @@ import { ANIME_COLLECTION } from '../../_helper/config';
 import { Anime } from '@sasigume/seekfiction-commons';
 import { Buffer } from 'buffer';
 import { covnertUndefinedToNull } from '../../_helper/convert';
-
+import { encode } from 'url-safe-base64';
 const collection = admin.firestore().collection(ANIME_COLLECTION);
 /**
  * Update anime from all API by string
@@ -29,11 +29,12 @@ const updateAnime = functions.region('us-central1').https.onRequest(async (reque
           // Create or update firestore document by title
           animeRomajiTitles.map((title) => {
             const encoded = Buffer.from(title).toString('base64');
+            const encodedURLsafe = encode(encoded);
             const animeData = result.data[title] as Anime;
 
             // Set each document
             // Key is encoded romaji title
-            collection.doc(encoded).set(
+            collection.doc(encodedURLsafe).set(
               {
                 lastUpdatedAt: admin.firestore.Timestamp.fromDate(new Date()),
                 // undefined is not allowed by default in Firestore
