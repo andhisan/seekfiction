@@ -7,3 +7,7 @@ This directory contains Cloud Functions for Firebase files.
 `exported_for_local_development` stores downloaded firestore data.
 
 Run `yarn api:firestore:sync` from root to download files.
+
+## About config
+
+Before deploying on GitHub Actions, you **have to set functions config as repository secrets!**
