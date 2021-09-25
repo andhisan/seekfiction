@@ -4,14 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
-    paths:
-      - 'packages/web-next/**'
-  # It's ok to run on pull request because deploys with vercel action will be preview
-  pull_request:
-    branches:
-      - main
-      - master
     paths:
       - 'packages/web-next/**'
 
@@ -62,11 +54,13 @@ jobs:
         if: failure()
         run: echo ::warning::Please set FUNCTIONS and FUNCTIONS_AUTH in repository secrets for creating .env file
 
-      - name: Deploy to Vercel 🚀
+      - name: Deploy to Vercel (Production) 🚀
         # We won't deploy client unless functions are successfully deployed
         if: success()
         uses: amondnet/vercel-action@v20
         with:
+          # This will be production deployment because --prod is set
+          vercel-args: '--prod'
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
           vercel-project-id: 'seekfiction' #Required
