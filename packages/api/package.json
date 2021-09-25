@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts",
-    "build": "npm run lint && tsc",
+    "npmrc": "echo -e \"@sasigume:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=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\" >> .npmrc",
+    "build": "npm run npmrc && npm run lint && tsc",
     "dev": "npm run build && firebase emulators:start --import ./exported_for_local_development",
     "serve": "export GOOGLE_APPLICATION_CREDENTIALS=\".serviceAccountKey.json\" && npm run dev",
     "shell": "npm run build && firebase functions:shell",
