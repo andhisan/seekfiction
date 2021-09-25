@@ -42,6 +42,9 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: yarn
 
+      - name: Show .npmrc file (DEBUG)
+        run: cat .npmrc
+
       # Somehow we still need to set function config via GitHub secret
       # Detail: https://github.com/w9jds/firebase-action/issues/86
       - name: Set configs for Firebase ✅
