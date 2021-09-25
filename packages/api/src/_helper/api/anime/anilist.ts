@@ -69,7 +69,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
     })
     .catch((e) => {
       functions.logger.error(e);
-      return { data: [], message: e };
+      return { data: [], message: JSON.stringify(e) };
     });
 };
 

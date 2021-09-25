@@ -43,7 +43,7 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
     })
     .catch((e) => {
       functions.logger.error(e);
-      return { data: [], message: e };
+      return { data: [], message: JSON.stringify(e) };
     });
 };
 

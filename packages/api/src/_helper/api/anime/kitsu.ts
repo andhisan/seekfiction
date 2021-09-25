@@ -45,7 +45,7 @@ const searchKitsu = async (searchString: string): Promise<KitsuResult> => {
     })
     .catch((e) => {
       functions.logger.error(e);
-      return { data: [], message: e };
+      return { data: [], message: JSON.stringify(e) };
     });
 };
 
