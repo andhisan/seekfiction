@@ -14,6 +14,7 @@ interface Anime {
   aniList_image?: string;
   kitsu_image?: string;
   simkl_image?: string;
+  nsfw?: boolean;
 }
 interface AnimeForFirestore {
   slug?: string | null;
@@ -26,6 +27,7 @@ interface AnimeForFirestore {
   aniList_image?: string | null;
   kitsu_image?: string | null;
   simkl_image?: string | null;
+  nsfw?: boolean | null;
 }
 
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
