@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as functions from 'firebase-functions';
-import { AdminConfig } from '../../models/AdminConfig';
-import { Search } from '../../models/Simkl';
+import { AdminConfig } from '../../../models/AdminConfig';
+import { Search } from '../../../models/Simkl';
 const adminConfig = functions.config() as AdminConfig;
 
 type SimklResult = {

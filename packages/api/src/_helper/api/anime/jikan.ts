@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as functions from 'firebase-functions';
-import { Search } from '../../models/Jikan';
+import { Search } from '../../../models/Jikan';
 
 type JikanResult = {
   data: { mal_id: number; title_romaji: string; mal_image: string }[];
