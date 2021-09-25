@@ -2,6 +2,10 @@
 
 This directory contains Cloud Functions for Firebase files.
 
+## Dependencies
+
+<https://www.npmjs.com/package/@sasigume/seekfiction-commons>
+
 ## About exported_for_local_development
 
 `exported_for_local_development` stores downloaded firestore data.
