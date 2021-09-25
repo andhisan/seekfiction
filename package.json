@@ -56,7 +56,6 @@
   },
   "lint-staged": {
     "./packages/{web-next,api}/**/*.{js,ts,tsx}": "eslint",
-    "./packages/web-next/**/*.css": "stylelint",
     "./packages/web-next/**/*": [
       "./bump_version.sh web-next"
     ],
