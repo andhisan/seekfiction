@@ -27,7 +27,11 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
         functions.logger.info(`Searched Jikan API for ${searchString}`);
         const dataArray = json.data.map((a) => {
           // Jikan returns romaji title as default since it's MAL
-          return { mal_id: a.mal_id, title_romaji: a.title ?? '', mal_image: a.images.jpg.image_url ?? '' };
+          return {
+            mal_id: a.mal_id,
+            title_romaji: a.title ?? '',
+            mal_image: a.images.jpg.large_image_url ?? a.images.jpg.image_url,
+          };
         });
         return { data: dataArray };
       } else {

@@ -1,7 +1,7 @@
 interface AnimeAniList {
   id: number;
   title: { romaji: string };
-  coverImage: { large: string };
+  coverImage: { extraLarge: string };
 }
 
 export interface AniListGraphQLResult {

@@ -26,7 +26,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
           romaji
         }
         coverImage {
-          large
+          extraLarge
         }
       }
     }
@@ -55,7 +55,7 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
             // Return romaji title
             title_romaji: a.title.romaji ?? '',
             // AniList API's 'large' seems to be actually 'medium' size
-            aniList_image: a.coverImage.large ?? '',
+            aniList_image: a.coverImage.extraLarge ?? '',
           };
         });
         return { data: dataArray };
