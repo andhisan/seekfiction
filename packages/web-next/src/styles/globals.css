@@ -14,16 +14,31 @@ a {
   box-sizing: border-box;
 }
 
+.ais-SearchBox-form,
+.ais-SearchBox-form input {
+  @apply w-full;
+}
+
 .ais-SearchBox-input {
   @apply p-2 border-2 border-gray-300 border-b-2 rounded-xl text-xl;
 }
 .ais-SearchBox-submit,
 .ais-SearchBox-reset {
-  @apply p-3 m-1 rounded-xl bg-blue-400 text-xl;
+  display: none;
+}
+.ais-Hits-list {
+  @apply flex flex-col gap-3;
 }
 .ais-Pagination-list {
   @apply my-4 flex gap-2 justify-center;
 }
+
+/* Highlighted text */
+.ais-Highlight-highlighted {
+  @apply font-bold not-italic;
+}
+
+/* Pagination */
 .ais-Pagination-link {
   @apply p-3 inline-block rounded-xl bg-gray-200;
 }

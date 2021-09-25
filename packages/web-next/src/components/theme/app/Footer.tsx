@@ -14,7 +14,10 @@ const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer className="border-t-8 border-primary text-white bg-gray-800 flex flex-col justify-center gap-6 flex-grow relative z-10" aria-label="footerHeading">
+    <footer
+      className="border-t-8 border-primary text-white bg-gray-800 flex flex-col justify-center gap-6 flex-grow relative py-8 z-10"
+      aria-label="footerHeading"
+    >
       <ul className="mx-auto flex items-center space-x-4 xl:space-x-5">
         {socials.map((social, n) => {
           return (
