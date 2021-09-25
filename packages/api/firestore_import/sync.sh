@@ -9,7 +9,7 @@ STORAGE='gs://seek-fiction.appspot.com'
 
 # Remove previous bucket if exists
 delete_previous_version_if_exists() {
-  rm -r ./exported_for_local_development &&
+  rm -r ./exported_for_local_development/* ! .gitkeep &&
   gsutil -m rm -r ${STORAGE}/exported_for_local_development ||
   gsutil -m rm -r ${STORAGE}/exported_for_local_development
 }
