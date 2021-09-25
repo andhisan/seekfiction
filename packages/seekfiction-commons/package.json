@@ -1,5 +1,6 @@
 {
   "name": "@sasigume/seekfiction-commons",
+  "description": "Declaration of common interfaces of seekfiction",
   "author": "sasigume",
   "version": "0.0.1",
   "main": "dist/index.js",
