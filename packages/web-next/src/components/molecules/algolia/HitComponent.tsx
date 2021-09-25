@@ -9,30 +9,25 @@ interface Props {
 }
 
 const IdBox: React.FC<{ type: ApiType; id?: number | null; slug?: string | null }> = (props) => {
-  if (props.type == 'kitsu' && !props.slug) {
-    return <div className="flex"></div>;
-  }
-  if (props.id) {
+  const url = urlConverter(props.type, props.id, props.slug);
+  if ((props.id && props.type !== 'kitsu') || (props.slug && props.type == 'kitsu')) {
     return (
-      <a
-        className="p-1 flex justify-between bg-gray-800 text-white rounded-lg font-mono text-lg"
-        target="_blank"
-        href={urlConverter(props.type, props.id, props.slug)}
-        rel="noreferrer"
-      >
-        <b className="uppercase">{props.type}: </b>
+      <a className="p-1 flex justify-between bg-gray-800 text-white rounded-lg font-mono" target="_blank" href={url} rel="noreferrer">
+        <b className="uppercase">{props.type.replace('aniList', 'al')}: </b>
         <b>{props.id}</b>
       </a>
     );
   } else {
-    return <b className="p-1 bg-gray-300 text-white rounded-lg font-mono text-lg">{props.type}</b>;
+    return <b className="p-1 uppercase bg-gray-300 text-white rounded-lg font-mono">{props.type.replace('aniList', 'al')}</b>;
   }
 };
 
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (props) => (
-  <a className="w-[130px] h-[200px] block absolute top-0 left-0 " target="_blank" href={urlConverter(props.type, props.id, props.slug)} rel="noreferrer">
-    <div className="p-3 flex flex-col gap-3">{props.src && <Image alt={`ID:${props.id}の画像`} src={props.src} width="130px" height="200px" />}</div>
-  </a>
+  <div className="block absolute top-0 left-0">
+    <div className="w-[130px] h-[200px] p-3 flex flex-col gap-3">
+      {props.src && <Image alt={`ID:${props.id}の画像`} src={props.src} width="130px" height="200px" />}
+    </div>
+  </div>
 );
 
 export default function HitComponent(props: Props) {
@@ -53,7 +48,7 @@ export default function HitComponent(props: Props) {
       <div className="grid gap-1 grid-cols-2 grid-rows-2">
         <IdBox type="mal" id={props.hit.mal_id} />
         <IdBox type="aniList" id={props.hit.aniList_id} />
-        <IdBox type="kitsu" id={props.hit.kitsu_id} />
+        <IdBox type="kitsu" id={props.hit.kitsu_id} slug={props.hit.slug} />
         <IdBox type="simkl" id={props.hit.simkl_id} />
       </div>
     </div>
