@@ -26,3 +26,5 @@ Before deploying on GitHub Actions, you **have to set functions config as reposi
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 ```
+
+**For local, use `functions:config:get`
