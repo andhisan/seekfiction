@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as functions from 'firebase-functions';
-import { AniListGraphQLResult } from '../../models/AniList';
+import { AniListGraphQLResult } from '../../../models/AniList';
 
 type AniListResult = {
   data: { aniList_id: number; title_romaji: string; aniList_image: string }[];

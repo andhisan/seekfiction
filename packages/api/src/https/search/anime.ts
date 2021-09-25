@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
-import withAuth from '../../lib/withAuth';
-import { searchAllApi } from '../../lib/search-all-api';
+import withAuth from '../../_helper/withAuth';
+import { searchApiAnime } from '../../_helper/api/anime';
 
 /**
  * Search anime from all API by string
@@ -9,12 +9,12 @@ import { searchAllApi } from '../../lib/search-all-api';
  * @param {functions.https.Response} response
  * @return {void}
  */
-const searchAll = functions.region('us-central1').https.onRequest(async (request, response: any) => {
+const searchAnime = functions.region('us-central1').https.onRequest(async (request, response: any) => {
   return withAuth(request, response, async () => {
     const searchString = request.query.q;
     if (typeof searchString === 'string') {
       try {
-        const data = await searchAllApi(searchString);
+        const data = await searchApiAnime(searchString);
         return response.status(200).json(data);
       } catch (e) {
         functions.logger.error(e);
@@ -30,4 +30,4 @@ const searchAll = functions.region('us-central1').https.onRequest(async (request
   });
 });
 
-export default searchAll;
+export default searchAnime;

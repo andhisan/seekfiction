@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as functions from 'firebase-functions';
-import { Search } from '../../models/Kitsu';
+import { Search } from '../../../models/Kitsu';
 
 type KitsuResult = {
   data: { kitsu_id: number; title_romaji: string; kitsu_image: string }[];

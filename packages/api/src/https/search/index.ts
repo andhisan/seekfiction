@@ -1,1 +1,1 @@
-export { default as all } from './all';
+export { default as anime } from './anime';

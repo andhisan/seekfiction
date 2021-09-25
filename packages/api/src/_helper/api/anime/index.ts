@@ -3,8 +3,8 @@ import searchJikan from './jikan';
 import searchKitsu from './kitsu';
 import searchSimkl from './simkl';
 import * as admin from 'firebase-admin';
-import { groupAnimesByTitleRomaji } from '../helper/optimize';
-import { SearchAllResult } from '../../models';
+import { groupAnimesByTitleRomaji } from './optimize';
+import { SearchAllResult } from '../../../models';
 
 const firestore = admin.firestore;
 
@@ -13,7 +13,7 @@ const firestore = admin.firestore;
  * @param {string} searchString Anime title to search
  * @return {void}
  */
-export const searchAllApi = async (searchString: string): Promise<SearchAllResult> => {
+export const searchApiAnime = async (searchString: string): Promise<SearchAllResult> => {
   try {
     const createdAt = firestore.Timestamp.fromDate(new Date());
     const jikanResult = await searchJikan(searchString);
