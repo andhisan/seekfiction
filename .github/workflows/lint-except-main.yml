@@ -1,0 +1,65 @@
+name: Lint and deploy preview client except main
+
+on:
+  push:
+    branches:
+      - '!main'
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+
+      - name: Get yarn cache directory path 🛠
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node_modules 📦
+        uses: actions/cache@v2.1.6
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn
+
+      - name: Run functions linter 👀
+        run: yarn api:lint
+
+      - name: Run client linter 👀
+        if: success()
+        run: yarn next:lint
+
+      - name: Run client tests including functions test 🧪
+        # Set env otherwise API test will fail
+        run: NEXT_PUBLIC_FUNCTIONS=${{ secrets.NEXT_PUBLIC_FUNCTIONS }} NEXT_PUBLIC_FUNCTIONS_AUTH=${{ secrets.NEXT_PUBLIC_FUNCTIONS_AUTH }} yarn next:test
+
+      - name: Client tests failed? 🤔
+        if: failure()
+        run: echo ::warning::Please set FUNCTIONS and FUNCTIONS_AUTH in repository secrets for creating .env file
+
+      - name: Deploy to Vercel (Preview) 🌟
+        uses: amondnet/vercel-action@v20
+        with:
+          # This will be preview deployment because --prod is not set
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
+          vercel-project-id: 'seekfiction' #Required
