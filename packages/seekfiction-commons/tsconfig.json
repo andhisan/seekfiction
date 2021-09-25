@@ -10,5 +10,6 @@
     "target": "es2018",
     "esModuleInterop": true
   },
-  "compileOnSave": true
+  "compileOnSave": true,
+  "exclude": ["node_modules", "dist"]
 }
