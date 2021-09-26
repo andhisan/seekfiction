@@ -1,4 +1,4 @@
-import { urlConverter } from '~/lib/api';
+import { urlConverter } from '@/lib/api';
 import { ApiType } from '@sasigume/seekfiction-commons';
 
 /**

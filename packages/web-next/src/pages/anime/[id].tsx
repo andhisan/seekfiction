@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 import ErrorPage from 'next/error';
-import IdBox from '~/components/atoms/IdBox';
+import IdBox from '@/components/atoms/IdBox';
 import Image from 'next/image';
 
 import { ApiType } from '@sasigume/seekfiction-commons';
@@ -12,8 +12,8 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firestore';
 import { decode } from 'url-safe-base64';
 
-import PreBox from '~/components/atoms/PreBox';
-import CloseTab from '~/components/atoms/CloseTab';
+import PreBox from '@/components/atoms/PreBox';
+import CloseTab from '@/components/atoms/CloseTab';
 
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (props) => (
   <>{props.src && <Image alt={`${props.type} image of ID:${props.id}`} src={props.src} width="300px" height="460px" />}</>

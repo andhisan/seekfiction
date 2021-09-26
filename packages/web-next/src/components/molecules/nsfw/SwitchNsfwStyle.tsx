@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNsfw } from '~/lib/nsfw-hook';
+import { useNsfw } from '@/lib/nsfw-hook';
 
 const SwitchNsfwStyle: React.FC = () => {
   const { nsfw, setNsfw } = useNsfw();

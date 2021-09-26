@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Version from '@/components/atoms/Version';
 import Footer from './Footer';
-import SwitchNsfwStyle from '~/components/molecules/nsfw/SwitchNsfwStyle';
-import { useNsfw } from '~/lib/nsfw-hook';
+import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
+import { useNsfw } from '@/lib/nsfw-hook';
 
 const Layout: React.FC = ({ children }) => {
   const { nsfw } = useNsfw();
