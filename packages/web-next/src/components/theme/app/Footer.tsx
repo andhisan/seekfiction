@@ -1,5 +1,6 @@
 import IconGitHub from '@/components/atoms/icons/IconGitHub';
 import IconTwitter from '@/components/atoms/icons/IconTwitter';
+import Version from '@/components/atoms/Version';
 const Footer: React.FC = () => {
   const socials = [
     {
@@ -30,6 +31,7 @@ const Footer: React.FC = () => {
           );
         })}
       </ul>
+      <Version />
     </>
   );
 };

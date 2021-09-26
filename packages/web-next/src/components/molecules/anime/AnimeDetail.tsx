@@ -73,6 +73,7 @@ const AnimeDetail: React.FC<Props> = (props) => {
             <div>
               <h2 className="text-3xl font-bold">{data.anime.title_romaji}</h2>
             </div>
+            <p>NSFW image is hidden by default.</p>
             <div style={{ background: data.anime.nsfw ? '#ffaaaa' : '' }} className={`flex gap-6 flex-col ${data.anime.nsfw ? 'nsfw' : ''}`}>
               <div>
                 <ImgBox type="mal" id={data.anime.mal_id} src={data.anime.mal_image} />
