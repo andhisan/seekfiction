@@ -1,5 +1,3 @@
-import FirebaseFirestore from '@google-cloud/firestore';
-
 /**
  * All field except title are optional
  * Be careful when render images, they don't share size or format
@@ -49,7 +47,10 @@ interface AnimeOnFirestore extends AnimeFirestoreBase {
  * Use if get data through Client SDK
  */
 interface AnimeRetrievedFromFirestoreClient extends AnimeFirestoreBase {
-  lastUpdatedAt: FirebaseFirestore.Timestamp;
+  lastUpdatedAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
 }
 
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
