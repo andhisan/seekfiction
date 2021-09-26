@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-3](https://github.com/sasigume/seekfiction/compare/v0.0.6-2...v0.0.6-3) (2021-09-26)
+
+
+### Bug Fixes
+
+* **components:** :sparkles: fixed nsfw and now show results fullscreen ([42e096c](https://github.com/sasigume/seekfiction/commit/42e096c4c158830643278e9db717876248fe351c))
+
 ### [0.0.6-2](https://github.com/sasigume/seekfiction/compare/v0.0.6-1...v0.0.6-2) (2021-09-26)
 
 
