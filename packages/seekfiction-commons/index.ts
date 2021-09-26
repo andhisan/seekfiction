@@ -1,9 +1,8 @@
-import FirebaseFirestore from '@google-cloud/firestore';
-
 /**
  * All field except title are optional
  * Be careful when render images, they don't share size or format
  */
+
 interface Anime {
   slug?: string;
   mal_id?: number;
@@ -29,7 +28,12 @@ interface AnimeOnFirestore {
   kitsu_image?: string | null;
   simkl_image?: string | null;
   nsfw?: boolean | null;
-  lastUpdatedAt: FirebaseFirestore.Timestamp;
+  // MUST NOT USE FIRESTORE TIMESTAMP TYPE
+  // BECAUSE IT IS NOT WITH UNDERSCORE
+  lastUpdatedAt: {
+    _seconds: number;
+    _nanoseconds: number;
+  };
   apiVersion?: string;
 }
 
