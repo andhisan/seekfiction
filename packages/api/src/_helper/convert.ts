@@ -1,12 +1,15 @@
-import { Anime, AnimeForFirestore } from '@sasigume/seekfiction-commons';
-
+import { Anime, AnimeOnFirestore } from '@sasigume/seekfiction-commons';
+import * as admin from 'firebase-admin';
+import { getVersion } from './version';
 /**
  * Convert undefined property to null
  * @param {Anime} anime Anime data includes undefined value
  * @return {AnimeForFirestore}
  */
-export const covnertUndefinedToNull = (anime: Anime): AnimeForFirestore => {
+export const covnertUndefinedToNull = (anime: Anime): AnimeOnFirestore => {
   return {
+    lastUpdatedAt: admin.firestore.Timestamp.fromDate(new Date()),
+    apiVersion: getVersion(),
     // IMPORTANT: undefined is not allowed
     title_romaji: anime.title_romaji ?? null,
     slug: anime.slug ?? null,
