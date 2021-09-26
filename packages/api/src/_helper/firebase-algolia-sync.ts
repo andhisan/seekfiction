@@ -10,7 +10,7 @@ const removeObject = (index: SearchIndex, key: string) => {
   // then it deletes the document
   return index.deleteObject(key, (err: Error) => {
     if (err) throw err;
-    console.log('Key Removed from Algolia Index', key);
+    functions.logger.info(`Key Removed from Algolia Index ${index.indexName} ${key}`);
   });
 };
 // Takes an the Algolia index and data to be added or updated to
@@ -18,7 +18,7 @@ const upsertObject = (index: SearchIndex, data: any) => {
   // then it adds or updates it
   return index.saveObject(data, (err: Error) => {
     if (err) throw err;
-    console.log(`Document ${data.objectID} Updated in Algolia Index `);
+    functions.logger.info(`Document ${data.objectID} Updated in Algolia Index ${index.indexName}`);
   });
 };
 
