@@ -77,7 +77,10 @@ const AnimePage: NextPage<Props> = (props) => {
         <div>
           <h2 className="text-3xl font-bold">{props.anime.title_romaji}</h2>
         </div>
-        <div style={{ background: props.anime.nsfw ? '#ffaaaa' : '' }} className="flex gap-6 flex-col md:flex-row">
+        <div
+          style={{ background: props.anime.nsfw ? '#ffaaaa' : '' }}
+          className={`flex gap-6 flex-col md:flex-row ${props.anime.nsfw ? 'filter blur-lg hover:filter-none' : ''}`}
+        >
           <div>
             <ImgBox type="mal" id={props.anime.mal_id} src={props.anime.mal_image} />
             <IdBox type="mal" id={props.anime.mal_id} />
