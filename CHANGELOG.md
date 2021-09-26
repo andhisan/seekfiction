@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-5](https://github.com/sasigume/seekfiction/compare/v0.0.6-4...v0.0.6-5) (2021-09-26)
+
+
+### Bug Fixes
+
+* **package:** :ambulance: fixed wrong type of timestamp ([9867f52](https://github.com/sasigume/seekfiction/commit/9867f527931f9ddf643ec482d0795dc3750ae0d1))
+
 ### [0.0.6-4](https://github.com/sasigume/seekfiction/compare/v0.0.6-3...v0.0.6-4) (2021-09-26)
 
 
