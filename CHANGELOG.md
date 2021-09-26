@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7-1](https://github.com/sasigume/seekfiction/compare/v0.0.7-0...v0.0.7-1) (2021-09-26)
+
+
+### Bug Fixes
+
+* **og:** :ambulance: fixed typo ([37ff7b5](https://github.com/sasigume/seekfiction/commit/37ff7b57f5ccf52dbe11b75d51bc8458e16d00f3))
+
 ### [0.0.7-0](https://github.com/sasigume/seekfiction/compare/v0.0.6...v0.0.7-0) (2021-09-26)
 
 
