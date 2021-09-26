@@ -24,7 +24,7 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
 
   if (!isShow) return null;
   return (
-    <div>
+    <div className="w-screen h-screen bg-light-50">
       <Hits hitComponent={hitComponent} />
       <Pagination />
     </div>

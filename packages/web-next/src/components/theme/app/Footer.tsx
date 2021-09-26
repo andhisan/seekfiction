@@ -1,5 +1,6 @@
 import IconGitHub from '@/components/atoms/icons/IconGitHub';
 import IconTwitter from '@/components/atoms/icons/IconTwitter';
+import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
 const Footer: React.FC = () => {
   const socials = [
     {
@@ -14,12 +15,9 @@ const Footer: React.FC = () => {
     },
   ];
   return (
-    <footer
-      className="text-center border-t-8 border-primary text-white bg-gray-800 flex flex-col justify-center gap-6 flex-grow relative py-8 z-10"
-      aria-label="footerHeading"
-    >
-      <div>NSFW image is hidden by default. You can change the setting by using the button above.</div>
-
+    <>
+      <div>NSFW image is hidden by default. You can change the setting by using the button below.</div>
+      <SwitchNsfwStyle />
       <ul className="mx-auto flex items-center space-x-4 xl:space-x-5">
         {socials.map((social, n) => {
           return (
@@ -34,7 +32,7 @@ const Footer: React.FC = () => {
           );
         })}
       </ul>
-    </footer>
+    </>
   );
 };
 

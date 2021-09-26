@@ -1,11 +1,14 @@
-const CloseTab: React.FC = () => {
+import { useOpen } from '@/lib/open-hook';
+
+const Close: React.FC = () => {
+  const { setOpen } = useOpen();
   const handleClick = () => {
-    if (typeof window !== 'undefined') window.close();
+    setOpen(false);
   };
   return (
     <button onClick={handleClick} className="p-3 rounded-xl bg-red-500 text-white font-bold uppercase">
-      Close tab
+      Close
     </button>
   );
 };
-export default CloseTab;
+export default Close;
