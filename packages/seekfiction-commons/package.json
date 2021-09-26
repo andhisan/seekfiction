@@ -2,7 +2,7 @@
   "name": "@sasigume/seekfiction-commons",
   "description": "Declaration of common interfaces of seekfiction",
   "author": "sasigume",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
