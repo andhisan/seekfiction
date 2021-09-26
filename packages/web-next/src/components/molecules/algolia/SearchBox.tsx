@@ -1,18 +1,19 @@
 import SearchResult from './SearchResult';
-import { InstantSearch, SearchBox, Configure, PoweredBy } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 import { algolia } from '@/lib/algolia';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useLoading } from '@/lib/loading-hook';
 
 export default function AlgoliaSearchBox() {
   const router = useRouter();
   const [input, setInput] = useState('');
-  const [updating, setUpdating] = useState(false);
+  const { loading, setLoading } = useLoading();
   return (
     <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
-      <Configure hitsPerPage={8} />
+      <Configure hitsPerPage={12} />
 
-      {updating ? (
+      {loading ? (
         <b>Searching for {input}...</b>
       ) : (
         <div>
@@ -23,27 +24,24 @@ export default function AlgoliaSearchBox() {
               }}
               onSubmit={(e) => {
                 e.preventDefault();
-                setUpdating(true);
+                setLoading(true);
                 if (input.length > 0) {
                   router.push(`/update/?q=${input}`, '/update');
                 } else {
                   setInput('');
-                  setUpdating(false);
+                  setLoading(false);
                 }
               }}
             />
-
-            <SearchResult />
-
             {input.length > 0 && (
               <p>
                 Press enter to search more result for <b>{input}</b>
               </p>
             )}
+            <SearchResult />
           </div>
         </div>
       )}
-      <PoweredBy />
     </InstantSearch>
   );
 }

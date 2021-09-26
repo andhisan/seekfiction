@@ -2,6 +2,7 @@ import type { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage }
 import Layout from '@/components/theme/app/Layout';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useLoading } from '@/lib/loading-hook';
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
@@ -40,13 +41,19 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 
 const Update: NextPage<Props> = (props) => {
   const router = useRouter();
+
+  // Important: stop loading
+  const { setLoading } = useLoading();
+  setLoading(false);
   if (!props.q) {
+    // Back to home
     if (typeof window !== 'undefined') {
       console.error(props.message);
       router.push('/');
     }
     return null;
   }
+
   return (
     <Layout>
       <p>Thank you for using seekfiction!</p>

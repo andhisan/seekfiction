@@ -7,10 +7,11 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firestore';
 import { decode } from 'url-safe-base64';
 
+import { useOpen } from '@/lib/open-hook';
 import PreBox from '@/components/atoms/PreBox';
-import Close from '@/components/atoms/Close';
 import initApp from '@/lib/firebase';
 import useSWR from 'swr';
+import Close from '@/components/atoms/Close';
 
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (data) => (
   <>{data.src && <Image alt={`${data.type} image of ID:${data.id}`} src={data.src} width="300px" height="460px" />}</>
@@ -24,7 +25,7 @@ type Result = {
 };
 
 export const getAnime = async (id: string): Promise<Result> => {
-  let message = '';
+  let message = 'Loading...';
   const app = initApp();
   const db = getFirestore(app);
 
@@ -50,21 +51,29 @@ export const getAnime = async (id: string): Promise<Result> => {
 interface Props {
   id: string;
 }
+
 const AnimeDetail: React.FC<Props> = (props) => {
   const { data, error } = useSWR(props.id, (id) => getAnime(id));
-
+  const { setOpen } = useOpen();
+  const handleClose = () => {
+    setOpen(false);
+  };
   if (error) return <div>Error: {JSON.stringify(error)}</div>;
 
   return (
-    <div className="fixed z-30 top-16 left-0 w-screen bg-gray-800 h-screen flex justify-center">
-      <div className="max-w-[300px] md:max-w-sm lg:max-w-md bg-light-50 p-3 rounded-xl mx-auto">
+    <>
+      <div className="fixed top-3 z-50 bg-[#fff] p-3 pb-32 lg:max-w-lg rounded-xl shadow-xl m-4 h-screen overflow-y-scroll flex flex-col gap-6">
         <Close />
         {data && data.anime ? (
-          <div>
+          <>
+            <PreBox>
+              Last update:
+              {new Date(data.anime.lastUpdatedAt.seconds * 1000).toISOString()}
+            </PreBox>
             <div>
               <h2 className="text-3xl font-bold">{data.anime.title_romaji}</h2>
             </div>
-            <div style={{ background: data.anime.nsfw ? '#ffaaaa' : '' }} className={`flex gap-6 flex-col md:flex-row ${data.anime.nsfw ? 'nsfw' : ''}`}>
+            <div style={{ background: data.anime.nsfw ? '#ffaaaa' : '' }} className={`flex gap-6 flex-col ${data.anime.nsfw ? 'nsfw' : ''}`}>
               <div>
                 <ImgBox type="mal" id={data.anime.mal_id} src={data.anime.mal_image} />
                 <IdBox type="mal" id={data.anime.mal_id} />
@@ -82,20 +91,13 @@ const AnimeDetail: React.FC<Props> = (props) => {
                 <IdBox type="simkl" id={data.anime.simkl_id} />
               </div>
             </div>
-            <PreBox>
-              We encode anime romaji title {data.idDecoded} to {data.id}, and link data with same encoded title. If there is difference between romaji title,
-              different data will be generated.
-            </PreBox>
-            <PreBox>
-              Last update:
-              {new Date(data.anime.lastUpdatedAt.seconds * 1000).toISOString()}
-            </PreBox>
-          </div>
+          </>
         ) : (
-          <div>{data?.message ?? 'Unknown error'}</div>
+          <div>{data?.message}</div>
         )}
       </div>
-    </div>
+      <div onClick={handleClose} className="fixed z-20 bg-[rgba(0,0,0,0.5)] top-0 left-0 w-screen h-screen"></div>
+    </>
   );
 };
 

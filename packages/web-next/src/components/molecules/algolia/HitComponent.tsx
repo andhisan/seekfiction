@@ -23,11 +23,11 @@ export default function HitComponent(props: Props) {
           setOpen(!open);
         }}
         style={{ background: props.hit.nsfw ? '#ffaaaa' : '' }}
-        className="h-full bg-light-50 rounded-xl cursor-pointer relative w-[280px] p-3 flex align-center flex-col gap-3 shadow-xl"
+        className="h-full bg-light-50 rounded-xl cursor-pointer relative w-[280px] p-3 grid grid-cols-2 gap-3 shadow-xl"
         title={props.hit.title_romaji ?? ''}
       >
         {/* Set size to place things correctly */}
-        <div className="w-[140px] h-[200px]">
+        <div className="h-[200px]">
           {/* Left */}
           <div className={`relative p-3 ${props.hit.nsfw && 'nsfw'}`}>
             <ImgBox type="mal" id={props.hit.mal_id} src={props.hit.mal_image} />
