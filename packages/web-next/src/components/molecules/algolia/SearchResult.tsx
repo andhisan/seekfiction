@@ -24,8 +24,10 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
 
   if (!isShow) return null;
   return (
-    <div className="max-w-screen h-screen overflow-scroll pb-32">
-      <PoweredBy />
+    <div className="w-screen max-w-screen h-screen overflow-scroll pb-32">
+      <div className="inline-block">
+        <PoweredBy />
+      </div>
       <Pagination />
       <Hits hitComponent={hitComponent} />
     </div>

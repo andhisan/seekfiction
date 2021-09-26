@@ -16,30 +16,28 @@ export default function AlgoliaSearchBox() {
       {loading ? (
         <b>Searching for {input}...</b>
       ) : (
-        <div>
-          <div>
-            <SearchBox
-              onChange={(e) => {
-                setInput(e.currentTarget.value);
-              }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setLoading(true);
-                if (input.length > 0) {
-                  router.push(`/update/?q=${input}`, '/update');
-                } else {
-                  setInput('');
-                  setLoading(false);
-                }
-              }}
-            />
-            {input.length > 0 && (
-              <p>
-                Press enter to search more result for <b>{input}</b>
-              </p>
-            )}
-            <SearchResult />
-          </div>
+        <div className="w-full">
+          <SearchBox
+            onChange={(e) => {
+              setInput(e.currentTarget.value);
+            }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setLoading(true);
+              if (input.length > 0) {
+                router.push(`/update/?q=${input}`, '/update');
+              } else {
+                setInput('');
+                setLoading(false);
+              }
+            }}
+          />
+          {input.length > 0 && (
+            <p>
+              Press enter to search more result for <b>{input}</b>
+            </p>
+          )}
+          <SearchResult />
         </div>
       )}
     </InstantSearch>

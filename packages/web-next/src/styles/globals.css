@@ -14,6 +14,11 @@ a {
   box-sizing: border-box;
 }
 
+.ais-SearchBox-form,
+.ais-SearchBox-form input {
+  @apply w-full;
+}
+
 .ais-SearchBox-input {
   @apply p-2 border-2 border-gray-300 border-b-2 rounded-xl text-xl;
 }

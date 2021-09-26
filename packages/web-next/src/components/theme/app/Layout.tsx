@@ -12,7 +12,7 @@ const Layout: React.FC = ({ children }) => {
         <title>seekfiction</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="A next-generation anime search engine" />
+        <meta name="description" content="A next-generation anime/manga database" />
         <meta name="format-detection" content="telephone=no" />
       </Head>
       <div className="flex flex-col min-h-screen">
