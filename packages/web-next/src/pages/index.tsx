@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <Link passHref href="/">
           <Logo />
         </Link>
-        <p>A next-generation anime/manga database</p>
+        <p>A next-generation anime search engine</p>
       </div>
       <AlgoliaSearchBox />
     </Layout>
