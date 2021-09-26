@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-4](https://github.com/sasigume/seekfiction/compare/v0.0.6-3...v0.0.6-4) (2021-09-26)
+
+
+### Features
+
+* **firebase:** :children_crossing: improved logging of algolia sync ([f4f5317](https://github.com/sasigume/seekfiction/commit/f4f531718d1e2339cd4878dddff9eb1d4df8a22d))
+* **firebase:** :sparkles: added api version in document converter ([6a2ecfb](https://github.com/sasigume/seekfiction/commit/6a2ecfb6b974c392b574e03142cee6d7d61e5014))
+* **package:** :boom: commons type now include firebase type ([09ee2f9](https://github.com/sasigume/seekfiction/commit/09ee2f9c8eb5a22b0fcc12f2c0e896ec5c1577f2))
+
+
+### Bug Fixes
+
+* **firebase:** :loud_sound: fixed useless log when no anime found ([d363eb4](https://github.com/sasigume/seekfiction/commit/d363eb4dfc686816a5e41e124a2397070a04a5f4))
+* **package:** :ambulance: fixed wrong type ([d8dcc4f](https://github.com/sasigume/seekfiction/commit/d8dcc4ffcb4a30eb2c65313f7cad30fb7f8450e8))
+
 ### [0.0.6-3](https://github.com/sasigume/seekfiction/compare/v0.0.6-2...v0.0.6-3) (2021-09-26)
 
 
