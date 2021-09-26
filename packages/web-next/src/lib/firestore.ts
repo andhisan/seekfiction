@@ -20,6 +20,7 @@ export const converter = {
       aniList_image: data.aniList_image ?? null,
       kitsu_image: data.kitsu_image ?? null,
       simkl_image: data.simkl_image ?? null,
+      nsfw: data.nsfw ?? null,
       lastUpdatedAt:
         {
           seconds: data.lastUpdatedAt.seconds ?? null,
