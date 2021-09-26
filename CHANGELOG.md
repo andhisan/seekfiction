@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-0](https://github.com/sasigume/seekfiction/compare/v0.0.5...v0.0.6-0) (2021-09-26)
+
+
+### Features
+
+* **firebase:** :sparkles: added get-anime function ([ed1e09d](https://github.com/sasigume/seekfiction/commit/ed1e09d33ab286d98a068501e894c1a5c2f29198))
+
+
+### Bug Fixes
+
+* **components:** :bug: fixed wrong kitsu anime url ([0913f29](https://github.com/sasigume/seekfiction/commit/0913f29de059b43f8f6f719668a76100b0c99a68))
+* **components:** :lipstick: added px to containe ([18de712](https://github.com/sasigume/seekfiction/commit/18de71216632f75c983fc551deae40addc3c5217))
+* **components:** :lipstick: fixed kitsu link and image link ([93585d8](https://github.com/sasigume/seekfiction/commit/93585d83991a954eadfc8d5a02d05b8b1974e9bd))
+* **components:** :lipstick: improved version display ([03a2a38](https://github.com/sasigume/seekfiction/commit/03a2a3851ce68833d6fcf3416a6987ad0d7d7d95))
+* **firebase:** :boom: changed firebase key to url safe encoding ([d227573](https://github.com/sasigume/seekfiction/commit/d227573cb527eb6414fb76572262a4650bc45b30))
+* **firebase:** :bug: stringified errors ([1017c83](https://github.com/sasigume/seekfiction/commit/1017c83746c1afbbefd833be262a1f22ad9914e3))
+* **package:** :bug: added missing error type ([e7331bc](https://github.com/sasigume/seekfiction/commit/e7331bc116648dbb7bd5d6be955d9e71da6fd023))
+* **pages:** :globe_with_meridians: fixed wrong Japanese message ([eacb25b](https://github.com/sasigume/seekfiction/commit/eacb25bd6db9ef7ff2a4a5a08b45d6913c09e785))
+
 ### [0.0.5](https://github.com/sasigume/seekfiction/compare/v0.0.5-12...v0.0.5) (2021-09-25)
 
 
