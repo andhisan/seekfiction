@@ -33,6 +33,7 @@
     "quote-props": "off",
     "camelcase": "off",
     "quotes": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "@typescript-eslint/no-var-requires": "warn"
   }
 }
