@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7-0](https://github.com/sasigume/seekfiction/compare/v0.0.6...v0.0.7-0) (2021-09-26)
+
+
+### Features
+
+* **components:** :sparkles: added anime count ([65bac4d](https://github.com/sasigume/seekfiction/commit/65bac4dc8728adacb6f1365ba6a7e89e08878017))
+
+
+### Bug Fixes
+
+* **test:** :ambulance: fixed test ([29e5ff9](https://github.com/sasigume/seekfiction/commit/29e5ff9aa896045e114c7bfc529b0125083a0919))
+
 ### [0.0.6](https://github.com/sasigume/seekfiction/compare/v0.0.6-8...v0.0.6) (2021-09-26)
 
 
