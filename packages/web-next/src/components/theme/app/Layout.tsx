@@ -13,7 +13,7 @@ const Layout: React.FC = ({ children }) => {
         <meta name="format-detection" content="telephone=no" />
       </Head>
       <div className="flex flex-col min-h-screen">
-        <div className="flex-grow flex flex-col gap-3 w-screen min-h-screen py-8 text-center items-center">{children}</div>
+        <div className="flex-grow flex flex-col gap-3 px-6 mx-auto w-screen min-h-screen py-8 text-center items-center">{children}</div>
         <Footer />
       </div>
       <Version />

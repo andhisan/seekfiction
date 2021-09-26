@@ -30,7 +30,7 @@ a {
   @apply flex flex-col gap-3;
 }
 .ais-Pagination-list {
-  @apply my-4 flex gap-2 justify-center;
+  @apply overflow-x-scroll my-4 flex gap-2 justify-center;
 }
 
 /* Highlighted text */
