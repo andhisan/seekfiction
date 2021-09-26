@@ -8,8 +8,13 @@ import Image from 'next/image';
 import { ApiType } from '@sasigume/seekfiction-commons';
 import { useRouter } from 'next/router';
 
+import { getApp } from 'firebase/app';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { converter } from '@/lib/firestore';
+import PreBox from '~/components/atoms/PreBox';
+
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (props) => (
-  <>{props.src && <Image alt={`ID:${props.id}の画像`} src={props.src} width="300px" height="460px" />}</>
+  <>{props.src && <Image alt={`${props.type} image of ID:${props.id}`} src={props.src} width="300px" height="460px" />}</>
 );
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -23,43 +28,36 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  let anime = {} as Result;
   let message = '';
-  let status = 500;
-  const id = context.params?.id ?? null;
-  if (typeof id == 'string') {
-    await fetch(process.env.FUNCTIONS + '/get-anime?id=' + id, {
-      method: 'GET',
-      headers: {
-        Authorization: process.env.FUNCTIONS_AUTH ?? '',
-      },
-    })
-      .then(async (res) => {
-        anime = (await res.json()) ?? null;
-        message = anime.message ?? null;
-        status = res.status ?? null;
-      })
-      .catch((e) => console.error(e));
 
-    if (status == 200) {
+  const currentApp = getApp();
+  const db = getFirestore(currentApp);
+  const id = context.params?.id ?? null;
+
+  if (typeof id == 'string') {
+    const docRef = doc(db, 'algolia_anime', id).withConverter(converter);
+    const docData = await getDoc(docRef);
+    if (docData.data()) {
       return {
         props: {
           message,
-          status,
           id,
-          anime,
+          anime: docData.data(),
         },
       };
     } else {
       return {
         notFound: true,
-        props: {},
+        props: {
+          message: 'Anime not found',
+        },
       };
     }
   } else {
     return {
+      notFound: true,
       props: {
-        message: 'ワードを指定してください',
+        message: 'Specify id',
       },
     };
   }
@@ -69,9 +67,13 @@ const AnimePage: NextPage<Props> = (props) => {
   const router = useRouter();
 
   if (!props.id && router.isFallback) {
-    return <Layout>Loading...</Layout>;
+    console.info('Loading...');
+    return <Layout>Loading anime data. This may take seconds.</Layout>;
   }
   if (props.anime) {
+    console.info('Loaded anime data');
+    console.debug(`Debug info: retrieved data from firestore: `, props.anime);
+
     return (
       <Layout>
         <div>
@@ -98,8 +100,13 @@ const AnimePage: NextPage<Props> = (props) => {
             <IdBox type="simkl" id={props.anime.simkl_id} />
           </div>
         </div>
-        <div>Last update: {new Date(props.anime.lastUpdatedAt._seconds * 1000).toISOString()}</div>
-        <pre className="p-3 rounded-lg bg-gray-300 whitespace-normal break-all">{JSON.stringify(props.anime)}</pre>
+        <PreBox>
+          Note that this data is retrieved from Firestore, not Algolia Index. There may be some difference between search result and the data here.
+        </PreBox>
+        <PreBox>
+          Last update:
+          {new Date(props.anime.lastUpdatedAt.seconds * 1000).toISOString()}
+        </PreBox>
       </Layout>
     );
   }
