@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/sasigume/seekfiction/compare/v0.0.6-8...v0.0.6) (2021-09-26)
+
+
+### Features
+
+* **components:** :sparkles: replaced anime page with swr ([e56714a](https://github.com/sasigume/seekfiction/commit/e56714ad0382c4cea6cb8160d8653b42cc57d62d))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: updated import style ([9fd6abc](https://github.com/sasigume/seekfiction/commit/9fd6abc07348a30ffb7dc1d9c794e625851361e3))
+* **components:** :lipstick: improved layout ([453aba8](https://github.com/sasigume/seekfiction/commit/453aba8e8927fc0dd4590c3a129c9d4e225d39e8))
+* **test:** :white_check_mark: fixed test fail because of recoil ([0a550a6](https://github.com/sasigume/seekfiction/commit/0a550a6dcedff6c3b90d48995554a0618eef1ee8))
+
 ### [0.0.6-8](https://github.com/sasigume/seekfiction/compare/v0.0.6-6...v0.0.6-8) (2021-09-26)
 
 ### [0.0.6-7](https://github.com/sasigume/seekfiction/compare/v0.0.6-6...v0.0.6-7) (2021-09-26)
