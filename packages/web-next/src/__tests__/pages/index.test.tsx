@@ -8,7 +8,7 @@ describe('With Enzyme', () => {
   it('Home contains search form', () => {
     const app = shallow(
       <RecoilRoot>
-        <Home />
+        <Home indexCount={0} />
       </RecoilRoot>
     );
     expect(app.find('form')).toBeTruthy();
