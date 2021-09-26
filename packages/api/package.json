@@ -1,12 +1,12 @@
 {
   "name": "api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts",
     "build": "npm run lint && tsc",
-    "dev": "npm run build && firebase emulators:start --import ./exported_for_local_development",
-    "serve": "export GOOGLE_APPLICATION_CREDENTIALS=\".serviceAccountKey.json\" && npm run dev",
+    "emulator": "npm run build && firebase emulators:start --import ./exported_for_local_development",
+    "dev": "export GOOGLE_APPLICATION_CREDENTIALS=\".serviceAccountKey.json\" && npm run emulator",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",

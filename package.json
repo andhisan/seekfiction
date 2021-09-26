@@ -17,7 +17,7 @@
     "prepare": "npx husky install",
     "api:lint": "yarn workspace api lint",
     "api:build": "yarn workspace api build",
-    "api:serve": "yarn workspace api serve",
+    "api:dev": "yarn workspace api dev",
     "api:deploy": "yarn workspace api deploy",
     "api:firestore:sync": "yarn workspace api firestore:sync",
     "api:firestore:deploy": "yarn workspace api firestore:deploy",
