@@ -31,13 +31,17 @@ const searchJikan = async (searchString: string): Promise<JikanResult> => {
             mal_id: a.mal_id,
             title_romaji: a.title ?? '',
             mal_image: a.images.jpg.large_image_url ?? a.images.jpg.image_url,
+
+            // TODO: more stable way to check nsfw
             nsfw: a.rating == 'Rx - Hentai',
           };
         });
         return { data: dataArray };
       } else {
-        const message = `ERROR from Jikan API: ${res.statusText}`;
-        functions.logger.error(message);
+        // When no anime found, they return OK
+        // So logging response status is useless
+        const message = `Jikan API: no anime found`;
+        functions.logger.warn(message);
         return { data: [], message };
       }
     })

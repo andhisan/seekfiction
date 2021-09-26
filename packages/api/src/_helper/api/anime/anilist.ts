@@ -62,8 +62,10 @@ const searchAniList = async (searchString: string): Promise<AniListResult> => {
         });
         return { data: dataArray };
       } else {
-        const message = `ERROR from AniList API: ${res.statusText}`;
-        functions.logger.error(message);
+        // When no anime found, they return OK
+        // So logging response status is useless
+        const message = `AniList API: no anime found`;
+        functions.logger.warn(message);
         return { data: [], message };
       }
     })

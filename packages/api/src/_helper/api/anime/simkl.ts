@@ -40,8 +40,10 @@ const searchSimkl = async (searchString: string): Promise<SimklResult> => {
         // use only id
         return { data: dataArray };
       } else {
-        const message = `ERROR from Simkl API: ${res.statusText}`;
-        functions.logger.error(message);
+        // When no anime found, they return OK
+        // So logging response status is useless
+        const message = `Simkl API: no anime found`;
+        functions.logger.warn(message);
         return { data: [], message };
       }
     })

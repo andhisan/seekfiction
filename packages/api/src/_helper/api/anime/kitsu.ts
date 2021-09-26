@@ -38,8 +38,10 @@ const searchKitsu = async (searchString: string): Promise<KitsuResult> => {
         });
         return { data: dataArray };
       } else {
-        const message = `ERROR from Kitsu API: ${res.statusText}`;
-        functions.logger.error(message);
+        // When no anime found, they return OK
+        // So logging response status is useless
+        const message = `Kitsu API: no anime found`;
+        functions.logger.warn(message);
         return { data: [], message };
       }
     })
