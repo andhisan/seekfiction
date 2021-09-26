@@ -1,0 +1,48 @@
+name: Deploy client
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/web-next/**'
+
+jobs:
+  deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+          registry-url: 'https://registry.npmjs.org'
+          # now can cache https://github.com/actions/setup-node/releases/tag/v2.4.0
+          cache: yarn
+
+      - name: Install dependencies 👨🏻‍💻
+        run: yarn
+
+      - name: Run client linter 👀
+        run: yarn next:lint
+
+      - name: Run client tests 🧪
+        run: yarn next:test
+
+      - name: Deploy to Vercel (Production) 🚀
+        uses: amondnet/vercel-action@v20
+        with:
+          # This will be production deployment because --prod is set
+          vercel-args: '--prod'
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
+          vercel-project-id: 'seekfiction' #Required
