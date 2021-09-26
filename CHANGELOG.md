@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-2](https://github.com/sasigume/seekfiction/compare/v0.0.6-1...v0.0.6-2) (2021-09-26)
+
+
+### Features
+
+* **components:** :sparkles: added nsfw blur ([c20572d](https://github.com/sasigume/seekfiction/commit/c20572d8e1d0316d4e71115922b8fc078eeabfad))
+
 ### [0.0.6-1](https://github.com/sasigume/seekfiction/compare/v0.0.6-0...v0.0.6-1) (2021-09-26)
 
 ### [0.0.6-0](https://github.com/sasigume/seekfiction/compare/v0.0.5...v0.0.6-0) (2021-09-26)
