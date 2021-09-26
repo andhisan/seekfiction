@@ -56,7 +56,10 @@
   },
   "lint-staged": {
     "./packages/{web-next,api}/**/*.{js,ts,tsx}": "eslint",
-    "./packages/web-next/**/*": [
+    "./packages/api/**/*.{json,js,ts}": [
+      "./bump_version.sh api"
+    ],
+    "./packages/web-next/**/*.{json,js,ts,tsx}": [
       "./bump_version.sh web-next"
     ],
     "./packages/seekfiction-commons/**/*": [

@@ -1,8 +1,9 @@
+import FirebaseFirestore from '@google-cloud/firestore';
+
 /**
  * All field except title are optional
  * Be careful when render images, they don't share size or format
  */
-
 interface Anime {
   slug?: string;
   mal_id?: number;
@@ -16,7 +17,7 @@ interface Anime {
   simkl_image?: string;
   nsfw?: boolean;
 }
-interface AnimeForFirestore {
+interface AnimeOnFirestore {
   slug?: string | null;
   mal_id?: number | null;
   aniList_id?: number | null;
@@ -28,13 +29,8 @@ interface AnimeForFirestore {
   kitsu_image?: string | null;
   simkl_image?: string | null;
   nsfw?: boolean | null;
-}
-
-interface AnimeOnFirestore extends AnimeForFirestore {
-  lastUpdatedAt: {
-    _seconds: number;
-    _nanoseconds: number;
-  };
+  lastUpdatedAt: FirebaseFirestore.Timestamp;
+  apiVersion: string;
 }
 
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
@@ -42,7 +38,7 @@ type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
 /**
  * The objectID is only on Algolia index
  */
-interface AnimeOnAlgolia extends AnimeForFirestore {
+interface AnimeOnAlgolia extends AnimeOnFirestore {
   objectID: string;
 }
 
@@ -69,4 +65,4 @@ export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
   return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
 };
 
-export type { ApiType, Anime, AnimeForFirestore, AnimeOnFirestore, AnimeOnAlgolia, AnimeGroupedByTitle, SearchAllResult, ErrorMessageObject };
+export type { ApiType, Anime, AnimeOnFirestore, AnimeOnAlgolia, AnimeGroupedByTitle, SearchAllResult, ErrorMessageObject };
