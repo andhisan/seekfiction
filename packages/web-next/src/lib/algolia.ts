@@ -1,7 +1,10 @@
-import algoliasearch from 'algoliasearch/lite';
+// using full version to count index
+import algoliasearch from 'algoliasearch';
 import { MultipleQueriesQuery } from '@algolia/client-search';
 
 const appId = process.env.ALGOLIA_APP_ID ?? '';
+
+// IMPORTANT: we need "search" and "listIndexes" api key
 const apiKey = process.env.ALGOLIA_SEARCH_API_KEY ?? '';
 
 const mock = {
@@ -22,4 +25,10 @@ export const algolia = {
     }
     return searchClient.search(requests);
   },
+};
+
+export const getIndexCount = (name: string) => {
+  return searchClient.listIndices().then(({ items }) => {
+    return items.find((index) => index.name == name)?.entries;
+  });
 };
