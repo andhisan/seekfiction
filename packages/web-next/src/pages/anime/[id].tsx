@@ -1,7 +1,6 @@
 import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 import ErrorPage from 'next/error';
-import { AnimeOnFirestore, ErrorMessageObject } from '@sasigume/seekfiction-commons';
 import IdBox from '~/components/atoms/IdBox';
 import Image from 'next/image';
 
@@ -11,14 +10,16 @@ import { useRouter } from 'next/router';
 import { getApp } from 'firebase/app';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firestore';
+import { decode } from 'url-safe-base64';
+
 import PreBox from '~/components/atoms/PreBox';
+import CloseTab from '~/components/atoms/CloseTab';
 
 const ImgBox: React.FC<{ type: ApiType; src?: string | null; id?: number | null; slug?: string | null }> = (props) => (
   <>{props.src && <Image alt={`${props.type} image of ID:${props.id}`} src={props.src} width="300px" height="460px" />}</>
 );
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
-type Result = AnimeOnFirestore & ErrorMessageObject;
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
@@ -35,6 +36,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params?.id ?? null;
 
   if (typeof id == 'string') {
+    const idDecoded = Buffer.from(decode(id ?? ''), 'base64').toString();
     const docRef = doc(db, 'algolia_anime', id).withConverter(converter);
     const docData = await getDoc(docRef);
     if (docData.data()) {
@@ -42,20 +44,21 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
         props: {
           message,
           id,
+          idDecoded,
           anime: docData.data(),
         },
       };
     } else {
       return {
-        notFound: true,
         props: {
+          id,
+          idDecoded,
           message: 'Anime not found',
         },
       };
     }
   } else {
     return {
-      notFound: true,
       props: {
         message: 'Specify id',
       },
@@ -76,13 +79,13 @@ const AnimePage: NextPage<Props> = (props) => {
 
     return (
       <Layout>
+        <div className="mr-auto">
+          <CloseTab />
+        </div>
         <div>
           <h2 className="text-3xl font-bold">{props.anime.title_romaji}</h2>
         </div>
-        <div
-          style={{ background: props.anime.nsfw ? '#ffaaaa' : '' }}
-          className={`flex gap-6 flex-col md:flex-row ${props.anime.nsfw ? 'filter blur-lg hover:filter-none' : ''}`}
-        >
+        <div style={{ background: props.anime.nsfw ? '#ffaaaa' : '' }} className={`flex gap-6 flex-col md:flex-row ${props.anime.nsfw ? 'nsfw' : ''}`}>
           <div>
             <ImgBox type="mal" id={props.anime.mal_id} src={props.anime.mal_image} />
             <IdBox type="mal" id={props.anime.mal_id} />
@@ -101,7 +104,8 @@ const AnimePage: NextPage<Props> = (props) => {
           </div>
         </div>
         <PreBox>
-          Note that this data is retrieved from Firestore, not Algolia Index. There may be some difference between search result and the data here.
+          We encode anime romaji title {props.idDecoded} to {props.id}, and link data with same encoded title. If there is difference between romaji title,
+          different data will be generated.
         </PreBox>
         <PreBox>
           Last update:
@@ -110,7 +114,8 @@ const AnimePage: NextPage<Props> = (props) => {
       </Layout>
     );
   }
-  return <ErrorPage statusCode={404} title="Anime cannot fetched from database" />;
+  const errorMessage = `Could not get anime data. Decoded romaji title: ${props.idDecoded}`;
+  return <ErrorPage statusCode={404} title={errorMessage} />;
 };
 
 export default AnimePage;

@@ -3,6 +3,7 @@ import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import { Highlight } from 'react-instantsearch-dom';
 import ImgBox from '@/components/atoms/ImgBox';
 import IdBox from '@/components/atoms/IdBox';
+
 interface Props {
   hit: Hit<AnimeOnAlgolia>;
   onClick: () => void;
@@ -24,7 +25,7 @@ export default function HitComponent(props: Props) {
           {/* Set size to place things correctly */}
           <div className="w-[140px] h-[200px]">
             {/* Left */}
-            <div className={`relative p-3 ${props.hit.nsfw ? 'filter blur-sm hover:filter-none' : ''}`}>
+            <div className={`relative p-3 ${props.hit.nsfw && 'nsfw'}`}>
               <ImgBox type="mal" id={props.hit.mal_id} src={props.hit.mal_image} />
               <ImgBox type="aniList" id={props.hit.aniList_id} src={props.hit.aniList_image} />
               <ImgBox type="kitsu" id={props.hit.kitsu_id} src={props.hit.kitsu_image} />
