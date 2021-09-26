@@ -1,6 +1,11 @@
 import { urlConverter } from '~/lib/api';
 import { ApiType } from '@sasigume/seekfiction-commons';
 
+/**
+ * Display website name and ID as link
+ * @param props
+ * @returns
+ */
 const IdBox: React.FC<{ type: ApiType; id?: number | null; slug?: string | null }> = (props) => {
   const url = urlConverter(props.type, props.id, props.slug);
   if ((props.id && props.type !== 'kitsu') || (props.slug && props.type == 'kitsu')) {
