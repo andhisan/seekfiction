@@ -2,7 +2,7 @@
   "name": "seekfiction",
   "version": "0.0.6-8",
   "author": "sasigume <sasigume@gmail.com>",
-  "description": "A next-generation anime search engine",
+  "description": "A next-generation anime/manga database",
   "private": true,
   "workspaces": {
     "packages": [
