@@ -27,7 +27,7 @@ a {
   display: none;
 }
 .ais-Hits-list {
-  @apply flex flex-col gap-3;
+  @apply flex flex-col flex-wrap md:flex-row gap-6;
 }
 .ais-Pagination-list {
   @apply overflow-x-scroll my-4 flex gap-2 justify-center;

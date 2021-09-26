@@ -11,15 +11,13 @@ interface Props {
 export default function HitComponent(props: Props) {
   return (
     <div>
-      {props.hit.nsfw && <div className="absolute top-4 right-0 p-3 bg-red-500 z-50 rounded-l-xl text-white">NSFW</div>}
-
       {/* Open in new tab to keep search result */}
       <a
         target="_blank"
         href={`/anime/${props.hit.objectID}`}
         rel="noreferrer"
         style={{ background: props.hit.nsfw ? '#ffaaaa' : '' }}
-        className="relative text-left p-3 flex align-center flex-col gap-3"
+        className="relative w-[280px] text-left p-3 flex align-center flex-col gap-3"
         title={props.hit.title_romaji ?? ''}
       >
         <div style={{ background: props.hit.nsfw ? '#ffaaaa' : '' }} className="flex">
