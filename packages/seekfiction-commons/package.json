@@ -2,7 +2,7 @@
   "name": "@sasigume/seekfiction-commons",
   "description": "Declaration of common interfaces of seekfiction",
   "author": "sasigume",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
@@ -18,7 +18,5 @@
   },
   "homepage": "https://github.com/sasigume/seekfiction#readme",
   "devDependencies": {},
-  "dependencies": {
-    "@google-cloud/firestore": "^4.15.1"
-  }
+  "dependencies": {}
 }
