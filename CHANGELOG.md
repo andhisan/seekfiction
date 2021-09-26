@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-6](https://github.com/sasigume/seekfiction/compare/v0.0.6-5...v0.0.6-6) (2021-09-26)
+
+
+### Features
+
+* **components:** :sparkles: added hide nsfw mode ([348171f](https://github.com/sasigume/seekfiction/commit/348171fa71a4da1a10ea7cdd1784688711074d3a))
+* **components:** :sparkles: added nsfw hook ([f77b25c](https://github.com/sasigume/seekfiction/commit/f77b25ca60da505990d124f0754e8a4488600473))
+* **components:** :sparkles: installed recoil ([3cbc28f](https://github.com/sasigume/seekfiction/commit/3cbc28f72d9656d94c5729612d50af9561848e07))
+* **firebase:** :sparkles: added firestore client sdk to client ([147de7b](https://github.com/sasigume/seekfiction/commit/147de7b5333beefd014fc2863ea9c594b536f72e))
+* **firebase:** :sparkles: added type-safe firestore converter ([5c42e2f](https://github.com/sasigume/seekfiction/commit/5c42e2f330a4a7856d87b487fab4e664cd70dcee))
+* **package:** :sparkles: added data for client sdk ([96aef2b](https://github.com/sasigume/seekfiction/commit/96aef2b9892436a81df4c02fc473066f283736bf))
+* **vercel:** :sparkles: added firebase app initialization in next client ([542ac6e](https://github.com/sasigume/seekfiction/commit/542ac6e8158a8702c5d21ac03a449321e05667f7))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed nsfw data not retreived ([4206394](https://github.com/sasigume/seekfiction/commit/42063949711213e5cd18b86752794dea31a72f00))
+* **package:** :ambulance: fixed wrong timestamp type ([9c4e00d](https://github.com/sasigume/seekfiction/commit/9c4e00d798cc82fa29b839126c410dfb0bbdcfbf))
+* **package:** :ambulance: re-added firestore package ([9baa806](https://github.com/sasigume/seekfiction/commit/9baa806f7f7c7df6af76218b2bccebe0c98372ca))
+
 ### [0.0.6-5](https://github.com/sasigume/seekfiction/compare/v0.0.6-4...v0.0.6-5) (2021-09-26)
 
 
