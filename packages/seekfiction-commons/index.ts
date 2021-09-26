@@ -1,3 +1,5 @@
+import FirebaseFirestore from '@google-cloud/firestore';
+
 /**
  * All field except title are optional
  * Be careful when render images, they don't share size or format
@@ -35,12 +37,7 @@ interface AnimeFirestoreBase {
  * Use if send data by document.data()
  */
 interface AnimeOnFirestore extends AnimeFirestoreBase {
-  // WE MUST NOT USE FIRESTORE TIMESTAMP HERE
-  // BECAUSE IT IS NOT WITH UNDERSCORE
-  lastUpdatedAt: {
-    _seconds: number;
-    _nanoseconds: number;
-  };
+  lastUpdatedAt: FirebaseFirestore.Timestamp;
 }
 
 /**
