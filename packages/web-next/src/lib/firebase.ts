@@ -5,15 +5,13 @@ export const firebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
-import { getApps, initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 
 const initApp = () => {
-  const currentApps = getApps();
-  if (currentApps.length === 0) {
-    return initializeApp(firebaseConfig);
-  } else return null;
+  return initializeApp(firebaseConfig);
 };
 
 export default initApp;
