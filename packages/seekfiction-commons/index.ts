@@ -30,7 +30,7 @@ interface AnimeOnFirestore {
   simkl_image?: string | null;
   nsfw?: boolean | null;
   lastUpdatedAt: FirebaseFirestore.Timestamp;
-  apiVersion: string;
+  apiVersion?: string;
 }
 
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
