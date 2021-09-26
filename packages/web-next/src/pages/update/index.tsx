@@ -32,7 +32,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   } else {
     return {
       props: {
-        message: 'ワードを指定してください',
+        message: 'Please specify word',
       },
     };
   }
