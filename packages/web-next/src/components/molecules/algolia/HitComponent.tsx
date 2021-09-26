@@ -2,7 +2,6 @@ import { Hit } from 'react-instantsearch-core';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import { Highlight } from 'react-instantsearch-dom';
 import ImgBox from '@/components/atoms/ImgBox';
-import IdBox from '@/components/atoms/IdBox';
 import { useAnimeId } from '@/lib/anime-id-hook';
 import { useOpen } from '@/lib/open-hook';
 
