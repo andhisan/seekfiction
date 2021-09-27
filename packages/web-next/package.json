@@ -10,6 +10,7 @@
     "test": "jest --setupFiles dotenv/config"
   },
   "dependencies": {
+    "@meilisearch/instant-meilisearch": "^0.5.4",
     "@sasigume/seekfiction-commons": "*",
     "@types/react-instantsearch-dom": "^6.12.0",
     "algoliasearch": "^4.10.5",
