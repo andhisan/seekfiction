@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7-2](https://github.com/sasigume/seekfiction/compare/v0.0.7-1...v0.0.7-2) (2021-09-27)
+
+
+### Bug Fixes
+
+* **components:** :lipstick: changed image display order ([d8c2a60](https://github.com/sasigume/seekfiction/commit/d8c2a6080350d76dcfb6a7e4f169dbd8fe088265))
+* **components:** :lipstick: fixed image width because mal image is 424x600 ([f3e8037](https://github.com/sasigume/seekfiction/commit/f3e80371d85b9b5039c70e76f43e8687b3344901))
+
 ### [0.0.7-1](https://github.com/sasigume/seekfiction/compare/v0.0.7-0...v0.0.7-1) (2021-09-26)
 
 
