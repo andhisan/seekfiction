@@ -29,7 +29,7 @@ const Layout: React.FC = ({ children }) => {
         <SwitchNsfwStyle />
       </div>
 
-      {!nsfw && <div dangerouslySetInnerHTML={{ __html: `<style>.nsfw{opacity:0;}</style>` }} />}
+      {!nsfw && <div dangerouslySetInnerHTML={{ __html: `<style>.nsfw img{filter:blur(20px)}</style>` }} />}
     </>
   );
 };

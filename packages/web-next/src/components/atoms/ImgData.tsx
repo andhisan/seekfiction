@@ -17,7 +17,7 @@ const ImgData: React.FC<{ type: ApiType; src?: string | null; id?: number | null
           <b className="uppercase">{props.type.replace('aniList', 'al')}: </b>
           <b>{props.id}</b>
         </div>
-        <div>{props.src ? <Image alt={`${props.type} ID:${props.id}`} src={props.src} width="120px" height="300px" /> : <b>Image not found</b>}</div>
+        <div>{props.src ? <Image alt={`${props.type} ID:${props.id}`} src={props.src} width="212px" height="300px" /> : <b>Image not found</b>}</div>
       </a>
     );
   } else {
