@@ -1,6 +1,7 @@
 import IconGitHub from '@/components/atoms/icons/IconGitHub';
 import IconTwitter from '@/components/atoms/icons/IconTwitter';
 import Version from '@/components/atoms/Version';
+import AgreeBox from '@/components/molecules/warning/AgreeBox';
 const Footer: React.FC = () => {
   const socials = [
     {
@@ -16,6 +17,7 @@ const Footer: React.FC = () => {
   ];
   return (
     <>
+      <AgreeBox />
       <div>NSFW image is hidden by default. You can change the setting by using the button below.</div>
       <ul className="mx-auto flex items-center space-x-4 xl:space-x-5">
         {socials.map((social, n) => {
