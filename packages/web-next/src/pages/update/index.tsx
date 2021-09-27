@@ -39,10 +39,15 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   }
 };
 
+/**
+ * User move to this page after press enter key
+ * @param props
+ * @returns
+ */
 const Update: NextPage<Props> = (props) => {
   const router = useRouter();
 
-  // Important: stop loading
+  // Important: set loading state to false
   const { setLoading } = useLoading();
   setLoading(false);
   if (!props.q) {

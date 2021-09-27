@@ -32,6 +32,7 @@ const Home: NextPage<Props> = (props) => {
   const { loading } = useLoading();
   return (
     <Layout>
+      {/* Search box must not be placed on Layout component */}
       <header className="fixed left-0 top-0 flex px-3 py-1 w-screen bg-white shadow-xl z-10">
         <AlgoliaSearchBox />
       </header>
@@ -57,6 +58,7 @@ const Home: NextPage<Props> = (props) => {
           </>
         )}
       </div>
+      {/* Detail must not be placed on layout component */}
       {open && animeId && <AnimeDetail id={animeId} />}
     </Layout>
   );
