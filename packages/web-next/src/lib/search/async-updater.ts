@@ -11,11 +11,11 @@ export const asyncUpdater = async (user: User, q: string): Promise<UpdateResult>
   let message = 'Error message not returned from API';
   let foundAnimeCount = 0;
   let addedAnimeCount = 0;
-  const path = `//` + process.env.VERCEL_URL + '/api/auth';
+  const basePath = process.env.VERCEL_ENV == 'production' ? 'https://sf.sasigu.me' : `//` + process.env.VERCEL_URL;
   if (!user) {
     throw new Error('Please sign in');
   } else {
-    return await fetch(path, {
+    return await fetch(basePath + '/api/auth', {
       method: 'POST',
       body: JSON.stringify({
         method: 'GET',
