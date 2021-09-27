@@ -6,9 +6,6 @@ on:
       - main
     paths:
       - 'packages/web-next/**'
-  pull_request:
-    branches:
-      - main
 
 jobs:
   deploy:

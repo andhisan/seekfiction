@@ -6,9 +6,6 @@ on:
       - main
     paths:
       - 'packages/seekfiction-commons/**'
-  pull_request:
-    branches:
-      - main
 
 jobs:
   publish:
