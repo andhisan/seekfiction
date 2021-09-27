@@ -35,7 +35,8 @@ jobs:
       - name: Build package 🎁
         run: yarn workspace @sasigume/seekfiction-commons build
 
-      - name: Publish package 🚀
+      - name: Publish package (if it's main) 🚀
+        if: github.ref == 'refs/heads/main'
         run: npm publish packages/seekfiction-commons --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
