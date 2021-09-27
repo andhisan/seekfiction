@@ -54,7 +54,6 @@ const AnimeDetail: React.FC<Props> = (props) => {
     shouldRetryOnError: false,
     refreshWhenHidden: false,
     revalidateOnFocus: false,
-    revalidateOnMount: false,
     revalidateOnReconnect: false,
   });
   const { setOpen } = useOpen();

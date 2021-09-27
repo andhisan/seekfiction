@@ -30,7 +30,6 @@ const StatsBox: React.FC<Props> = (props) => {
     refreshWhenHidden: false,
     revalidateOnFocus: false,
     refreshWhenOffline: false,
-    revalidateOnMount: false,
   });
   if (error) return <div>{error.message}</div>;
   return (
