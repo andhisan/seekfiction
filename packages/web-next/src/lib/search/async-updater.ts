@@ -11,7 +11,7 @@ export const asyncUpdater = async (user: User, q: string): Promise<UpdateResult>
   let message = 'Error message not returned from API';
   let foundAnimeCount = 0;
   let addedAnimeCount = 0;
-  const path = process.env.VERCEL_URL + '/api/auth';
+  const path = `//` + process.env.VERCEL_URL + '/api/auth';
   if (!user) {
     throw new Error('Please sign in');
   } else {
