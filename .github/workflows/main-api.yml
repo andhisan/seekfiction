@@ -1,5 +1,8 @@
 name: Deploy API
 
+# This MUST NOT RUN ON PR
+# THIS WILL ALSO RUN WHEN MERGED
+
 on:
   push:
     branches:
@@ -34,7 +37,7 @@ jobs:
 
       # Somehow we still need to set function config via GitHub secret
       # Detail: https://github.com/w9jds/firebase-action/issues/86
-      - name: Set configs for Firebase ✅ (useand FIREBASE_FUNCTIONS_ENV_VARIABLES)
+      - name: Set configs for Firebase ✅ (use FIREBASE_FUNCTIONS_ENV_VARIABLES)
         uses: w9jds/firebase-action@master
         with:
           args: functions:config:set ${{ secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES }}

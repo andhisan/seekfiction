@@ -1,4 +1,6 @@
-name: Lint, test and deploy preview client except main
+name: Lint, test and deploy preview client
+
+# This MUST RUN ON ANY PR
 
 on:
   push:

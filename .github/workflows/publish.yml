@@ -1,5 +1,8 @@
 name: Publish package
 
+# This MUST NOT RUN ON PR
+# THIS WILL ALSO RUN WHEN MERGED
+
 on:
   push:
     branches:
