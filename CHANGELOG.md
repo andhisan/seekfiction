@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/sasigume/seekfiction/compare/v0.0.8-8...v0.0.8) (2021-09-27)
+
+
+### Features
+
+* **components:** :sparkles: replaced update screen using swr ([1513670](https://github.com/sasigume/seekfiction/commit/1513670538c65fc2482a9a1a5c715ffda6d78d65))
+* **vercel:** :sparkles: created auth endpoint ([d786655](https://github.com/sasigume/seekfiction/commit/d786655a1785409268f29e57ef83eb9a1bd27522))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed swr send too many request because of input ([ff7b079](https://github.com/sasigume/seekfiction/commit/ff7b079349924ee828afd9b33756ff553922a7a9))
+
 ### [0.0.8-8](https://github.com/sasigume/seekfiction/compare/v0.0.8-7...v0.0.8-8) (2021-09-27)
 
 
