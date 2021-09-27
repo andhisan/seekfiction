@@ -6,5 +6,10 @@ service cloud.firestore {
       allow read: if true
       allow write, delete: if false;
     }
+    match /meili_anime/{document=**} {
+      // Admin sdk can still access
+      allow read: if true
+      allow write, delete: if false;
+    }
   }
 }
