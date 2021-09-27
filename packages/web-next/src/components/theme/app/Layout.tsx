@@ -28,7 +28,6 @@ const Layout: React.FC = ({ children }) => {
             <Logo />
           </div>
           <AlgoliaSearchBox />
-          <UserInfo />
         </header>
         <main className="pt-64 pb-32 flex-grow flex flex-col gap-3 px-6 w-screen items-center">{children}</main>
         <footer className="w-screen text-center border-t-8 text-white bg-gray-800 flex flex-col justify-center gap-3 py-3" aria-label="footerHeading">
@@ -37,6 +36,10 @@ const Layout: React.FC = ({ children }) => {
       </div>
       <div className="fixed z-50 bottom-0">
         <SwitchNsfwStyle />
+      </div>
+
+      <div className="fixed z-50 right-0 bottom-0">
+        <UserInfo />
       </div>
 
       {!nsfw && <div dangerouslySetInnerHTML={{ __html: `<style>.nsfw img{filter:blur(20px)}</style>` }} />}

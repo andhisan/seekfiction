@@ -17,6 +17,9 @@ const Home: NextPage = () => {
           Manga search is currently unavailable. We encode anime romaji title and link data with same encoded title. If there is difference between romaji
           title, different data will be generated.
         </p>
+        <p>
+          <b>Sign in, type something and press enter to update anime database!</b>
+        </p>
       </div>
     </Layout>
   );

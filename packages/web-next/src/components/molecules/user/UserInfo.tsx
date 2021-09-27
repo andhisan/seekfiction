@@ -15,19 +15,21 @@ const UserInfo = () => {
     revalidateOnReconnect: false,
   });
 
-  const [showInfo, setShowInfo] = useState(false);
-
   return (
-    <div className="flex gap-3 items-center relative">
-      <div className="flex w-[64px] flex-col items-center" onMouseEnter={() => setShowInfo(true)} onMouseOut={() => setShowInfo(false)}>
-        <Avatar />
-        {data && <b>Lv. {data?.totalAddedAnimeCount}</b>}
+    <div className="bg-white flex flex-col gap-2 rounded-tl-xl p-2 shadow-xl">
+      <div className="flex gap-3 items-center justify-between relative">
+        <div className="flex gap-2 items-center">
+          <Avatar />
+          <div>
+            {data && <b>Lv. {data?.totalAddedAnimeCount}</b>}
+
+            {error && <div>{error.message}</div>}
+          </div>
+        </div>
+
+        <SignInButton />
       </div>
-      {data && showInfo && (
-        <div className="absolute top-[70px] z-50 right-0 rounded-xl p-2 bg-white shadow-xl">You have added {data.totalAddedAnimeCount} anime so far!</div>
-      )}
-      {error && <div>{error.message}</div>}
-      <SignInButton />
+      {data && <b>You have added {data.totalAddedAnimeCount} anime so far!</b>}
     </div>
   );
 };
