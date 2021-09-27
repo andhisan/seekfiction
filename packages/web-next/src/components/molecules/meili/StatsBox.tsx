@@ -26,6 +26,11 @@ const StatsBox: React.FC<Props> = (props) => {
   const { data, error } = useSWR(props.indexName, (indexName) => getIndexCount(indexName), {
     refreshInterval: 0,
     errorRetryCount: 0,
+    revalidateIfStale: false,
+    refreshWhenHidden: false,
+    revalidateOnFocus: false,
+    refreshWhenOffline: false,
+    revalidateOnMount: false,
   });
   if (error) return <div>{error.message}</div>;
   return (

@@ -49,7 +49,14 @@ interface Props {
 }
 
 const AnimeDetail: React.FC<Props> = (props) => {
-  const { data, error } = useSWR(props.id, (id) => getAnime(id));
+  const { data, error } = useSWR(props.id, (id) => getAnime(id), {
+    refreshInterval: 0,
+    shouldRetryOnError: false,
+    refreshWhenHidden: false,
+    revalidateOnFocus: false,
+    revalidateOnMount: false,
+    revalidateOnReconnect: false,
+  });
   const { setOpen } = useOpen();
   const handleClose = () => {
     setOpen(false);
