@@ -86,6 +86,10 @@ type UpdateResult = {
   addedAnimeCount: number;
 };
 
+type UserDocument = {
+  totalAddedAnimeCount: number;
+};
+
 export type {
   ApiType,
   Anime,
@@ -97,4 +101,5 @@ export type {
   ErrorMessageObject,
   AnimeOnMeili,
   UpdateResult,
+  UserDocument,
 };
