@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-7](https://github.com/sasigume/seekfiction/compare/v0.0.8-6...v0.0.8-7) (2021-09-27)
+
+
+### Features
+
+* **components:** :sparkles: added how many anime added display ([997c13d](https://github.com/sasigume/seekfiction/commit/997c13dde4b074709eb75b286519ca67a23fd787))
+* **firebase:** :sparkles: api now return how many found and added ([ee288e2](https://github.com/sasigume/seekfiction/commit/ee288e2eaf6cff45c1717f122a6108d80938a5b7))
+* **package:** :sparkles: added data for updating api ([07c60c5](https://github.com/sasigume/seekfiction/commit/07c60c5960693ca16093cd8120f2290bee5ba543))
+
 ### [0.0.8-6](https://github.com/sasigume/seekfiction/compare/v0.0.8-5...v0.0.8-6) (2021-09-27)
 
 
