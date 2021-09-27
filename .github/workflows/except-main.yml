@@ -40,9 +40,6 @@ jobs:
         if: success()
         run: yarn next:lint
 
-      - name: Run client tests 🧪
-        run: yarn next:test
-
       - name: Deploy to Vercel (Preview) 🌟
         uses: amondnet/vercel-action@v20
         with:
