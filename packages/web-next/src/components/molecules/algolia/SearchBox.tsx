@@ -29,7 +29,7 @@ export default function AlgoliaSearchBox() {
         <Configure hitsPerPage={12} />
 
         {loading ? (
-          <b>Searching for {input}...</b>
+          <b>Updating index</b>
         ) : (
           <div className="w-full">
             <SearchBox
@@ -40,6 +40,7 @@ export default function AlgoliaSearchBox() {
                 e.preventDefault();
                 setLoading(true);
                 if (input.length > 0) {
+                  // We need to use Server Side Rendering to avoid CORS error
                   router.push(`/update/?q=${input}`, '/update');
                 } else {
                   // cancel if search word is empty
