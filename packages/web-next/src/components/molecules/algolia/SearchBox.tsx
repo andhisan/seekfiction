@@ -5,9 +5,19 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useLoading } from '@/lib/loading-hook';
 
+/**
+ * Search box
+ *
+ * @export
+ * @return {*}
+ */
 export default function AlgoliaSearchBox() {
   const router = useRouter();
+
+  // save what user type into this state
   const [input, setInput] = useState('');
+
+  // use hook to use loading state across pages
   const { loading, setLoading } = useLoading();
   return (
     <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
@@ -27,6 +37,7 @@ export default function AlgoliaSearchBox() {
               if (input.length > 0) {
                 router.push(`/update/?q=${input}`, '/update');
               } else {
+                // cancel if search word is empty
                 setInput('');
                 setLoading(false);
               }

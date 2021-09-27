@@ -8,10 +8,15 @@ interface Props {
   hit: Hit<AnimeOnAlgolia>;
 }
 
-// https://fwywd.com/tech/next-algolia
+/**
+ * Result component
+ *
+ * @see https://fwywd.com/tech/next-algolia
+ */
 const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
   const [isShow, setShow] = useState<boolean>(false);
 
+  // hide display if result is blank
   useEffect(() => {
     setShow(!!currentRefinement);
   }, [currentRefinement]);

@@ -1,6 +1,4 @@
-import Image from 'next/image';
-
-import { AnimeRetrievedFromFirestoreClient, ApiType } from '@sasigume/seekfiction-commons';
+import { AnimeRetrievedFromFirestoreClient } from '@sasigume/seekfiction-commons';
 
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firestore';

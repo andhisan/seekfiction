@@ -1,3 +1,8 @@
+/**
+ * SVG site logo
+ *
+ * @return {*}
+ */
 const Logo: React.FC = () => {
   return (
     <svg
