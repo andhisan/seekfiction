@@ -4,6 +4,9 @@ import { useRouter } from 'next/router';
 import { useLoading } from '@/lib/loading-hook';
 import PreBox from '@/components/atoms/PreBox';
 import type { UpdateResult } from '@sasigume/seekfiction-commons';
+import { useUser } from '@/lib/firebase/auth/use';
+import { useEffect } from 'react';
+import { updateUser } from '@/lib/firebase/firestore';
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 /**
@@ -63,6 +66,15 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 const Update: NextPage<Props> = (props) => {
   const router = useRouter();
   const { setLoading } = useLoading();
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user && props.addedAnimeCount) {
+      updateUser(user.uid, {
+        addedAnimeCount: props.addedAnimeCount,
+      });
+    }
+  }, [user, props.addedAnimeCount]);
 
   // Back to top
   const handleBack = () => {
