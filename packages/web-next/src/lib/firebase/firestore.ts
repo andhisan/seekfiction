@@ -71,7 +71,6 @@ export const userConverter = {
 export const getUser = async (uid: string): Promise<UserDocument | null> => {
   const app = initApp();
   const db = getFirestore(app);
-  console.debug(uid);
   const docRef = doc(db, 'users', uid).withConverter(userConverter);
   const docSnapShot = await getDoc(docRef).catch((e) => {
     console.error(e);
