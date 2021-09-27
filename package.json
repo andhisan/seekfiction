@@ -23,7 +23,8 @@
     "api:firestore:deploy": "yarn workspace api firestore:deploy",
     "next:dev": "yarn workspace web-next dev",
     "next:lint": "yarn workspace web-next lint",
-    "next:test": "yarn workspace web-next test"
+    "next:test": "yarn workspace web-next test",
+    "commons:build": "yarn workspace @sasigume/seekfiction-commons build"
   },
   "config": {
     "commitizen": {

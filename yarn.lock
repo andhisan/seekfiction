@@ -1334,6 +1334,13 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
+"@meilisearch/instant-meilisearch@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@meilisearch/instant-meilisearch/-/instant-meilisearch-0.5.4.tgz#2a2bd48d432cbda1ca7d363effe3b928c0a1a6c9"
+  integrity sha512-SpJAZ6fGiFkYtd62uHhPTV5qWT5RVEtthcgGUp4GFxh7d6Y7viHp/ChGCi1WUNmx4AJz59PaqU+ppACJO6rZ2Q==
+  dependencies:
+    meilisearch "^0.20.1"
+
 "@napi-rs/triples@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
@@ -6484,7 +6491,7 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-meilisearch@^0.20.2:
+meilisearch@^0.20.1, meilisearch@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.20.2.tgz#9461219064ec9bba8ea01ca160f82fa54ba99637"
   integrity sha512-h40DJXx/yen3juPLB2uskH95jw4ETKSBM3fv87aYPSpWOfZci0aTR5YZ515KHGCfEExQeoeFoUxEfGyhaYWHUA==
