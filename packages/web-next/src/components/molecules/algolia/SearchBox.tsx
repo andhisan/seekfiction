@@ -8,6 +8,7 @@ import AnimeDetail from '@/components/molecules/algolia/anime/AnimeDetail';
 import { useAnimeId } from '@/lib/anime-id-hook';
 import { useOpen } from '@/lib/open-hook';
 import LoadingScreen from '@/components/atoms/LoadingScreen';
+import { logSearch } from '@/lib/firebase/analytics';
 
 /**
  * Search box
@@ -41,8 +42,10 @@ export default function AlgoliaSearchBox() {
               <div className="w-full">
                 <div className="w-full flex gap-1">
                   <SearchBox
+                    // set relative to display loading indicator
+                    // also set CSS
+                    className="relative"
                     showLoadingIndicator
-                    defaultRefinement="non non biyori"
                     focusShortcuts={['K']}
                     translations={{ placeholder: 'Press K to focus' }}
                     onChange={(e) => {
@@ -53,6 +56,8 @@ export default function AlgoliaSearchBox() {
 
                       if (input.length > 0) {
                         setLoading(true);
+                        logSearch(input);
+
                         // We need to use Server Side Rendering to avoid CORS error
                         // IMPORTANT: set 'as' param to clear query from url
                         router.push(`/update/?q=${encodeURIComponent(input)}`, '/update', { shallow: true });
