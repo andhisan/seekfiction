@@ -17,6 +17,8 @@ const Layout: React.FC = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="A next-generation anime/manga database" />
         <meta name="og:image" content="https://sf.sasigu.me/ogp-1200x630.png" />
+        <meta name="og:title" content="seekfiction" />
+        <meta name="twitter:title" content="seekfiction" />
         <meta name="twitter:image" content="https://sf.sasigu.me/ogp-1200x630.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="format-detection" content="telephone=no" />
