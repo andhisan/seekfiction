@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-5](https://github.com/sasigume/seekfiction/compare/v0.0.8-4...v0.0.8-5) (2021-09-27)
+
+
+### Features
+
+* **components:** :sparkles: added user info components ([98056df](https://github.com/sasigume/seekfiction/commit/98056df28e33c49623c1925c0c95741154b1b1bd))
+* **components:** :wrench: now restrict nsfw features to authorized users only ([1175cd3](https://github.com/sasigume/seekfiction/commit/1175cd35b020870d9533f9554aa943469fb41c6c))
+* **vercel:** :wrench: added google domains to vercel image ([7d1dfe3](https://github.com/sasigume/seekfiction/commit/7d1dfe3f031f62c02db2b6ad5cf9f70e57b0e63b))
+
 ### [0.0.8-4](https://github.com/sasigume/seekfiction/compare/v0.0.8-3...v0.0.8-4) (2021-09-27)
 
 
