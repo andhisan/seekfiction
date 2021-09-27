@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/sasigume/seekfiction/compare/v0.1.1...v0.1.2) (2021-09-27)
+
+
+### Bug Fixes
+
+* **vercel:** :sparkles: fixed vercel env variable ([9e10a99](https://github.com/sasigume/seekfiction/commit/9e10a997722f1c60eb91c4b683bc153cb00e7898))
+
 ### [0.1.1](https://github.com/sasigume/seekfiction/compare/v0.1.0...v0.1.1) (2021-09-27)
 
 ## [0.1.0](https://github.com/sasigume/seekfiction/compare/v0.0.9...v0.1.0) (2021-09-27)
