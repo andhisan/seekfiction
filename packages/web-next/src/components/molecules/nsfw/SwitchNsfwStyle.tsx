@@ -15,7 +15,8 @@ const SwitchNsfwStyle: React.FC = () => {
         onClick={() => setNsfw(!nsfw)}
         className={`p-3 rounded-tr-xl text-white font-bold uppercase ${nsfw ? 'bg-black' : 'bg-pink-500'}`}
       >
-        {nsfw ? `NO MORE HORNY` : `PRESS IF HORNY`}
+        SAFE FOR WORK:{` `}
+        {nsfw ? `NO` : `YES`}
       </button>
     </>
   );
