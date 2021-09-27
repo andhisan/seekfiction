@@ -7,13 +7,9 @@ const SignInButton = () => {
   const provider = new GoogleAuthProvider();
   const { user } = useUser();
   const handleSignIn = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.debug(`Auth result: `, result);
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    signInWithPopup(auth, provider).catch((e) => {
+      console.error(e);
+    });
   };
   const handleSignOut = () => {
     signOut(auth);
