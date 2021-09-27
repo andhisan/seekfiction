@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-4](https://github.com/sasigume/seekfiction/compare/v0.0.8-3...v0.0.8-4) (2021-09-27)
+
+
+### Features
+
+* **components:** :sparkles: added logo next to search box ([3bbcf25](https://github.com/sasigume/seekfiction/commit/3bbcf25d1255cb548de622a08dca297ea6e97afe))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed swr not loading ([03d8cb3](https://github.com/sasigume/seekfiction/commit/03d8cb34db573ae5f0e00f51a6fab4a153445fbe))
+* **components:** :lipstick: changed placeholder and default word ([499f4c7](https://github.com/sasigume/seekfiction/commit/499f4c70684fdb12719faed2e80fd29021f8622e))
+* **components:** :lock: disabled swr refresh to avoid massive usage ([fcdf906](https://github.com/sasigume/seekfiction/commit/fcdf906629efa9b905cb3d73df9afcf1ff104ab7))
+
 ### [0.0.8-3](https://github.com/sasigume/seekfiction/compare/v0.0.8-2...v0.0.8-3) (2021-09-27)
 
 
