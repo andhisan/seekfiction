@@ -1,6 +1,6 @@
 {
   "name": "api",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts",
@@ -25,6 +25,7 @@
     "axios": "^0.21.4",
     "firebase-admin": "^9.8.0",
     "firebase-functions": "^3.14.1",
+    "meilisearch": "^0.20.2",
     "url-safe-base64": "^1.1.1"
   },
   "devDependencies": {
