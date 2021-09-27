@@ -5,6 +5,7 @@ import { useNsfw } from '@/lib/nsfw-hook';
 import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
 import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
 import Logo from '@/components/atoms/Logo';
+import UserInfo from '@/components/molecules/user/UserInfo';
 
 const Layout: React.FC = ({ children }) => {
   const { nsfw } = useNsfw();
@@ -27,6 +28,7 @@ const Layout: React.FC = ({ children }) => {
             <Logo />
           </div>
           <AlgoliaSearchBox />
+          <UserInfo />
         </header>
         <main className="pt-64 pb-32 flex-grow flex flex-col gap-3 px-6 w-screen items-center">{children}</main>
         <footer className="w-screen text-center border-t-8 text-white bg-gray-800 flex flex-col justify-center gap-3 py-3" aria-label="footerHeading">
