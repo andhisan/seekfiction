@@ -25,6 +25,21 @@ module.exports = {
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
   },
   images: {
-    domains: ['cdn.myanimelist.net', 's4.anilist.co', 'media.kitsu.io', 'simkl.in'],
+    domains: [
+      'cdn.myanimelist.net',
+      's4.anilist.co',
+      'media.kitsu.io',
+      'simkl.in',
+      'pbs.twimg.com',
+
+      // Too many, Google! https://github.com/vercel/next.js/discussions/18311
+      'storage.googleapis.com',
+      'lh1.googleusercontent.com',
+      'lh2.googleusercontent.com',
+      'lh3.googleusercontent.com',
+      'lh4.googleusercontent.com',
+      'lh5.googleusercontent.com',
+      'lh6.googleusercontent.com',
+    ],
   },
 };

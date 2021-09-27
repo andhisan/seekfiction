@@ -3,6 +3,7 @@ import Layout from '@/components/theme/app/Layout';
 import { useRouter } from 'next/router';
 import { useLoading } from '@/lib/loading-hook';
 import PreBox from '@/components/atoms/PreBox';
+import type { UpdateResult } from '@sasigume/seekfiction-commons';
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 /**
@@ -13,6 +14,8 @@ type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
  */
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   let message = 'Error message not returned from API';
+  let foundAnimeCount = 0;
+  let addedAnimeCount = 0;
   let status = 500;
   const q = context.query.q;
   if (typeof q == 'string') {
@@ -23,8 +26,10 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
       },
     })
       .then(async (res) => {
-        const json = await res.json();
+        const json = (await res.json()) as UpdateResult;
         message = json.message;
+        foundAnimeCount = json.foundAnimeCount;
+        addedAnimeCount = json.addedAnimeCount;
         status = res.status;
       })
       .catch((e) => console.error(e));
@@ -32,6 +37,8 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     return {
       props: {
         message,
+        foundAnimeCount,
+        addedAnimeCount,
         status,
         q,
       },
@@ -40,6 +47,8 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     return {
       props: {
         message: 'Please specify word',
+        foundAnimeCount,
+        addedAnimeCount,
         status: 422,
       },
     };
@@ -77,9 +86,8 @@ const Update: NextPage<Props> = (props) => {
         <>
           <p>
             Sucessfully updated database for word <b>{props.q}</b>! <br />
-            Message from server shown below:
+            Found <b>{props.foundAnimeCount}</b> anime and added <b>{props.addedAnimeCount}</b> anime to index!
           </p>
-          <pre className="bg-gray-300 p-3 rounded-lg">{props.message}</pre>
         </>
       ) : (
         <>

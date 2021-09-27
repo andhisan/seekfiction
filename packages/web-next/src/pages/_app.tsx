@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import 'windi.css';
-import initApp from '@/lib/firebase';
+import initApp from '@/lib/firebase/init-app';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
