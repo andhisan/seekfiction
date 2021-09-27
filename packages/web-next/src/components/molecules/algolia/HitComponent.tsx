@@ -27,7 +27,7 @@ export default function HitComponent(props: Props) {
           setAnimeId(props.hit.objectID);
           setOpen(!open);
         }}
-        className="block overflow-hidden relative h-full bg-black rounded-xl cursor-pointer w-[200px] h-[300px] shadow-xl"
+        className="block overflow-hidden relative h-full bg-black rounded-xl cursor-pointer w-[212px] h-[300px] shadow-xl"
         title={props.hit.title_romaji ?? ''}
       >
         <div className={`relative ${props.hit.nsfw && 'nsfw'}`}>
