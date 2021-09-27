@@ -4,6 +4,7 @@ import Footer from './Footer';
 import { useNsfw } from '@/lib/nsfw-hook';
 import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
 import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
+import Logo from '@/components/atoms/Logo';
 
 const Layout: React.FC = ({ children }) => {
   const { nsfw } = useNsfw();
@@ -21,7 +22,10 @@ const Layout: React.FC = ({ children }) => {
         <meta property="og:site_name" content="seekfiction" />
       </Head>
       <div className="flex flex-col min-h-screen">
-        <header className="fixed left-0 top-0 flex px-3 py-3 h-[86px] items-center w-screen shadow-xl z-10">
+        <header className="fixed left-0 top-0 flex px-3 py-3 h-[86px] gap-3 items-center w-screen shadow-xl z-10">
+          <div className="w-[150px]">
+            <Logo />
+          </div>
           <AlgoliaSearchBox />
         </header>
         <main className="pt-64 pb-32 flex-grow flex flex-col gap-3 px-6 w-screen items-center">{children}</main>
