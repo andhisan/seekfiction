@@ -1,9 +1,5 @@
 import useSWR from 'swr';
 
-interface Result {
-  numberOfDocuments: number;
-  isIndexing: boolean;
-}
 /**
  * Fetch index count from meilisearch
  *
