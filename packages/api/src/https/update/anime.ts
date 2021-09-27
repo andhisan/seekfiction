@@ -2,12 +2,12 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import withAuth from '../../_helper/withAuth';
 import { searchApiAnime } from '../../_helper/api/anime';
-import { ANIME_COLLECTION } from '../../_helper/config';
+import { MEILI_ANIME_COLLECTION } from '../../_helper/config';
 import { Anime } from '@sasigume/seekfiction-commons';
 import { Buffer } from 'buffer';
 import { covnertUndefinedToNull } from '../../_helper/convert';
 import { encode } from 'url-safe-base64';
-const collection = admin.firestore().collection(ANIME_COLLECTION);
+const collection = admin.firestore().collection(MEILI_ANIME_COLLECTION);
 /**
  * Update anime from all API by string
  *

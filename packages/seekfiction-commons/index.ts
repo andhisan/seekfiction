@@ -59,6 +59,13 @@ interface AnimeOnAlgolia extends AnimeOnFirestore {
   objectID: string;
 }
 
+/**
+ * The id is only on Meili index
+ */
+interface AnimeOnMeili extends AnimeOnFirestore {
+  id: string;
+}
+
 interface AnimeGroupedByTitle {
   [key: string]: Anime;
 }
@@ -82,4 +89,14 @@ export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
   return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
 };
 
-export type { ApiType, Anime, AnimeOnFirestore, AnimeOnAlgolia, AnimeRetrievedFromFirestoreClient, AnimeGroupedByTitle, SearchAllResult, ErrorMessageObject };
+export type {
+  ApiType,
+  Anime,
+  AnimeOnFirestore,
+  AnimeOnAlgolia,
+  AnimeRetrievedFromFirestoreClient,
+  AnimeGroupedByTitle,
+  SearchAllResult,
+  ErrorMessageObject,
+  AnimeOnMeili,
+};

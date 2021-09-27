@@ -27,10 +27,10 @@ export default function HitComponent(props: Props) {
           setAnimeId(props.hit.objectID);
           setOpen(!open);
         }}
-        className="block overflow-hidden relative h-full bg-black rounded-xl cursor-pointer w-[212px] h-[300px] shadow-xl"
+        className="block relative overflow-hidden h-full bg-black rounded-xl cursor-pointer w-[212px] h-[300px] shadow-xl"
         title={props.hit.title_romaji ?? ''}
       >
-        <div className={`relative ${props.hit.nsfw && 'nsfw'}`}>
+        <div className={`${props.hit.nsfw && 'nsfw'}`}>
           {/* Put MAL to last because MAL has the most precise image */}
           <ImgBox type="simkl" id={props.hit.simkl_id} src={props.hit.simkl_image} />
           <ImgBox type="kitsu" id={props.hit.kitsu_id} src={props.hit.kitsu_image} />
@@ -38,7 +38,7 @@ export default function HitComponent(props: Props) {
           <ImgBox type="mal" id={props.hit.mal_id} src={props.hit.mal_image} />
         </div>
 
-        <div style={{ background: props.hit.nsfw ? '#aa3344' : '#000' }} className="absolute z-10 text-lg bottom-0 bg-black text-white w-full p-3">
+        <div style={{ background: props.hit.nsfw ? '#aa3344' : '#000' }} className="absolute z-30 text-lg bottom-0 bg-black text-white w-full p-3">
           {/* Highlight search word in title */}
           <Highlight attribute="title_romaji" hit={props.hit} />
         </div>

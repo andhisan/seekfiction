@@ -24,7 +24,9 @@ export const getAnime = async (id: string): Promise<Result> => {
   const db = getFirestore(app);
 
   const idDecoded = Buffer.from(decode(id ?? ''), 'base64').toString();
-  const docRef = doc(db, 'algolia_anime', id).withConverter(converter);
+
+  // changed to meili
+  const docRef = doc(db, 'meili_anime', id).withConverter(converter);
   const docData = await getDoc(docRef);
   if (docData.data()) {
     return {

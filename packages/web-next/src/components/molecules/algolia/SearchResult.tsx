@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Hit } from 'react-instantsearch-core';
-import { Hits, connectSearchBox, Pagination, PoweredBy } from 'react-instantsearch-dom';
+import { Hits, connectSearchBox, Pagination } from 'react-instantsearch-dom';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import HitComponent from './HitComponent';
 
@@ -30,9 +30,6 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
   if (!isShow) return null;
   return (
     <div className="w-screen max-w-screen h-screen overflow-scroll pb-32">
-      <div className="inline-block">
-        <PoweredBy />
-      </div>
       <Pagination />
       <Hits hitComponent={hitComponent} />
     </div>
