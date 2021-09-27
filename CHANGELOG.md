@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-8](https://github.com/sasigume/seekfiction/compare/v0.0.8-7...v0.0.8-8) (2021-09-27)
+
+
+### Features
+
+* **components:** :lipstick: added level count ([6baa598](https://github.com/sasigume/seekfiction/commit/6baa598b7e554f683c8860381058102a10959a52))
+* **firebase:** :lock: added new secutiry rules for users ([14798f0](https://github.com/sasigume/seekfiction/commit/14798f03844bbb30021e5463a72d31f5d9024282))
+* **firebase:** :sparkles: added user data update function ([16f0c00](https://github.com/sasigume/seekfiction/commit/16f0c008db9494f897783e341235bd10796d433e))
+* **package:** :sparkles: added UserDocument type ([45b7b2e](https://github.com/sasigume/seekfiction/commit/45b7b2e066b5f44d63e2fe791c5a100b1a703f2f))
+
+
+### Bug Fixes
+
+* **components:** :lipstick: moved user info to right bottom ([9f4de20](https://github.com/sasigume/seekfiction/commit/9f4de2005a2f6b4767fa09376b5eda29ae91a83d))
+
 ### [0.0.8-7](https://github.com/sasigume/seekfiction/compare/v0.0.8-6...v0.0.8-7) (2021-09-27)
 
 
