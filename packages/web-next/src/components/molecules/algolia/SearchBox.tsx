@@ -1,6 +1,7 @@
 import SearchResult from './SearchResult';
 import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 import { algolia } from '@/lib/algolia';
+import { searchClient } from '@/lib/meili';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useLoading } from '@/lib/loading-hook';
@@ -20,7 +21,7 @@ export default function AlgoliaSearchBox() {
   // use hook to use loading state across pages
   const { loading, setLoading } = useLoading();
   return (
-    <InstantSearch indexName={process.env.ALGOLIA_ANIME_INDEX ?? 'anime'} searchClient={algolia}>
+    <InstantSearch indexName={process.env.MEILI_ANIME_INDEX ?? 'anime'} searchClient={searchClient}>
       <Configure hitsPerPage={12} />
 
       {loading ? (

@@ -8,14 +8,14 @@ import Logo from '@/components/atoms/Logo';
 
 import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
 import { useLoading } from '@/lib/loading-hook';
-import { getIndexCount } from '@/lib/algolia';
+import { getIndexCount } from '@/lib/meili';
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 export const getServerSideProps = async () => {
   let indexCount: number | undefined;
   try {
-    indexCount = await getIndexCount(process.env.ALGOLIA_ANIME_INDEX ?? 'anime');
+    indexCount = await getIndexCount(process.env.MEILI_ANIME_INDEX ?? 'anime');
   } catch (e) {
     console.error(e);
   }
