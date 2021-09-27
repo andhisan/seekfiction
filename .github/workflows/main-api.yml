@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - 'packages/api/**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   deploy:
