@@ -1,4 +1,4 @@
-import { useOpen } from '@/lib/open-hook';
+import { useOpen } from '@/hooks/use-open';
 
 /**
  * Component to close detail window

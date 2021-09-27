@@ -3,17 +3,17 @@ import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 import { searchClient } from '@/lib/meili';
 
 import { useEffect, useState } from 'react';
-import { useLoading } from '@/lib/loading-hook';
-import AnimeDetail from '@/components/molecules/algolia/anime/AnimeDetail';
-import { useAnimeId } from '@/lib/anime-id-hook';
-import { useOpen } from '@/lib/open-hook';
+import { useLoading } from '@/hooks/use-loading';
+import AnimeDetail from '@/components/molecules/anime/AnimeDetail';
+import { useAnimeId } from '@/hooks/use-anime-id';
+import { useOpen } from '@/hooks/use-open';
 import LoadingScreen from '@/components/atoms/LoadingScreen';
 import { logSearch } from '@/lib/firebase/analytics';
-import { useUser } from '@/lib/firebase/auth/use';
+import { useUser } from '@/hooks/use-user';
 import PreBox from '@/components/atoms/PreBox';
 
 import useSWR from 'swr';
-import { asyncUpdater } from '@/lib/update/async-updater';
+import { asyncUpdater } from '@/lib/search/async-updater';
 import { updateUser } from '@/lib/firebase/firestore';
 import ButtonWithOnClick from '@/components/atoms/button/ButtonWithOnClick';
 

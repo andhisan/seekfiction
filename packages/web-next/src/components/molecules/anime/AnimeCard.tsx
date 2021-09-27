@@ -2,8 +2,8 @@ import { Hit } from 'react-instantsearch-core';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import { Highlight } from 'react-instantsearch-dom';
 import ImgBox from '@/components/atoms/ImgBox';
-import { useAnimeId } from '@/lib/anime-id-hook';
-import { useOpen } from '@/lib/open-hook';
+import { useAnimeId } from '@/hooks/use-anime-id';
+import { useOpen } from '@/hooks/use-open';
 
 interface Props {
   hit: Hit<AnimeOnAlgolia>;
@@ -16,7 +16,7 @@ interface Props {
  * @param {Props} props
  * @return {*}
  */
-export default function HitComponent(props: Props) {
+export default function AnimeCard(props: Props) {
   const { setAnimeId } = useAnimeId();
   const { open, setOpen } = useOpen();
   return (

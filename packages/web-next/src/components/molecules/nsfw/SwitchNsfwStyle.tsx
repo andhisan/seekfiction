@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNsfw } from '@/lib/nsfw-hook';
-import { useUser } from '@/lib/firebase/auth/use';
+import { useNsfw } from '@/hooks/use-nsfw';
+import { useUser } from '@/hooks/use-user';
 
 /**
  * Component to switch nsfw state
@@ -21,7 +21,7 @@ const SwitchNsfwStyle: React.FC = () => {
           // never allow nsfw when signed out
           user ? setNsfw(!nsfw) : setNsfw(false);
         }}
-        className={`p-3 rounded-tr-xl text-white font-bold uppercase ${nsfw ? 'bg-black' : 'bg-pink-500'}`}
+        className={`p-3 rounded-tr-xl text-white font-bold uppercase ${nsfw ? 'bg-pink-500' : 'bg-blue-500'}`}
       >
         SAFE FOR WORK:{` `}
         {nsfw ? `NO` : `YES`}

@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import Layout from '@/components/theme/app/Layout';
+import Layout from '@/components/app/Layout';
 
 import Logo from '@/components/atoms/Logo';
 import StatsBox from '@/components/molecules/meili/StatsBox';

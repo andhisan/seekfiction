@@ -1,4 +1,4 @@
-import { useUser } from '@/lib/firebase/auth/use';
+import { useUser } from '@/hooks/use-user';
 import Image from 'next/image';
 const Avatar = () => {
   const { user } = useUser();

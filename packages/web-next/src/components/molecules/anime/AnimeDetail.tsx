@@ -4,7 +4,7 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firebase/firestore';
 import { decode } from 'url-safe-base64';
 
-import { useOpen } from '@/lib/open-hook';
+import { useOpen } from '@/hooks/use-open';
 import PreBox from '@/components/atoms/PreBox';
 import initApp from '@/lib/firebase/init-app';
 import useSWR from 'swr';

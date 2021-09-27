@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import { ApiType } from '@sasigume/seekfiction-commons';
-import { urlConverter } from '@/lib/api';
+import { urlConverter } from '@/lib/anime-url-converter';
 
 /**
  * Display optimized image and data

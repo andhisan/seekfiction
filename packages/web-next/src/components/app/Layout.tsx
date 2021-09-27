@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
 import Footer from './Footer';
-import { useNsfw } from '@/lib/nsfw-hook';
+import { useNsfw } from '@/hooks/use-nsfw';
 import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
-import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
+import AlgoliaSearchBox from '@/components/app/Search/SearchBox';
 import Logo from '@/components/atoms/Logo';
 import UserInfo from '@/components/molecules/user/UserInfo';
 

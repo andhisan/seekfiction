@@ -2,8 +2,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { Hit } from 'react-instantsearch-core';
 import { Hits, connectSearchBox, Pagination } from 'react-instantsearch-dom';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
-import HitComponent from './HitComponent';
-import { useNsfw } from '@/lib/nsfw-hook';
+import AnimeCard from '../../molecules/anime/AnimeCard';
+import { useNsfw } from '@/hooks/use-nsfw';
 
 interface Props {
   hit: Hit<AnimeOnAlgolia>;
@@ -26,7 +26,7 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
     refine('');
   }, [refine]);
 
-  const hitComponent = ({ hit }: Props): JSX.Element => <HitComponent hit={hit} onClick={handleResetSearchWords} />;
+  const hitComponent = ({ hit }: Props): JSX.Element => <AnimeCard hit={hit} onClick={handleResetSearchWords} />;
 
   if (!isShow) return null;
   return (

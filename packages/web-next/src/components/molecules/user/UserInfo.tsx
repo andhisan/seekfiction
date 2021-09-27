@@ -1,6 +1,6 @@
 import Avatar from '@/components/atoms/user/Avatar';
 import SignInButton from '@/components/atoms/user/SignInButton';
-import { useUser } from '@/lib/firebase/auth/use';
+import { useUser } from '@/hooks/use-user';
 import { getUser } from '@/lib/firebase/firestore';
 import { useState } from 'react';
 import useSWR from 'swr';
