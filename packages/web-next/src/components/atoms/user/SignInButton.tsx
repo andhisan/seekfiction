@@ -1,4 +1,4 @@
-import { useUser } from '@/lib/auth/use';
+import { useUser } from '@/lib/firebase/auth/use';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
 import ButtonWithOnClick from '../button/ButtonWithOnClick';
 

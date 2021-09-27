@@ -21,7 +21,7 @@ a {
 
 /* Loading indicator */
 .ais-SearchBox-loadingIndicator {
-  @apply absolute top-[1.4rem] right-12;
+  @apply absolute top-[1.4rem] -right-4;
 }
 
 .ais-SearchBox-input {

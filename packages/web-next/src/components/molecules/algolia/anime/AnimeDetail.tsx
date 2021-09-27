@@ -1,12 +1,12 @@
 import { AnimeRetrievedFromFirestoreClient } from '@sasigume/seekfiction-commons';
 
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import { converter } from '@/lib/firestore';
+import { converter } from '@/lib/firebase/firestore';
 import { decode } from 'url-safe-base64';
 
 import { useOpen } from '@/lib/open-hook';
 import PreBox from '@/components/atoms/PreBox';
-import initApp from '@/lib/firebase';
+import initApp from '@/lib/firebase/init-app';
 import useSWR from 'swr';
 import Close from '@/components/atoms/Close';
 import ImgData from '@/components/atoms/ImgData';

@@ -2,7 +2,7 @@ import { User } from 'firebase/auth';
 import { atom, useRecoilState } from 'recoil';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
-import { useNsfw } from '../nsfw-hook';
+import { useNsfw } from '@/lib/nsfw-hook';
 
 const userState = atom<User | null>({
   key: 'user',

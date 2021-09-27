@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNsfw } from '@/lib/nsfw-hook';
-import { useUser } from '@/lib/auth/use';
+import { useUser } from '@/lib/firebase/auth/use';
 
 /**
  * Component to switch nsfw state
