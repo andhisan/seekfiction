@@ -11,7 +11,7 @@ export const asyncUpdater = async (user: User, q: string): Promise<UpdateResult>
   let message = 'Error message not returned from API';
   let foundAnimeCount = 0;
   let addedAnimeCount = 0;
-  const basePath = process.env.VERCEL_ENV == 'production' ? 'https://sf.sasigu.me' : `//` + process.env.VERCEL_URL;
+  const basePath = process.env.NEXT_PUBLIC_VERCEL_ENV == 'production' ? 'https://sf.sasigu.me' : `//` + process.env.NEXT_PUBLIC_VERCEL_URL;
   if (!user) {
     throw new Error('Please sign in');
   } else {
