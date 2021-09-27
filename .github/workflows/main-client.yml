@@ -35,17 +35,7 @@ jobs:
       - name: Run client linter 👀
         run: yarn next:lint
 
-      - name: Deploy to Vercel (Preview) 🙏
-        if: github.ref != 'refs/heads/main'
-        uses: amondnet/vercel-action@v20
-        with:
-          # This will be preview deployment because --prod is not set
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-org-id: ${{ secrets.VERCEL_ORG }} #Required
-          vercel-project-id: 'seekfiction' #Required
-
       - name: Deploy to Vercel (Production) 🚀
-        if: github.ref == 'refs/heads/main'
         uses: amondnet/vercel-action@v20
         with:
           # This will be production deployment because --prod is set
