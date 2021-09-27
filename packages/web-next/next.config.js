@@ -8,6 +8,7 @@ module.exports = {
     return config;
   },
   env: {
+    VERCEL_URL: process.env.VERCEL_URL,
     ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
     ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
     ALGOLIA_ANIME_INDEX: process.env.ALGOLIA_ANIME_INDEX,
