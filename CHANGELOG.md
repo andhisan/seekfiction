@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-2](https://github.com/sasigume/seekfiction/compare/v0.0.8-1...v0.0.8-2) (2021-09-27)
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed search box appear after update page ([22340f2](https://github.com/sasigume/seekfiction/commit/22340f2d3f10f6d0d874e86ef827239150c20d5f))
+* **components:** :bug: fixed wrong message when updating index ([0df44ab](https://github.com/sasigume/seekfiction/commit/0df44abaeb5b61a74c519226dd3678915896f3ea))
+
 ### [0.0.8-1](https://github.com/sasigume/seekfiction/compare/v0.0.8-0...v0.0.8-1) (2021-09-27)
 
 ### [0.0.8-0](https://github.com/sasigume/seekfiction/compare/v0.0.7...v0.0.8-0) (2021-09-27)
