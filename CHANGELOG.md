@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-6](https://github.com/sasigume/seekfiction/compare/v0.0.8-5...v0.0.8-6) (2021-09-27)
+
+
+### Features
+
+* **firebase:** :sparkles: added search event analytics ([77f640c](https://github.com/sasigume/seekfiction/commit/77f640c4cb3fa2ea7cb6fff8280a90aa04d7d009))
+
 ### [0.0.8-5](https://github.com/sasigume/seekfiction/compare/v0.0.8-4...v0.0.8-5) (2021-09-27)
 
 
