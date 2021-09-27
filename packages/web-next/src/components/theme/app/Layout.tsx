@@ -23,7 +23,7 @@ const Layout: React.FC = ({ children }) => {
         <meta property="og:site_name" content="seekfiction" />
       </Head>
       <div className="flex flex-col min-h-screen">
-        <header className="fixed left-0 top-0 flex px-3 py-3 h-[86px] gap-3 items-center w-screen shadow-xl z-10">
+        <header className="fixed justify-between left-0 top-0 flex px-3 py-3 h-[86px] gap-3 items-center w-screen shadow-xl z-10">
           <div className="w-[150px]">
             <Logo />
           </div>
