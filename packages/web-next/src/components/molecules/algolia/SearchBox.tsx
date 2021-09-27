@@ -42,6 +42,9 @@ export default function AlgoliaSearchBox() {
                 <div className="w-full flex gap-1">
                   <SearchBox
                     showLoadingIndicator
+                    defaultRefinement="non non biyori"
+                    focusShortcuts={['K']}
+                    translations={{ placeholder: 'Press K to focus' }}
                     onChange={(e) => {
                       setInput(e.currentTarget.value);
                     }}
