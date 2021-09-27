@@ -1,4 +1,5 @@
 export const ANIME_COLLECTION = 'algolia_anime';
+export const MEILI_ANIME_COLLECTION = 'meili_anime';
 export const getAnimeIndex = (): string => {
   // https://stackoverflow.com/a/63127747
   if (process.env.FUNCTIONS_EMULATOR === 'true') {

@@ -10,4 +10,8 @@ export interface AdminConfig {
   simkl: {
     client_id: string;
   };
+  meili: {
+    url: string;
+    key: string;
+  };
 }
