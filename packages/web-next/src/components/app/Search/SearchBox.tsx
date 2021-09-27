@@ -30,17 +30,23 @@ export default function AlgoliaSearchBox() {
   const { open } = useOpen();
   // save what user type into this state
   const [input, setInput] = useState('');
+  const [inputToSend, setInputToSend] = useState('');
   const { user } = useUser();
-  const { data, error } = useSWR([user, input], asyncUpdater, {
+  const { data, error } = useSWR([user, inputToSend], asyncUpdater, {
     refreshInterval: 0,
+    revalidateOnFocus: false,
+    refreshWhenHidden: false,
+    shouldRetryOnError: false,
   });
+
+  // Increase only if data is changed
   useEffect(() => {
-    if (user && data && data.addedAnimeCount) {
+    if (user && data?.addedAnimeCount) {
       updateUser(user.uid, {
         addedAnimeCount: data.addedAnimeCount,
       });
     }
-  }, [user, data]);
+  }, [user, data?.addedAnimeCount]);
 
   return (
     <>
@@ -62,6 +68,9 @@ export default function AlgoliaSearchBox() {
               onSubmit={(e) => {
                 e.preventDefault();
                 if (input.length > 0) {
+                  // Change only if pressed enter
+                  setInputToSend(input);
+
                   setLoading(true);
                   logSearch(input);
                 } else {
@@ -76,22 +85,30 @@ export default function AlgoliaSearchBox() {
               <p>
                 Requested update for: <b>{input}</b>
               </p>
-              {data && (
-                <p>
-                  Sucessfully updated database for word <b>{input}</b>! <br />
-                  Found <b>{data.foundAnimeCount}</b> anime and added <b>{data.addedAnimeCount}</b> anime to index!
-                </p>
+
+              {data ? (
+                <>
+                  <p>
+                    Sucessfully updated database for word <b>{input}</b>! <br />
+                    Found <b>{data.foundAnimeCount}</b> anime and added <b>{data.addedAnimeCount}</b> anime to index!
+                  </p>
+                  <ButtonWithOnClick additionalClassNames="bg-blue-500" onClick={() => setLoading(false)}>
+                    CLOSE
+                  </ButtonWithOnClick>
+                </>
+              ) : (
+                <p>Please wait a minute!</p>
               )}
 
               {error && (
-                <div>
+                <>
                   <p>Woops! Error shown below:</p>
                   <PreBox>{error.message}</PreBox>
-                </div>
+                  <ButtonWithOnClick additionalClassNames="bg-red-500" onClick={() => setLoading(false)}>
+                    CLOSE
+                  </ButtonWithOnClick>
+                </>
               )}
-              <ButtonWithOnClick additionalClassNames="bg-blue-500" onClick={() => setLoading(false)}>
-                OK
-              </ButtonWithOnClick>
             </LoadingScreen>
           )}
         </div>
