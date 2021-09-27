@@ -3,6 +3,7 @@ import { Hit } from 'react-instantsearch-core';
 import { Hits, connectSearchBox, Pagination } from 'react-instantsearch-dom';
 import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
 import HitComponent from './HitComponent';
+import { useNsfw } from '@/lib/nsfw-hook';
 
 interface Props {
   hit: Hit<AnimeOnAlgolia>;
@@ -15,7 +16,7 @@ interface Props {
  */
 const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
   const [isShow, setShow] = useState<boolean>(false);
-
+  const { nsfw } = useNsfw();
   // hide display if result is blank
   useEffect(() => {
     setShow(!!currentRefinement);
@@ -29,7 +30,7 @@ const SearchResult = connectSearchBox(({ refine, currentRefinement }) => {
 
   if (!isShow) return null;
   return (
-    <div className="w-screen max-w-screen h-screen overflow-scroll pb-32">
+    <div className={`fixed top-[80px] left-0 w-screen max-w-screen h-screen overflow-scroll px-3 pb-32 ${nsfw ? 'bg-pink-300' : 'bg-white'}`}>
       <Pagination />
       <Hits hitComponent={hitComponent} />
     </div>

@@ -7,6 +7,7 @@ import { useLoading } from '@/lib/loading-hook';
 import AnimeDetail from '@/components/molecules/algolia/anime/AnimeDetail';
 import { useAnimeId } from '@/lib/anime-id-hook';
 import { useOpen } from '@/lib/open-hook';
+import LoadingScreen from '@/components/atoms/LoadingScreen';
 
 /**
  * Search box
@@ -28,36 +29,56 @@ export default function AlgoliaSearchBox() {
       <InstantSearch indexName={process.env.MEILI_ANIME_INDEX ?? 'anime'} searchClient={searchClient}>
         <Configure hitsPerPage={12} />
 
-        {loading ? (
-          <b>Updating index</b>
-        ) : (
-          <div className="w-full">
-            <SearchBox
-              onChange={(e) => {
-                setInput(e.currentTarget.value);
-              }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setLoading(true);
-                if (input.length > 0) {
-                  // We need to use Server Side Rendering to avoid CORS error
-                  router.push(`/update/?q=${input}`, '/update');
-                } else {
-                  // cancel if search word is empty
-                  setInput('');
-                  setLoading(false);
-                }
-              }}
-            />
-            {input.length > 0 && (
-              <p>
-                Press enter to search more result for <b>{input}</b>
-              </p>
+        {/* When pressed enter, server side rendering is not completed.
+          We wait until load finish by showing fullscreen message */}
+        {router.pathname == '/' ? (
+          <>
+            {loading ? (
+              <LoadingScreen>
+                <b>Searching for: {input}</b>
+              </LoadingScreen>
+            ) : (
+              <div className="w-full">
+                <div className="w-full flex gap-1">
+                  <SearchBox
+                    showLoadingIndicator
+                    onChange={(e) => {
+                      setInput(e.currentTarget.value);
+                    }}
+                    onSubmit={(e) => {
+                      e.preventDefault();
+
+                      if (input.length > 0) {
+                        setLoading(true);
+                        // We need to use Server Side Rendering to avoid CORS error
+                        // IMPORTANT: set 'as' param to clear query from url
+                        router.push(`/update/?q=${encodeURIComponent(input)}`, '/update', { shallow: true });
+                      } else {
+                        // cancel if search word is empty
+                        setInput('');
+                        setLoading(false);
+                      }
+                    }}
+                  />
+                </div>
+                <p>
+                  Press enter to update anime database{` `}
+                  {input.length > 0 && (
+                    <>
+                      {`for `}
+                      <b>{input}</b>
+                    </>
+                  )}
+                </p>
+                <SearchResult />
+              </div>
             )}
-            <SearchResult />
-          </div>
+          </>
+        ) : (
+          <div>Updated index.</div>
         )}
       </InstantSearch>
+
       {open && animeId && <AnimeDetail id={animeId} />}
     </>
   );

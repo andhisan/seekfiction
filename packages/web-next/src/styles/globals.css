@@ -13,10 +13,15 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.ais-SearchBox,
 .ais-SearchBox-form,
 .ais-SearchBox-form input {
   @apply w-full;
+}
+
+/* Loading indicator */
+.ais-SearchBox-loadingIndicator {
+  @apply absolute top-[1.4rem] right-12;
 }
 
 .ais-SearchBox-input {

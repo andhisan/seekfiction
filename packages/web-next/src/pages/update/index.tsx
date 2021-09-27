@@ -1,16 +1,22 @@
 import type { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useLoading } from '@/lib/loading-hook';
+import PreBox from '@/components/atoms/PreBox';
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
+/**
+ * Send update request on server side
+ *
+ * @param context
+ * @returns
+ */
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  let message = '';
+  let message = 'Error message not returned from API';
   let status = 500;
   const q = context.query.q;
   if (typeof q == 'string') {
-    await fetch(process.env.FUNCTIONS + '/update-anime?q=' + q, {
+    await fetch(process.env.FUNCTIONS + '/update-anime?q=' + encodeURIComponent(q), {
       method: 'GET',
       headers: {
         Authorization: process.env.FUNCTIONS_AUTH ?? '',
@@ -34,6 +40,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     return {
       props: {
         message: 'Please specify word',
+        status: 422,
       },
     };
   }
@@ -46,10 +53,14 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
  */
 const Update: NextPage<Props> = (props) => {
   const router = useRouter();
-
-  // Important: set loading state to false
   const { setLoading } = useLoading();
-  setLoading(false);
+
+  // Back to top
+  const handleBack = () => {
+    setLoading(false);
+    router.push('/');
+  };
+
   if (!props.q) {
     // Back to home
     if (typeof window !== 'undefined') {
@@ -63,18 +74,26 @@ const Update: NextPage<Props> = (props) => {
     <Layout>
       <p>Thank you for using seekfiction!</p>
       {props.status == 200 ? (
-        <p>
-          Sucessfully updated database for word <b>{props.q}</b>! <br />
-          It takes a few seconds for new results to appear.
-        </p>
+        <>
+          <p>
+            Sucessfully updated database for word <b>{props.q}</b>! <br />
+            Message from server shown below:
+          </p>
+          <pre className="bg-gray-300 p-3 rounded-lg">{props.message}</pre>
+        </>
       ) : (
-        <p>Woops! Try another word.</p>
+        <>
+          <p>Woops! Error shown below:</p>
+          <PreBox>
+            {props.status} / {props.message}
+          </PreBox>
+        </>
       )}
-      <pre className="bg-gray-300 p-3 rounded-lg">{props.message}</pre>
+
       <div>
-        <Link href="/">
-          <a className="block p-3 rounded-xl bg-blue-500 text-white">BACK TO TOP</a>
-        </Link>
+        <a onClick={handleBack} className="cursor-pointer block p-3 rounded-xl bg-blue-500 text-white">
+          BACK TO TOP
+        </a>
       </div>
     </Layout>
   );
