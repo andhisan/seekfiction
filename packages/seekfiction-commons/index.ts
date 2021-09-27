@@ -80,13 +80,10 @@ type SearchResultSucess = {
 };
 type SearchAllResult = SearchResultSucess | ErrorMessageObject;
 
-/**
- * Check if anime has image
- * @param anime
- * @returns
- */
-export const checkAnimeHasImage = (anime: AnimeOnAlgolia) => {
-  return anime.mal_image !== undefined || anime.aniList_image !== undefined || anime.kitsu_image !== undefined || anime.simkl_image !== undefined;
+type UpdateResult = {
+  message: string;
+  foundAnimeCount: number;
+  addedAnimeCount: number;
 };
 
 export type {
@@ -99,4 +96,5 @@ export type {
   SearchAllResult,
   ErrorMessageObject,
   AnimeOnMeili,
+  UpdateResult,
 };
