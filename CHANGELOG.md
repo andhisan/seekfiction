@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8-3](https://github.com/sasigume/seekfiction/compare/v0.0.8-2...v0.0.8-3) (2021-09-27)
+
+
+### Bug Fixes
+
+* **components:** :lipstick: fixed nsfw label ([e360595](https://github.com/sasigume/seekfiction/commit/e360595bc15fa79e5ba994cc2d02c55f69d8d5c2))
+
 ### [0.0.8-2](https://github.com/sasigume/seekfiction/compare/v0.0.8-1...v0.0.8-2) (2021-09-27)
 
 
