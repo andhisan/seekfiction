@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7-3](https://github.com/sasigume/seekfiction/compare/v0.0.7-2...v0.0.7-3) (2021-09-27)
+
+
+### Features
+
+* :memo: added terms and privacy policy ([f7107e4](https://github.com/sasigume/seekfiction/commit/f7107e49d6544b74a9c583859a91a5f8bc08f2c0))
+* :sparkles: added config and package for meili instant search ([ded5492](https://github.com/sasigume/seekfiction/commit/ded549290d4d14ed2f50f496bf67f5af9d20a293))
+* **components:** :sparkles: replaced algolia with meili ([6047bf1](https://github.com/sasigume/seekfiction/commit/6047bf16801e2a96b3323abf82d28e14111b5421))
+* **firebase:** :sparkles: added meilisearch sync ([f8fa769](https://github.com/sasigume/seekfiction/commit/f8fa7698e2019a4c9ef92133591a99ad9177519a))
+* **package:** :sparkles: added anime on meili type ([ff1e08d](https://github.com/sasigume/seekfiction/commit/ff1e08d248450eafeec5680e625f4d5f65548ebe))
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed react warning on image display ([74e4656](https://github.com/sasigume/seekfiction/commit/74e46568c3160435aae1f8195d492a4f7e1931ff))
+
 ### [0.0.7-2](https://github.com/sasigume/seekfiction/compare/v0.0.7-1...v0.0.7-2) (2021-09-27)
 
 
