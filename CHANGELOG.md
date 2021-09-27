@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/sasigume/seekfiction/compare/v0.0.9...v0.1.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* **vercel:** :ambulance: re-fix production base url ([2a5590f](https://github.com/sasigume/seekfiction/commit/2a5590fff0fc68e5137c04a0b5755c022fc31b25))
+
 ### [0.0.9](https://github.com/sasigume/seekfiction/compare/v0.0.8...v0.0.9) (2021-09-27)
 
 
