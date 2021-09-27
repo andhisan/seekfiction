@@ -1,4 +1,4 @@
-import type { InferGetServerSidePropsType, InferGetStaticPropsType, NextPage } from 'next';
+import type { NextPage } from 'next';
 import Layout from '@/components/theme/app/Layout';
 
 import { useAnimeId } from '@/lib/anime-id-hook';
@@ -8,25 +8,10 @@ import Logo from '@/components/atoms/Logo';
 
 import AlgoliaSearchBox from '@/components/molecules/algolia/SearchBox';
 import { useLoading } from '@/lib/loading-hook';
-import { getIndexCount } from '@/lib/meili';
 
-type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+import StatsBox from '@/components/molecules/meili/StatsBox';
 
-export const getServerSideProps = async () => {
-  let indexCount: number | undefined;
-  try {
-    indexCount = await getIndexCount(process.env.MEILI_ANIME_INDEX ?? 'anime');
-  } catch (e) {
-    console.error(e);
-  }
-  return {
-    props: {
-      indexCount,
-    },
-  };
-};
-
-const Home: NextPage<Props> = (props) => {
+const Home: NextPage = () => {
   const { animeId } = useAnimeId();
   const { open } = useOpen();
   const { loading } = useLoading();
@@ -45,12 +30,7 @@ const Home: NextPage<Props> = (props) => {
               <Logo />
             </div>
             <p>A next-generation anime/manga database</p>
-            {props.indexCount && (
-              <p className="font-bold text-xl">
-                Anime count:{` `}
-                <b className="text-2xl">{props.indexCount}</b>
-              </p>
-            )}
+            <StatsBox indexName={process.env.MEILI_ANIME_INDEX ?? 'anime'} />
             <p>
               Manga search is currently unavailable. We encode anime romaji title and link data with same encoded title. If there is difference between romaji
               title, different data will be generated.

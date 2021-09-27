@@ -9,7 +9,7 @@ describe('With Enzyme', () => {
     // we need to mock index count
     const app = shallow(
       <RecoilRoot>
-        <Home indexCount={0} />
+        <Home />
       </RecoilRoot>
     );
     expect(app.find('form')).toBeTruthy();
