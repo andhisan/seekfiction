@@ -9,6 +9,8 @@ import { useAnimeId } from '@/lib/anime-id-hook';
 import { useOpen } from '@/lib/open-hook';
 import LoadingScreen from '@/components/atoms/LoadingScreen';
 import { logSearch } from '@/lib/firebase/analytics';
+import { useUser } from '@/lib/firebase/auth/use';
+import PreBox from '@/components/atoms/PreBox';
 
 /**
  * Search box
@@ -23,6 +25,8 @@ export default function AlgoliaSearchBox() {
   // save what user type into this state
   const [input, setInput] = useState('');
 
+  const { user } = useUser();
+
   // use hook to use loading state across pages
   const { loading, setLoading } = useLoading();
   return (
@@ -36,7 +40,9 @@ export default function AlgoliaSearchBox() {
           <>
             {loading ? (
               <LoadingScreen>
-                <b>Searching for: {input}</b>
+                <b>Searching for: </b>
+                <PreBox>{input}</PreBox>
+                <b>Wait a minute!</b>
               </LoadingScreen>
             ) : (
               <div className="w-full">
@@ -53,7 +59,9 @@ export default function AlgoliaSearchBox() {
                     }}
                     onSubmit={(e) => {
                       e.preventDefault();
-
+                      if (!user) {
+                        return;
+                      }
                       if (input.length > 0) {
                         setLoading(true);
                         logSearch(input);
@@ -69,15 +77,6 @@ export default function AlgoliaSearchBox() {
                     }}
                   />
                 </div>
-                <p>
-                  Press enter to update anime database{` `}
-                  {input.length > 0 && (
-                    <>
-                      {`for `}
-                      <b>{input}</b>
-                    </>
-                  )}
-                </p>
                 <SearchResult />
               </div>
             )}

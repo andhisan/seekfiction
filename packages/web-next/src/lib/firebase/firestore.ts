@@ -1,6 +1,7 @@
-import firestore from 'firebase/firestore';
-import { AnimeRetrievedFromFirestoreClient } from '@sasigume/seekfiction-commons';
+import { AnimeRetrievedFromFirestoreClient, UserDocument } from '@sasigume/seekfiction-commons';
+import firestore, { doc, setDoc, getDoc, getFirestore, increment } from 'firebase/firestore';
 
+import initApp from '@/lib/firebase/init-app';
 export const converter = {
   toFirestore(anime: AnimeRetrievedFromFirestoreClient) {
     return anime;
@@ -29,4 +30,55 @@ export const converter = {
       apiVersion: data.apiVersion ?? null,
     };
   },
+};
+
+export const updateUser = async (
+  uid: string,
+  data: {
+    [key: string]: any;
+    addedAnimeCount: number;
+  }
+): Promise<boolean> => {
+  const app = initApp();
+  const db = getFirestore(app);
+  const docRef = doc(db, 'users', uid);
+
+  // IMPORTANT: merge data
+  return setDoc(docRef, { ...data, totalAddedAnimeCount: increment(data.addedAnimeCount) }, { merge: true })
+    .then(() => {
+      return true;
+    })
+    .catch((e) => {
+      console.error(e);
+      return false;
+    });
+};
+export const userConverter = {
+  toFirestore(user: UserDocument) {
+    return user;
+  },
+  fromFirestore(snapshot: firestore.DocumentSnapshot, options: firestore.SnapshotOptions): UserDocument | null {
+    const data = snapshot.data(options)!;
+
+    // Setting all data to null safe
+    // to avoid "not serialized" error of Nextjs
+    return {
+      totalAddedAnimeCount: data.totalAddedAnimeCount ?? null,
+    };
+  },
+};
+
+export const getUser = async (uid: string): Promise<UserDocument | null> => {
+  const app = initApp();
+  const db = getFirestore(app);
+  console.debug(uid);
+  const docRef = doc(db, 'users', uid).withConverter(userConverter);
+  const docSnapShot = await getDoc(docRef).catch((e) => {
+    console.error(e);
+    throw e;
+  });
+  if (docSnapShot.exists()) {
+    return docSnapShot.data();
+  }
+  return null;
 };
