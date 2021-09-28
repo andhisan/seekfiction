@@ -14,7 +14,6 @@
     "@sasigume/seekfiction-commons": "*",
     "@types/react-instantsearch-dom": "^6.12.0",
     "@types/urlsafe-base64": "^1.0.28",
-    "algoliasearch": "^4.10.5",
     "firebase": "^9.1.0",
     "next": "11.1.2",
     "react": "17.0.2",
