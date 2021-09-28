@@ -19,7 +19,7 @@ export const asyncUpdater = async (user: User, q: string): Promise<UpdateResult>
       method: 'POST',
       body: JSON.stringify({
         method: 'GET',
-        path: process.env.FUNCTIONS + '/update-anime?q=' + q,
+        path: process.env.FUNCTIONS + '/update-anime?q=' + q + '&uid=' + user.uid,
       }),
       headers: {
         Authorization: process.env.FUNCTIONS_AUTH ?? '',

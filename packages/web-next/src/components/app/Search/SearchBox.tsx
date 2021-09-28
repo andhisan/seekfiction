@@ -30,6 +30,8 @@ export default function AlgoliaSearchBox() {
   const { open } = useOpen();
   // save what user type into this state
   const [input, setInput] = useState('');
+
+  // IMPORTANT: update this state ONLY AFTER PRESSING ENTER
   const [inputToSend, setInputToSend] = useState('');
   const { user } = useUser();
   const { data, error } = useSWR([user, inputToSend], asyncUpdater, {
@@ -38,15 +40,6 @@ export default function AlgoliaSearchBox() {
     refreshWhenHidden: false,
     shouldRetryOnError: false,
   });
-
-  // Increase only if data is changed
-  useEffect(() => {
-    if (user && data?.addedAnimeCount) {
-      updateUser(user.uid, {
-        addedAnimeCount: data.addedAnimeCount,
-      });
-    }
-  }, [user, data?.addedAnimeCount]);
 
   return (
     <>
