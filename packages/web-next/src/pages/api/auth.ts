@@ -1,7 +1,7 @@
 import type { NextApiRequest as Req, NextApiResponse as Res } from 'next';
 
 export default async function auth(req: Req, res: Res) {
-  if (!req.headers.authorization || req.headers.authorization !== process.env.FUNCTIONS_AUTH) {
+  if (!req.headers.authorization || req.headers.authorization !== process.env.CLIENT_AUTH) {
     return res.status(403).json({ message: 'Unauthorized' });
   }
 

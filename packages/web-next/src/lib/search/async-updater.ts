@@ -20,7 +20,7 @@ export const asyncUpdater = async (q: string): Promise<UpdateResult> => {
       path: process.env.FUNCTIONS + apiPath,
     }),
     headers: {
-      Authorization: process.env.FUNCTIONS_AUTH ?? '',
+      Authorization: process.env.CLIENT_AUTH ?? '',
     },
   })
     .then(async (res) => {
