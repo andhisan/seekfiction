@@ -7,6 +7,7 @@ import { Anime, UpdateResult } from '@sasigume/seekfiction-commons';
 import { Buffer } from 'buffer';
 import { covnertUndefinedToNull } from '../../_helper/convert';
 import { encode } from 'url-safe-base64';
+import { updateUserAnimeCount } from '../../_helper/update-user';
 
 const collection = admin.firestore().collection(MEILI_ANIME_COLLECTION);
 /**
@@ -19,6 +20,7 @@ const collection = admin.firestore().collection(MEILI_ANIME_COLLECTION);
 const updateAnime = functions.region('us-central1').https.onRequest(async (request, response: functions.Response) => {
   return withAuth(request, response, async (): Promise<UpdateResult> => {
     const searchString = request.query.q;
+    const uidString = request.query.uid;
     const updateResult: UpdateResult = {
       message: 'Unknown error occured while updating',
       foundAnimeCount: 0,
@@ -66,6 +68,12 @@ const updateAnime = functions.region('us-central1').https.onRequest(async (reque
               }),
             ).then(() => {
               updateResult.message = `Found ${updateResult.foundAnimeCount} anime, added ${updateResult.addedAnimeCount} documents`;
+
+              if (typeof uidString === 'string') {
+                updateUserAnimeCount(uidString, updateResult.addedAnimeCount).catch((e) => {
+                  functions.logger.error(e);
+                });
+              }
               response.status(200).json(updateResult);
               return updateResult;
             });
