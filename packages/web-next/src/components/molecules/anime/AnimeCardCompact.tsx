@@ -36,7 +36,7 @@ export default function AnimeCardCompact(props: Props) {
           {/* Highlight search word in title */}
           <Highlight attribute="title_romaji" hit={props.hit} />
         </div>
-        <div className="flex-grow-0 grid grid-cols-4">
+        <div className="flex-shrink-0 flex min-w-[200px]">
           <ApiInfo type="mal" enabled={props.hit.mal_id !== null} />
           <ApiInfo type="aniList" enabled={props.hit.aniList_id !== null} />
           <ApiInfo type="kitsu" enabled={props.hit.kitsu_id !== null} />
