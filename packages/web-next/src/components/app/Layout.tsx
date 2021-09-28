@@ -40,7 +40,7 @@ const Layout: React.FC = ({ children }) => {
         <UserInfo />
       </div>
 
-      {!nsfw && <div dangerouslySetInnerHTML={{ __html: `<style>.nsfw img{filter:blur(20px)}</style>` }} />}
+      {!nsfw && <div dangerouslySetInnerHTML={{ __html: `<style>.nsfw{display: none;}</style>` }} />}
     </>
   );
 };

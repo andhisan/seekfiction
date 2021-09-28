@@ -1,5 +1,4 @@
 import CompactSwitch from '@/components/atoms/switch/CompactSwitch';
-import NsfwSwitch from '@/components/atoms/switch/NsfwSwitch';
 import Avatar from '@/components/atoms/user/Avatar';
 import SignInButton from '@/components/atoms/user/SignInButton';
 import { useUser } from '@/hooks/use-user';
@@ -24,8 +23,6 @@ const UserInfo = () => {
         {error && <div>{error.message}</div>}
       </div>
       <CompactSwitch />
-      {user ? <NsfwSwitch /> : <b>Sign in to enable NSFW</b>}
-
       <SignInButton />
     </div>
   );
