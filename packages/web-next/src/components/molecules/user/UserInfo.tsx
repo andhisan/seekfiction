@@ -8,11 +8,7 @@ import useSWR from 'swr';
 const UserInfo = () => {
   const { user } = useUser();
   const { data, error } = useSWR(user ? user.uid : null, (uid) => getUser(uid), {
-    refreshInterval: 0,
-    shouldRetryOnError: false,
-    refreshWhenHidden: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
+    refreshWhenOffline: false,
   });
 
   return (
