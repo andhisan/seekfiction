@@ -75,13 +75,13 @@ export default function AlgoliaSearchBox() {
           {loading && (
             <LoadingScreen>
               <p>
-                Requested update for: <b>{input}</b>
+                Requested update for: <b>{inputToSend}</b>
               </p>
 
               {data ? (
                 <>
                   <p>
-                    Sucessfully updated database for word <b>{input}</b>! <br />
+                    Sucessfully updated database for word <b>{inputToSend}</b>! <br />
                     Found <b>{data.foundAnimeCount}</b> anime and added <b>{data.addedAnimeCount}</b> anime to index!
                   </p>
                   <ButtonWithOnClick additionalClassNames="bg-blue-500" onClick={() => setLoading(false)}>
