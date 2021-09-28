@@ -53,13 +53,6 @@ interface AnimeRetrievedFromFirestoreClient extends AnimeFirestoreBase {
 type ApiType = 'mal' | 'aniList' | 'kitsu' | 'simkl';
 
 /**
- * The objectID is only on Algolia index
- */
-interface AnimeOnAlgolia extends AnimeOnFirestore {
-  objectID: string;
-}
-
-/**
  * The id is only on Meili index
  */
 interface AnimeOnMeili extends AnimeOnFirestore {
@@ -94,7 +87,6 @@ export type {
   ApiType,
   Anime,
   AnimeOnFirestore,
-  AnimeOnAlgolia,
   AnimeRetrievedFromFirestoreClient,
   AnimeGroupedByTitle,
   SearchAllResult,
