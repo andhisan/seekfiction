@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5-1](https://github.com/sasigume/seekfiction/compare/v0.1.5-0...v0.1.5-1) (2021-09-28)
+
+
+### Features
+
+* **firebase:** :sparkles: now non-auth user can request update ([9c13bbb](https://github.com/sasigume/seekfiction/commit/9c13bbbd5a4c59a1c37c69ee873c9059d92640b8))
+
 ### [0.1.5-0](https://github.com/sasigume/seekfiction/compare/v0.1.4...v0.1.5-0) (2021-09-28)
 
 
