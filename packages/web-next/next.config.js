@@ -9,9 +9,6 @@ module.exports = {
   },
   env: {
     CLIENT_AUTH: process.env.CLIENT_AUTH,
-    ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
-    ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
-    ALGOLIA_ANIME_INDEX: process.env.ALGOLIA_ANIME_INDEX,
     MEILI_URL: process.env.MEILI_URL,
     MEILI_API_KEY: process.env.MEILI_API_KEY,
     MEILI_ANIME_INDEX: process.env.MEILI_ANIME_INDEX,

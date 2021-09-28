@@ -1,12 +1,12 @@
 import { Hit } from 'react-instantsearch-core';
-import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
+import { AnimeOnMeili } from '@sasigume/seekfiction-commons';
 import { Highlight } from 'react-instantsearch-dom';
 import ImgBox from '@/components/atoms/ImgBox';
 import { useAnimeId } from '@/hooks/use-anime-id';
 import { useOpen } from '@/hooks/use-open';
 
 interface Props {
-  hit: Hit<AnimeOnAlgolia>;
+  hit: Hit<AnimeOnMeili>;
   onClick: () => void;
 }
 

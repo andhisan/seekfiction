@@ -1,6 +1,6 @@
-import { AnimeOnAlgolia, ApiType } from '@sasigume/seekfiction-commons';
+import { AnimeOnMeili, ApiType } from '@sasigume/seekfiction-commons';
 
-export const urlConverter = (type: ApiType, id: AnimeOnAlgolia['mal_id'], slug: AnimeOnAlgolia['slug']) => {
+export const urlConverter = (type: ApiType, id: AnimeOnMeili['mal_id'], slug: AnimeOnMeili['slug']) => {
   if (id == null) return null;
   if (type == 'mal') return `https://myanimelist.net/anime/${id}`;
   if (type == 'aniList') return `https://anilist.co/anime/${id}`;

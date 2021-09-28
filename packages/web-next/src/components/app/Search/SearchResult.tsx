@@ -1,13 +1,13 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Hit } from 'react-instantsearch-core';
 import { Hits, connectSearchBox, Pagination } from 'react-instantsearch-dom';
-import { AnimeOnAlgolia } from '@sasigume/seekfiction-commons';
+import { AnimeOnMeili } from '@sasigume/seekfiction-commons';
 import AnimeCard from '../../molecules/anime/AnimeCard';
 import { useCompact } from '@/hooks/use-compact';
 import AnimeCardCompact from '@/components/molecules/anime/AnimeCardCompact';
 
 interface Props {
-  hit: Hit<AnimeOnAlgolia>;
+  hit: Hit<AnimeOnMeili>;
 }
 
 /**
