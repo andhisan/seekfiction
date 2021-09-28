@@ -11,13 +11,15 @@ export const asyncUpdater = async (q: string): Promise<UpdateResult> => {
   let foundAnimeCount = 0;
   let addedAnimeCount = 0;
   const basePath = process.env.NEXT_PUBLIC_VERCEL_ENV == 'production' ? 'https://sf.sasigu.me' : `//` + process.env.NEXT_PUBLIC_VERCEL_URL;
-  let apiPath = '/update-anime?q=' + q;
+  const apiPath = 'update-anime?q=' + q;
 
+  // this is terrible way to auth request
+  // but changing CORS option is too difficult for me
   return await fetch(basePath + '/api/auth', {
     method: 'POST',
     body: JSON.stringify({
       method: 'GET',
-      path: process.env.FUNCTIONS + apiPath,
+      path: apiPath,
     }),
     headers: {
       Authorization: process.env.CLIENT_AUTH ?? '',

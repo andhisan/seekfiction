@@ -6,8 +6,8 @@ export default async function auth(req: Req, res: Res) {
   }
 
   const body = JSON.parse(req.body);
-  const path = body.path;
-
+  const path = process.env.FUNCTIONS + '/' + body.path;
+  console.log(path);
   return await fetch(path, {
     method: body.method ?? 'GET',
     headers: {
