@@ -9,7 +9,6 @@ import { useAnimeId } from '@/hooks/use-anime-id';
 import { useOpen } from '@/hooks/use-open';
 import LoadingScreen from '@/components/atoms/LoadingScreen';
 import { logSearch } from '@/lib/firebase/analytics';
-import { useUser } from '@/hooks/use-user';
 import PreBox from '@/components/atoms/PreBox';
 
 import useSWR from 'swr';
@@ -32,8 +31,7 @@ export default function AlgoliaSearchBox() {
 
   // IMPORTANT: update this state ONLY AFTER PRESSING ENTER
   const [inputToSend, setInputToSend] = useState('');
-  const { user } = useUser();
-  const { data, error } = useSWR([user, inputToSend], asyncUpdater, {
+  const { data, error } = useSWR([null, inputToSend], asyncUpdater, {
     refreshInterval: 0,
     revalidateOnFocus: false,
     refreshWhenHidden: false,
