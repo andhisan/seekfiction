@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/sasigume/seekfiction/compare/v0.1.8...v0.1.9) (2021-09-28)
+
+
+### Bug Fixes
+
+* **vercel:** :ambulance: calling auth endpoint now doesn't need function url ([9c46ffe](https://github.com/sasigume/seekfiction/commit/9c46ffeedec1d19b0dec9cfdb86d30723d2f979a))
+* **vercel:** :ambulance: vercel client now has different token ([067495e](https://github.com/sasigume/seekfiction/commit/067495e46910356635dbdb7f7ae0b3cf09b05d51))
+
 ### [0.1.8](https://github.com/sasigume/seekfiction/compare/v0.1.7...v0.1.8) (2021-09-28)
 
 
