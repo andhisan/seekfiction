@@ -1,6 +1,6 @@
 {
   "name": "api",
-  "version": "0.0.17",
+  "version": "0.0.20",
   "private": true,
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts",
@@ -21,7 +21,6 @@
   "dependencies": {
     "@sasigume/seekfiction-commons": "*",
     "@types/urlsafe-base64": "^1.0.28",
-    "algoliasearch": "^4.10.5",
     "axios": "^0.21.4",
     "firebase-admin": "^9.8.0",
     "firebase-functions": "^3.14.1",

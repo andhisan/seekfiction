@@ -8,12 +8,6 @@ service cloud.firestore {
       return isAuthenticated() && userId == request.auth.uid;
     }
 
-
-    match /algolia_anime/{document=**} {
-      // Admin sdk can still access
-      allow read: if true
-      allow write, delete: if false;
-    }
     match /meili_anime/{document=**} {
       // Admin sdk can still access
       allow read: if true
