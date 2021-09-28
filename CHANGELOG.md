@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/sasigume/seekfiction/compare/v0.1.5...v0.1.6) (2021-09-28)
+
+
+### Bug Fixes
+
+* **components:** :lipstick: changed the way to hide nsfw images ([4316758](https://github.com/sasigume/seekfiction/commit/4316758256170f52ad6c95b48c22aca415ba7893))
+
 ### [0.1.5](https://github.com/sasigume/seekfiction/compare/v0.1.5-3...v0.1.5) (2021-09-28)
 
 
