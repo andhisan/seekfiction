@@ -1,5 +1,4 @@
 import type { UpdateResult } from '@sasigume/seekfiction-commons';
-import { User } from '@firebase/auth';
 
 /**
  * Send update request on server side
@@ -7,13 +6,12 @@ import { User } from '@firebase/auth';
  * @param context
  * @returns
  */
-export const asyncUpdater = async (user: User | null, q: string): Promise<UpdateResult> => {
+export const asyncUpdater = async (q: string): Promise<UpdateResult> => {
   let message = 'Error message not returned from API';
   let foundAnimeCount = 0;
   let addedAnimeCount = 0;
   const basePath = process.env.NEXT_PUBLIC_VERCEL_ENV == 'production' ? 'https://sf.sasigu.me' : `//` + process.env.NEXT_PUBLIC_VERCEL_URL;
   let apiPath = '/update-anime?q=' + q;
-  if (user) apiPath = apiPath + '&uid=' + user.uid;
 
   return await fetch(basePath + '/api/auth', {
     method: 'POST',

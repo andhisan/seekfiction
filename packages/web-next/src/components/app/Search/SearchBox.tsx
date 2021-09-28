@@ -31,7 +31,7 @@ export default function AlgoliaSearchBox() {
 
   // IMPORTANT: update this state ONLY AFTER PRESSING ENTER
   const [inputToSend, setInputToSend] = useState('');
-  const { data, error } = useSWR([null, inputToSend], asyncUpdater, {
+  const { data, error } = useSWR(inputToSend.length > 0 ? inputToSend : null, asyncUpdater, {
     refreshInterval: 0,
     revalidateOnFocus: false,
     refreshWhenHidden: false,
