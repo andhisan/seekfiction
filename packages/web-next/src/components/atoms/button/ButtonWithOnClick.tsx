@@ -8,7 +8,10 @@ interface Props {
 
 const ButtonWithOnClick: React.FC<Props> = (props) => {
   return (
-    <a className={`shadow-lg whitespace-nowrap text-white cursor-pointer inline-block p-3 rounded-lg ` + props.additionalClassNames} onClick={props.onClick}>
+    <a
+      className={`w-full shadow-lg whitespace-nowrap text-white cursor-pointer inline-block p-3 rounded-lg ` + props.additionalClassNames}
+      onClick={props.onClick}
+    >
       {props.children}
     </a>
   );

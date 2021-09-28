@@ -12,7 +12,7 @@ const NsfwSwitch = () => {
         value="compact"
         checked={!nsfw}
       />
-      <label>Blur NSFW image</label>
+      <label>Blur hentai</label>
     </div>
   );
 };

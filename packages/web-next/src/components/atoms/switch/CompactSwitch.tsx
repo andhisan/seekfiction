@@ -12,7 +12,7 @@ const CompactSwitch = () => {
         value="compact"
         checked={compact}
       />
-      <label>Compact view</label>
+      <label>Compact</label>
     </div>
   );
 };
