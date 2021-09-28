@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/sasigume/seekfiction/compare/v0.1.5-3...v0.1.5) (2021-09-28)
+
+
+### Bug Fixes
+
+* **components:** :boom: completely disabled nsfw images ([46be7ba](https://github.com/sasigume/seekfiction/commit/46be7bacfaee838a029eb65b92a58c1120c9e9d9))
+* **components:** :boom: removed nsfw feature due to Vercel terms ([2f9552e](https://github.com/sasigume/seekfiction/commit/2f9552eccdbd2b08cc69a1778b28909ed2952ec1))
+
 ### [0.1.5-3](https://github.com/sasigume/seekfiction/compare/v0.1.5-2...v0.1.5-3) (2021-09-28)
 
 
