@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5-0](https://github.com/sasigume/seekfiction/compare/v0.1.4...v0.1.5-0) (2021-09-28)
+
+
+### Bug Fixes
+
+* **components:** :ambulance: fixed wrong result display ([f44438e](https://github.com/sasigume/seekfiction/commit/f44438ec582ea04cc4528e2656985e2fd665eafe))
+
 ### [0.1.4](https://github.com/sasigume/seekfiction/compare/v0.1.3...v0.1.4) (2021-09-28)
 
 ### [0.1.3](https://github.com/sasigume/seekfiction/compare/v0.1.3-3...v0.1.3) (2021-09-28)
