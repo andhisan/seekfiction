@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/sasigume/seekfiction/compare/v0.1.3-3...v0.1.3) (2021-09-28)
+
+
+### Features
+
+* **components:** :lipstick: added compact switch and moved nsfw switch ([a4608c8](https://github.com/sasigume/seekfiction/commit/a4608c8fffd78704d61b6da6ec63add818bea312))
+* **components:** :sparkles: added switch for nsfw/compact ([e03019d](https://github.com/sasigume/seekfiction/commit/e03019d2428bc1bfbc607ed6429ece3306561e55))
+
+
+### Bug Fixes
+
+* **components:** :lipstick: fixed result not wrapped ([00abf24](https://github.com/sasigume/seekfiction/commit/00abf24b6a41ff8dc6989efece3f4c8ce0982451))
+
 ### [0.1.3-3](https://github.com/sasigume/seekfiction/compare/v0.1.3-2...v0.1.3-3) (2021-09-28)
 
 
