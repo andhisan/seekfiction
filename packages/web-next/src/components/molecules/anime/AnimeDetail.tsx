@@ -71,7 +71,7 @@ const AnimeDetail: React.FC<Props> = (props) => {
               <h2 className="text-3xl font-bold">{data.anime.title_romaji}</h2>
             </div>
 
-            <p>We cant display nsfw images because of the hosting service.</p>
+            {data.anime.nsfw && <p>We cant display nsfw images because of the hosting service.</p>}
             <div className={`flex gap-6 flex-wrap ${data.anime.nsfw && 'nsfw'}`}>
               <ImgData type="mal" id={data.anime.mal_id} src={data.anime.mal_image} />
               <ImgData type="aniList" id={data.anime.aniList_id} src={data.anime.aniList_image} />

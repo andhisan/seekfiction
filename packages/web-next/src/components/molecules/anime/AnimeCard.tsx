@@ -27,10 +27,10 @@ export default function AnimeCard(props: Props) {
           setAnimeId(props.hit.objectID);
           setOpen(!open);
         }}
-        className="block relative overflow-hidden h-full bg-black rounded-xl cursor-pointer w-[212px] h-[300px] shadow-xl"
+        className={`block relative overflow-hidden h-full bg-black rounded-xl cursor-pointer w-[212px] h-[300px] shadow-xl ${props.hit.nsfw && 'nsfw'} `}
         title={props.hit.title_romaji ?? ''}
       >
-        <div className={`${props.hit.nsfw && 'nsfw'}`}>
+        <div>
           {/* Put MAL to last because MAL has the most precise image */}
           <ImgBox type="simkl" id={props.hit.simkl_id} src={props.hit.simkl_image} />
           <ImgBox type="kitsu" id={props.hit.kitsu_id} src={props.hit.kitsu_image} />

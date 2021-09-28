@@ -28,7 +28,7 @@ export default function AnimeCardCompact(props: Props) {
           setAnimeId(props.hit.objectID);
           setOpen(!open);
         }}
-        className="flex relative overflow-hidden justify-between cursor-pointer border-b-2 border-gray-400"
+        className={`flex relative overflow-hidden justify-between cursor-pointer border-b-2 border-gray-400 ${props.hit.nsfw && 'nsfw'} `}
         title={props.hit.title_romaji ?? ''}
         style={{ background: props.hit.nsfw ? 'rgb(244 190 255)' : '#fff' }}
       >
