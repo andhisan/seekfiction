@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/sasigume/seekfiction/compare/v0.1.7...v0.1.8) (2021-09-28)
+
+
+### Features
+
+* **firebase:** :boom: update request now overwrites even if document exists ([1497799](https://github.com/sasigume/seekfiction/commit/1497799470c454f7b0f5dfc5d635f28f787b3305))
+
+
+### Bug Fixes
+
+* **components:** :lipstick: fixed api info design ([076af1d](https://github.com/sasigume/seekfiction/commit/076af1d9a762a306ac945f6fd49cc6cb5a58b715))
+
 ### [0.1.7](https://github.com/sasigume/seekfiction/compare/v0.1.6...v0.1.7) (2021-09-28)
 
 
