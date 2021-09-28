@@ -14,7 +14,7 @@ const Layout: React.FC = ({ children }) => {
         <title>seekfiction</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="A next-generation anime/manga database" />
+        <meta name="description" content="Cross-API anime search" />
         <meta name="og:image" content="https://sf.sasigu.me/ogp-1200x630.png" />
         <meta name="og:title" content="seekfiction" />
         <meta name="twitter:title" content="seekfiction" />

@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <div className="w-[300px]">
           <Logo />
         </div>
-        <p>A next-generation anime/manga database</p>
+        <p>Cross-API anime search</p>
         <StatsBox indexName={process.env.MEILI_ANIME_INDEX ?? 'anime'} />
         <p>
           Manga search is currently unavailable. We encode anime romaji title and link data with same encoded title. If there is difference between romaji
