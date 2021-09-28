@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           title, different data will be generated.
         </p>
         <p>
-          <b>Sign in, type something and press enter to update anime database!</b>
+          <b>Type something and press enter to update anime database!</b>
         </p>
       </div>
     </Layout>
