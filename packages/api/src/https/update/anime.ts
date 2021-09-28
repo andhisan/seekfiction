@@ -6,7 +6,7 @@ import { MEILI_ANIME_COLLECTION } from '../../_helper/config';
 import { Anime, UpdateResult } from '@sasigume/seekfiction-commons';
 import { Buffer } from 'buffer';
 import { covnertUndefinedToNull } from '../../_helper/convert';
-import { encode } from 'url-safe-base64';
+import { encode } from 'urlsafe-base64';
 import { updateUserAnimeCount } from '../../_helper/update-user';
 
 const collection = admin.firestore().collection(MEILI_ANIME_COLLECTION);
@@ -38,7 +38,7 @@ const updateAnime = functions.region('us-central1').https.onRequest(async (reque
             // wait until all write done
             return Promise.all(
               animeRomajiTitles.map(async (title) => {
-                const encoded = Buffer.from(title).toString('base64');
+                const encoded = Buffer.from(title);
                 const encodedURLsafe = encode(encoded);
                 const animeData = result.data[title] as Anime;
                 const docRef = collection.doc(encodedURLsafe);
