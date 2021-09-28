@@ -1,0 +1,62 @@
+FORMAT: 1A
+HOST: https://sf.sasigu.me/api
+
+# seekfiction
+
+Seekfiction is a cross-API anime search system.
+
+## Auth request [/auth]
+
+I made this in Next.js API endpoint so that SWR can avoid CORS error.
+
+### Send GET request to backend API [POST]
+
+
++ Request (text/plain)
+
+        {
+            "path": "/search-anime?q=qwerty"
+        }
+
+    + Headers
+    
+            Authorization: process.env.CLIENT_AUTH
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /
+            Connection: keep-alive
+            server: Vercel
+
+    + Body
+
+            {
+                "searchString": "qwerty",
+                "createdAt": {
+                    "_seconds": 1632846699,
+                    "_nanoseconds": 844000000
+                },
+                "data": {
+                    "Nijuu Mensou no Musume": {
+                        "aniList_id": 3673,
+                        "title_romaji": "Nijuu Mensou no Musume",
+                        "aniList_image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx3673-Fos7rHpTdnnf.png",
+                        "nsfw": false
+                    },
+                    "Nijuushi no Hitomi": {
+                        "aniList_id": 19917,
+                        "title_romaji": "Nijuushi no Hitomi",
+                        "aniList_image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/19917.jpg",
+                        "nsfw": false
+                    },
+                    "Time Bokan 24": {
+                        "aniList_id": 21755,
+                        "title_romaji": "Time Bokan 24",
+                        "aniList_image": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21755-hyLxPlkyM6E7.png",
+                        "nsfw": false
+                    }
+                }
+            }
