@@ -1,4 +1,4 @@
 {
-  "conventionalCommits.scopes": ["lint", "vscode", "github", "og", "license", "components", "pages", "css", "vercel", "firebase", "test", "package"],
+  "conventionalCommits.scopes": ["lint", "vscode", "github", "og", "license", "components", "pages", "css", "vercel", "firebase", "test", "package", "commons"],
   "eslint.workingDirectories": [{ "mode": "auto" }]
 }
