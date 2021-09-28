@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3-3](https://github.com/sasigume/seekfiction/compare/v0.1.3-2...v0.1.3-3) (2021-09-28)
+
+
+### Features
+
+* **firebase:** :sparkles: added user-update function ([b74393f](https://github.com/sasigume/seekfiction/commit/b74393f25ed5d714999da95ac03047596bdd21ce))
+
+
+### Bug Fixes
+
+* **components:** :zap: firebase user info is now more frequently updated ([bab23a3](https://github.com/sasigume/seekfiction/commit/bab23a3e0e2c8f0225b7a8b71890113c6f1b9d83))
+
 ### [0.1.3-2](https://github.com/sasigume/seekfiction/compare/v0.1.3-1...v0.1.3-2) (2021-09-28)
 
 
