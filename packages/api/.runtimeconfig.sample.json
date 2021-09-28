@@ -1,0 +1,12 @@
+{
+  "meili": {
+    "key": "XXXX",
+    "url": "XXXX"
+  },
+  "web": {
+    "auth": "XXXX"
+  },
+  "simkl": {
+    "client_id": "XXXX"
+  }
+}

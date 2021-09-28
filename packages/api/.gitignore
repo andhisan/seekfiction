@@ -15,6 +15,7 @@ exported_for_local_development/*
 # env
 .runtimeconfig.json
 .runtimeconfig_forgithub.txt
+secrets.FIREBASE_FUNCTIONS_ENV_VARIABLES.txt
 
 # logs
 firestore-debug.log
