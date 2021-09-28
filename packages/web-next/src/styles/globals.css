@@ -36,6 +36,10 @@ a {
 .ais-Hits-list {
   @apply flex flex-wrap gap-6;
 }
+/* not wrap when compact mode */
+.seekfiction__compact .ais-Hits-list {
+  @apply flex flex-col gap-0;
+}
 .ais-Pagination-list {
   @apply overflow-x-scroll my-4 flex gap-2 justify-center;
 }

@@ -2,7 +2,7 @@ import SearchResult from './SearchResult';
 import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 import { searchClient } from '@/lib/meili';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLoading } from '@/hooks/use-loading';
 import AnimeDetail from '@/components/molecules/anime/AnimeDetail';
 import { useAnimeId } from '@/hooks/use-anime-id';
@@ -14,7 +14,6 @@ import PreBox from '@/components/atoms/PreBox';
 
 import useSWR from 'swr';
 import { asyncUpdater } from '@/lib/search/async-updater';
-import { updateUser } from '@/lib/firebase/firestore';
 import ButtonWithOnClick from '@/components/atoms/button/ButtonWithOnClick';
 
 /**
@@ -44,7 +43,7 @@ export default function AlgoliaSearchBox() {
   return (
     <>
       <InstantSearch indexName={process.env.MEILI_ANIME_INDEX ?? 'anime'} searchClient={searchClient}>
-        <Configure hitsPerPage={12} />
+        <Configure hitsPerPage={24} />
 
         <div className="w-full">
           <div className="w-full flex gap-1">

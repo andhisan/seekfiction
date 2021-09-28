@@ -2,7 +2,6 @@ import Head from 'next/head';
 
 import Footer from './Footer';
 import { useNsfw } from '@/hooks/use-nsfw';
-import SwitchNsfwStyle from '@/components/molecules/nsfw/SwitchNsfwStyle';
 import AlgoliaSearchBox from '@/components/app/Search/SearchBox';
 import Logo from '@/components/atoms/Logo';
 import UserInfo from '@/components/molecules/user/UserInfo';
@@ -35,9 +34,6 @@ const Layout: React.FC = ({ children }) => {
         <footer className="w-screen text-center border-t-8 text-white bg-gray-800 flex flex-col justify-center gap-3 py-3" aria-label="footerHeading">
           <Footer />
         </footer>
-      </div>
-      <div className="fixed z-50 bottom-0">
-        <SwitchNsfwStyle />
       </div>
 
       <div className="fixed z-50 right-0 bottom-0">
