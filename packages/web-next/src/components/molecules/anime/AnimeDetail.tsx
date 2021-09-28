@@ -2,7 +2,6 @@ import { AnimeRetrievedFromFirestoreClient } from '@sasigume/seekfiction-commons
 
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { converter } from '@/lib/firebase/firestore';
-import { decode } from 'urlsafe-base64';
 
 import { useOpen } from '@/hooks/use-open';
 import PreBox from '@/components/atoms/PreBox';
@@ -23,8 +22,6 @@ export const getAnime = async (id: string): Promise<Result> => {
   const app = initApp();
   const db = getFirestore(app);
 
-  const idDecoded = decode(id ?? '').toString();
-
   // changed to meili
   const docRef = doc(db, 'meili_anime', id).withConverter(converter);
   const docData = await getDoc(docRef);
@@ -32,13 +29,11 @@ export const getAnime = async (id: string): Promise<Result> => {
     return {
       message,
       id,
-      idDecoded,
       anime: docData.data(),
     };
   } else {
     return {
       id,
-      idDecoded,
       message: 'Anime not found',
     };
   }
