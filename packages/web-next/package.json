@@ -24,7 +24,7 @@
     "windicss-webpack-plugin": "^1.4.8"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.0",
+    "@testing-library/react": "^12.1.5",
     "@types/enzyme": "^3.10.9",
     "@types/jest": "^27.0.2",
     "@types/react": "17.0.24",
