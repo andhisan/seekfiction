@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
-    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
